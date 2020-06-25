@@ -60,13 +60,13 @@ class Diamante(commands.Cog):
         file_list = drive.ListFile({'q': "'1jZM6k4Cl4Kb_2CVXse_9ziY3GwJ4KpPR' in parents and trashed=false"}).GetList()
         numefile = file_list[0]['title']
         for file1 in file_list:
-        if numefile <= file1['title']:
-            numefile = file1['title']
-            idfile = file1['id']
+            if numefile <= file1['title']:
+                numefile = file1['title']
+                idfile = file1['id']
         f_ = drive.CreateFile({'id': idfile})
         f_.GetContentFile(numefile)
         await ctx.send("Baza de date s-a Ã®ncÄƒrcat!")
-        
+
         global ScriptDatabase
         pathdb = os.path.abspath(numefile)
         numedb = os.path.join(os.path.dirname(__file__), numefile)
