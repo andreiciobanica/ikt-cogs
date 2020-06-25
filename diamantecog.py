@@ -75,6 +75,3 @@ class Diamante(commands.Cog):
             
         ScriptDatabase = InstancedDatabase(numedb)
     
-    @commands.command(name="addusertodb")
-    async def dbupdate(self, ctx):
-    
