@@ -51,12 +51,11 @@ class Diamante(commands.Cog):
 
     @commands.command(name="dbupdate")
     async def dbupdate(self, ctx):
+        await ctx.send("AÈ™teptaÈ›i pentru a se Ã®ncÄƒrca baza de date!")
         GoogleAuth.DEFAULT_SETTINGS['client_config_file'] = str(cog_data_path(self) / "client_secret.json")
         gauth = GoogleAuth()
         gauth.LocalWebserverAuth()
         drive = GoogleDrive(gauth)
-        
-        await ctx.send("AÈ™teptaÈ›i pentru a se Ã®ncÄƒrca baza de date!")
         
         file_list = drive.ListFile({'q': "'1jZM6k4Cl4Kb_2CVXse_9ziY3GwJ4KpPR' in parents and trashed=false"}).GetList()
         numefile = file_list[0]['title']
