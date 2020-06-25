@@ -52,6 +52,7 @@ class Diamante(commands.Cog):
     @commands.command(name="dbupdate")
     async def dbupdate(self, ctx):
         await ctx.send("Așteptați până se încarcă baza de date!")
+        
         GoogleAuth.DEFAULT_SETTINGS['client_config_file'] = str(cog_data_path(self) / "client_secret.json")
         gauth = GoogleAuth()
         gauth.LocalWebserverAuth()
@@ -65,13 +66,9 @@ class Diamante(commands.Cog):
                 idfile = file1['id']
         f_ = drive.CreateFile({'id': idfile})
         f_.GetContentFile(numefile)
-        await ctx.send("Baza de date s-a Ã®ncÄƒrcat!")
+        await ctx.send("Baza de date s-a încărcat!")
 
         global ScriptDatabase
-        pathdb = os.path.abspath(numefile)
-        numedb = os.path.join(os.path.dirname(__file__), numefile)
-        if (is_open(pathdb)):
-            ScriptDatabase.close
             
         ScriptDatabase = InstancedDatabase(numedb)
     
