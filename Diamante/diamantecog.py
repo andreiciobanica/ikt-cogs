@@ -51,7 +51,7 @@ class Diamante(commands.Cog):
 
     @commands.command(name="dbupdate")
     async def dbupdate(self, ctx):
-        await ctx.send("AÈ™teptaÈ›i pentru a se Ã®ncÄƒrca baza de date!")
+        await ctx.send("Așteptați până se încarcă baza de date!")
         GoogleAuth.DEFAULT_SETTINGS['client_config_file'] = str(cog_data_path(self) / "client_secret.json")
         gauth = GoogleAuth()
         gauth.LocalWebserverAuth()
