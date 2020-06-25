@@ -70,8 +70,6 @@ class Diamante(commands.Cog):
 
         global ScriptDatabase
         pathdb = os.path.abspath(numefile)
-        numedb = os.path.join(os.path.dirname(__file__), numefile)
-        ScriptDatabase.self.InstancedDatabase.close
-            
+        numedb = os.path.join(os.path.dirname(__file__), numefile)    
         ScriptDatabase = self.InstancedDatabase(numedb)
     
