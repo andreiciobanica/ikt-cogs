@@ -3,7 +3,7 @@ from redbot.core import commands
 from redbot.core.data_manager import cog_data_path
 from pydrive.drive import GoogleDrive
 from pydrive.auth import GoogleAuth
-GoogleAuth.DEFAULT_SETTINGS['client_config_file'] = cog_data_path("client_secret.json")
+GoogleAuth.DEFAULT_SETTINGS['client_config_file'] = str(cog_data_path(self) / "client_secret.json")
 
 import os
 import psutil 
