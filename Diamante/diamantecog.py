@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from redbot.core import commands
+from core.data_manager import cog_data_path
 from pydrive.drive import GoogleDrive
 from pydrive.auth import GoogleAuth
 GoogleAuth.DEFAULT_SETTINGS['client_config_file'] = cog_data_path("client_secret.json")
