@@ -53,7 +53,7 @@ class Diamante(commands.Cog):
     async def dbupdate(self, ctx):
         await ctx.send("Așteptați până se încarcă baza de date!")
 
-        GoogleAuth.DEFAULT_SETTINGS['client_config_file'] = "/root/.local/share/Red-DiscordBot/data/IKT/cogs/Diamante/client_secret.json"
+        GoogleAuth.DEFAULT_SETTINGS['client_config_file'] = str(cog_data_path(self) / "client_secret.json")
         gauth = GoogleAuth()
         gauth.LocalWebserverAuth()
         drive = GoogleDrive(gauth)
@@ -70,6 +70,7 @@ class Diamante(commands.Cog):
 
         global ScriptDatabase
         pathdb = os.path.abspath(numefile)
-        numedb = os.path.join(os.path.dirname(__file__), numefile)    
+        numedb = os.path.join(os.path.dirname(__file__), numefile)
+            
         ScriptDatabase = self.InstancedDatabase(numedb)
     
