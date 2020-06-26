@@ -94,10 +94,9 @@ class Diamante(commands.Cog):
             
         await ctx.send(youtubeID)
         
-    @commands.command(name="removeyoutubeid")
-    async def removeyoutubeid(self, ctx):
-        with open(str(cog_data_path(self) / "data.json"), "r+") as data_file:
+    @commands.command(name="ytid")
+    async def ytid(self, ctx):
+        with open(str(cog_data_path(self) / "data.json")) as data_file:
             data = json.load(data_file)
-            await ctx.send(data[str(ctx.author.id)])
-            data_file.seek(0)
-            json.dump(data, data_file)
+            
+        await ctx.send(data[str(ctx.author.id)])
