@@ -78,4 +78,4 @@ class Diamante(commands.Cog):
     async def eu(self, ctx):
         with open(str(cog_data_path(self) / "data.json")) as data_file:    
             data = json.load(data_file)
-        await ctx.send(str(print(json.dumps(data))))
+        await ctx.send(str(data))
