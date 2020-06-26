@@ -99,6 +99,6 @@ class Diamante(commands.Cog):
         ScriptDatabase = self.InstancedDatabase(pathdb)
         
         uid = ('32u',)
-        abc = ScriptDatabase.execute('SELECT * from `diamante` WHERE `userid` = ', uid).fetchone()
+        abc = ScriptDatabase.execute('SELECT * from `diamante` WHERE `userid` = ?', uid).fetchone()
             
         await ctx.send(abc)
