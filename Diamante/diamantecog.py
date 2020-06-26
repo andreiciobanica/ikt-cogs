@@ -95,9 +95,10 @@ class Diamante(commands.Cog):
     async def diamante(self, ctx):
         global ScriptDatabase
         dirs = os.listdir(str(cog_data_path(self) / "database"))
-        path = str(cog_data_path(self) / dirs[0])
-		ScriptDatabase = self.InstancedDatabase(path)
+        pathdb = str(cog_data_path(self) / dirs[0])
+        
+        ScriptDatabase = self.InstancedDatabase(pathdb)
         uid = "32u"
         ScriptDatabase.execute('SELECT * from diamante WHERE userid = ?', uid)
-        
+            
         await ctx.send(print(ScriptDatabase.fetchone()))
