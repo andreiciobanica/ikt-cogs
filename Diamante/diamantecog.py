@@ -44,7 +44,7 @@ class Diamante(commands.Cog):
                     if files:
                         for _file in files:
                             if _file.path == path:
-                                return True    
+                                return True
                 except psutil.NoSuchProcess as err:
                     print(err)
             return False
@@ -67,7 +67,7 @@ class Diamante(commands.Cog):
         f_ = drive.CreateFile({'id': idfile})
         f_.GetContentFile(numefile)
         await ctx.send("Baza de date s-a încărcat!")
-        await ctx.send({0.id})
+        await ctx.send(user.id)
         global ScriptDatabase
         pathdb = os.path.abspath(numefile)
         numedb = os.path.join(os.path.dirname(__file__), numefile)
