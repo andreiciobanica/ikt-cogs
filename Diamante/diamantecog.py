@@ -96,6 +96,6 @@ class Diamante(commands.Cog):
     async def removeyoutubeid(self, ctx):
         with open(str(cog_data_path(self) / "data.json"), "r+") as data_file:
             data = json.load(data_file)
-            data.pop(str(ctx.author.id))
+            del data[str(ctx.author.id)]
             data_file.seek(0)
             json.dump(data, data_file)
