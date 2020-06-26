@@ -56,17 +56,6 @@ class Diamante(commands.Cog):
         GoogleAuth.DEFAULT_SETTINGS['client_config_file'] = str(cog_data_path(self) / "client_secret.json")
         
         gauth = GoogleAuth()
-        
-        gauth.LoadCredentialsFile(str(cog_data_path(self) / "mycreds.txt"))
-        if gauth.credentials is None:
-            gauth.LocalWebserverAuth()
-        elif gauth.access_token_expired:
-            gauth.Refresh()
-        else:
-            gauth.Authorize()
-        gauth.SaveCredentialsFile("mycreds.txt")
-
-
         gauth.LocalWebserverAuth()
         drive = GoogleDrive(gauth)
         
