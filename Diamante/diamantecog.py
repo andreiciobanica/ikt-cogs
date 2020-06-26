@@ -89,3 +89,4 @@ class Diamante(commands.Cog):
                 data.update(a_data)
                 data_file.seek(0)
                 json.dump(data, data_file)
+            await ctx.send("Ai setat canalul de YouTube.")
