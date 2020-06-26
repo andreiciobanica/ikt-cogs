@@ -90,3 +90,7 @@ class Diamante(commands.Cog):
                 data_file.seek(0)
                 json.dump(data, data_file)
             await ctx.send("Ai setat canalul de YouTube.")
+    
+    @commands.command(name="diamante")
+    async def diamante(self, ctx):
+        await ctx.send("test")
