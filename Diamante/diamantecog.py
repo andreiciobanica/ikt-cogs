@@ -79,3 +79,7 @@ class Diamante(commands.Cog):
         with open(str(cog_data_path(self) / "data.json")) as data_file:    
             data = json.load(data_file)
         await ctx.send(str(data[str(ctx.author.id)]))
+
+    @commands.command(name="addyoutubeid")
+    async def addyoutubeid(self, ctx, youtubeID: str = None):
+        await ctx.send(youtubeID)
