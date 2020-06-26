@@ -98,7 +98,10 @@ class Diamante(commands.Cog):
         pathdb = str(cog_data_path(self) / "database" / dirs[0])
         ScriptDatabase = self.InstancedDatabase(pathdb)
         
-        uid = ('32u',)
-        abc = ScriptDatabase.execute('SELECT * from `diamante` WHERE `userid` = ?', uid).fetchone()
-            
-        await ctx.send(abc)
+        uid = (str(ctx.author.id),)
+        detalii = ScriptDatabase.execute('SELECT * from `diamante` WHERE `userid` = ?', uid).fetchone()
+        
+        if detalii:
+            await ctx.send(detalii)
+        else:
+            await ctx.send("esti bulangiu")
