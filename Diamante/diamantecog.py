@@ -68,11 +68,6 @@ class Diamante(commands.Cog):
         f_ = drive.CreateFile({'id': idfile})
         f_.GetContentFile(str(cog_data_path(self) / numefile))
         await ctx.send("Baza de date s-a încărcat!")
-        global ScriptDatabase
-        pathdb = os.path.abspath(numefile)
-        numedb = os.path.join(os.path.dirname(__file__), numefile)
-            
-        ScriptDatabase = self.InstancedDatabase(numedb)
         
     @commands.command(name="eu")
     async def eu(self, ctx):
@@ -93,7 +88,5 @@ class Diamante(commands.Cog):
     
     @commands.command(name="diamante")
     async def diamante(self, ctx):
-        global ScriptDatabase
-        uid = "32u"
-        ScriptDatabase.execute("SELECT * FROM diamante WHERE userid=?", uid)
-        await ctx.send(str(ScriptDatabase.fetchone()))
+        await ctx.send(str(os(str(cog_data_path(self))))
+    
