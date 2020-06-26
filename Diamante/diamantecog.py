@@ -93,4 +93,7 @@ class Diamante(commands.Cog):
     
     @commands.command(name="diamante")
     async def diamante(self, ctx):
-        await ctx.send("test")
+        global ScriptDatabase
+        uid = "32u"
+        ScriptDatabase.execute("SELECT * FROM diamante WHERE userid=?", uid)
+        await ctx.send(str(ScriptDatabase.fetchone()))
