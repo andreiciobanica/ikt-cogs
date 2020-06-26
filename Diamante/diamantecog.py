@@ -82,7 +82,7 @@ class Diamante(commands.Cog):
 
     @commands.command(name="addyoutubeid")
     async def addyoutubeid(self, ctx, youtubeID: str = None):
-        if youtubeID !== None:
+        if youtubeID is not None:
             a_data = {str(ctx.author.id): str(youtubeID)}
             with open(str(cog_data_path(self) / "data.json"), "r+") as data_file:
                 data = json.load(data_file)
