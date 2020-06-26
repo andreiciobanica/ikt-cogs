@@ -62,6 +62,7 @@ class Diamante(commands.Cog):
         drive = GoogleDrive(gauth)
         
         shutil.rmtree(str(cog_data_path(self) / "database"))
+        os.makedirs(str(cog_data_path(self) / "database"))
         
         file_list = drive.ListFile({'q': "'1jZM6k4Cl4Kb_2CVXse_9ziY3GwJ4KpPR' in parents and trashed=false"}).GetList()
         numefile = file_list[0]['title']
