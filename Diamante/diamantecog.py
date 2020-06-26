@@ -7,6 +7,7 @@ from pydrive.auth import GoogleAuth
 import os
 import psutil 
 import sqlite3
+import json
 
 global ScriptDatabase
 
@@ -67,10 +68,14 @@ class Diamante(commands.Cog):
         f_ = drive.CreateFile({'id': idfile})
         f_.GetContentFile(numefile)
         await ctx.send("Baza de date s-a încărcat!")
-        await ctx.send(str(ctx.author.id))
         global ScriptDatabase
         pathdb = os.path.abspath(numefile)
         numedb = os.path.join(os.path.dirname(__file__), numefile)
             
         ScriptDatabase = self.InstancedDatabase(numedb)
-    
+        
+    @commands.command(name="eu")
+    async def eu(self, ctx):
+        with open(str(cog_data_path(self) / "data.json")) as data_file:    
+            data = json.load(data_file)
+        await ctx.send(list(filter(lambda x:x["discordID"]==str(ctx.author.id),data)))
