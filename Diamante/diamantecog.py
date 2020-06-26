@@ -103,7 +103,7 @@ class Diamante(commands.Cog):
         
         uid = str(data[str(ctx.author.id)])
         
-        detalii = ScriptDatabase.execute('SELECT * from `diamante` WHERE `userid` = ?', uid).fetchone()
+        detalii = ScriptDatabase.execute('SELECT * from `diamante` WHERE `userid` = ?', (uid,)).fetchone()
         
         if detalii:
             await ctx.send(detalii)
