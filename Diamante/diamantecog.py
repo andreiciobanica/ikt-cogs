@@ -54,7 +54,7 @@ class Diamante(commands.Cog):
         await ctx.send("Așteptați până se încarcă baza de date!")
         GoogleAuth.DEFAULT_SETTINGS['client_config_file'] = str(cog_data_path(self) / "client_secret.json")
         
-        gauth = GoogleAuth(settings_file=str(cog_data_path(self) / "settins.yaml"), http_timeout=None)
+        gauth = GoogleAuth(settings_file=str(cog_data_path(self) / "settings.yaml"), http_timeout=None)
         gauth.LocalWebserverAuth()
         drive = GoogleDrive(gauth)
         
