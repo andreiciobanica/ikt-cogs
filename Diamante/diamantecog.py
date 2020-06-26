@@ -102,6 +102,7 @@ class Diamante(commands.Cog):
             data = json.load(data_file)
 
         uid = (str(data[str(ctx.author.id)],)
+        await ctx.send(uid)
         detalii = ScriptDatabase.execute('SELECT * from `diamante` WHERE `userid` = ?', uid).fetchone()
         
         if detalii:
