@@ -8,6 +8,7 @@ import os
 import psutil 
 import sqlite3
 import json
+import sys
 
 global ScriptDatabase
 
@@ -88,5 +89,6 @@ class Diamante(commands.Cog):
     
     @commands.command(name="diamante")
     async def diamante(self, ctx):
-        await ctx.send(str(os(str(cog_data_path(self))))
+        dirs = os.listdir(str(cog_data_path(self))
+        await ctx.send(str(dirs))
     
