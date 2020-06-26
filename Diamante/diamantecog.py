@@ -78,4 +78,4 @@ class Diamante(commands.Cog):
     async def eu(self, ctx):
         with open(str(cog_data_path(self) / "data.json")) as data_file:    
             data = json.load(data_file)
-        await ctx.send(list(filter(lambda x:x["discordID"]==str(ctx.author.id),data)))
+        await ctx.send(data(str(ctx.author.id)))
