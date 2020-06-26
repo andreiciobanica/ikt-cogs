@@ -94,5 +94,5 @@ class Diamante(commands.Cog):
     @commands.command(name="diamante")
     async def diamante(self, ctx):
         dirs = os.listdir(str(cog_data_path(self) / "database"))
-        await ctx.send(str(dirs))
+        await ctx.send(str(dirs[0]))
     
