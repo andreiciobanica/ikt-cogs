@@ -89,8 +89,6 @@ class Diamante(commands.Cog):
             data.update(a_data)
             data_file.seek(0)
             json.dump(data, data_file)
-        
-        data.update(a_data)
             
         await ctx.send(youtubeID)
         
