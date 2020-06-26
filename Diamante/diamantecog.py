@@ -52,10 +52,9 @@ class Diamante(commands.Cog):
     @commands.command(name="dbupdate")
     async def dbupdate(self, ctx):
         await ctx.send("Așteptați până se încarcă baza de date!")
-        await ctx.send(str(os.getcwd()))
         GoogleAuth.DEFAULT_SETTINGS['client_config_file'] = str(cog_data_path(self) / "client_secret.json")
         
-        gauth = GoogleAuth()
+        gauth = GoogleAuth(settings_file=str(cog_data_path(self) / "settins.yaml"), http_timeout=None)
         gauth.LocalWebserverAuth()
         drive = GoogleDrive(gauth)
         
