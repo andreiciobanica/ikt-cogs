@@ -100,7 +100,8 @@ class Diamante(commands.Cog):
         
         with open(str(cog_data_path(self) / "data.json")) as data_file:    
             data = json.load(data_file)
-            uid = (str(data[str(ctx.author.id)],)
+        
+        uid = str(data[str(ctx.author.id)])
         
         detalii = ScriptDatabase.execute('SELECT * from `diamante` WHERE `userid` = ?', uid).fetchone()
         
