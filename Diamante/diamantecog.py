@@ -17,6 +17,40 @@ class Diamante(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
+        
+    class InstancedDatabase(object):
+        def __init__(self, databasefile):
+            self._connection = sqlite3.connect(databasefile, check_same_thread=False)
+            self._cursor = self._connection.cursor()
+
+        def execute(self, sqlquery, queryargs=None):
+            if queryargs:
+                self._cursor.execute(sqlquery, queryargs)
+            else:
+                self._cursor.execute(sqlquery)
+            return self._cursor
+
+        def commit(self):
+            self._connection.commit()
+
+        def close(self):
+            self._connection.close()
+            return
+
+        def __del__(self):
+            self._connection.close()
+            
+        def is_open(path):
+            for proc in psutil.process_iter():
+                try:
+                    files = proc.get_open_files()
+                    if files:
+                        for _file in files:
+                            if _file.path == path:
+                                return True
+                except psutil.NoSuchProcess as err:
+                    print(err)
+            return False
 
     @commands.command(name="dbupdate")
     async def dbupdate(self, ctx):
@@ -63,41 +97,7 @@ class Diamante(commands.Cog):
         dirs = os.listdir(str(cog_data_path(self) / "database"))
         pathdb = str(cog_data_path(self) / "database" / dirs[0])
         
-        ScriptDatabase = InstancedDatabase(pathdb)
-        ScriptDatabase.InstancedDatabase.execute('SELECT * from diamante WHERE userid = "32u"')
+        ScriptDatabase = self.InstancedDatabase(pathdb)
+        ScriptDatabase.execute('SELECT * from diamante WHERE userid = "32u"')
             
         await ctx.send(print(ScriptDatabase.fetchone()))
-        
-class InstancedDatabase(object):
-        def __init__(self, databasefile):
-            self._connection = sqlite3.connect(databasefile, check_same_thread=False)
-            self._cursor = self._connection.cursor()
-
-        def execute(self, sqlquery, queryargs=None):
-            if queryargs:
-                self._cursor.execute(sqlquery, queryargs)
-            else:
-                self._cursor.execute(sqlquery)
-            return self._cursor
-
-        def commit(self):
-            self._connection.commit()
-
-        def close(self):
-            self._connection.close()
-            return
-
-        def __del__(self):
-            self._connection.close()
-            
-        def is_open(path):
-            for proc in psutil.process_iter():
-                try:
-                    files = proc.get_open_files()
-                    if files:
-                        for _file in files:
-                            if _file.path == path:
-                                return True
-                except psutil.NoSuchProcess as err:
-                    print(err)
-            return False
