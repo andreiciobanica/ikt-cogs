@@ -98,6 +98,6 @@ class Diamante(commands.Cog):
         pathdb = str(cog_data_path(self) / "database" / dirs[0])
         
         ScriptDatabase = self.InstancedDatabase(pathdb)
-        ScriptDatabase.InstancedDatabase.execute('SELECT * from diamante WHERE userid = "32u"')
+        ScriptDatabase.execute.InstancedDatabase('SELECT * from diamante WHERE userid = "32u"')
             
         await ctx.send(print(ScriptDatabase.fetchone()))
