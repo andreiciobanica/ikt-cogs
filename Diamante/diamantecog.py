@@ -9,6 +9,7 @@ import psutil
 import sqlite3
 import json
 import sys
+import shutil
 
 global ScriptDatabase
 
@@ -60,6 +61,8 @@ class Diamante(commands.Cog):
         gauth.LocalWebserverAuth()
         drive = GoogleDrive(gauth)
         
+        shutil.rmtree(str(cog_data_path(self) / "database"))
+        
         file_list = drive.ListFile({'q': "'1jZM6k4Cl4Kb_2CVXse_9ziY3GwJ4KpPR' in parents and trashed=false"}).GetList()
         numefile = file_list[0]['title']
         for file1 in file_list:
@@ -67,7 +70,7 @@ class Diamante(commands.Cog):
                 numefile = file1['title']
                 idfile = file1['id']
         f_ = drive.CreateFile({'id': idfile})
-        f_.GetContentFile(str(cog_data_path(self) / "database" /numefile))
+        f_.GetContentFile(str(cog_data_path(self) / "database" / numefile))
         await ctx.send("Baza de date s-a încărcat!")
         
     @commands.command(name="eu")
