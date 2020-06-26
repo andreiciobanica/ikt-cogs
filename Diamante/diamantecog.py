@@ -95,7 +95,7 @@ class Diamante(commands.Cog):
     async def diamante(self, ctx):
         global ScriptDatabase
         dirs = os.listdir(str(cog_data_path(self) / "database"))
-        pathdb = str(cog_data_path(self) / dirs[0])
+        pathdb = str(cog_data_path(self) / "database" / dirs[0])
         
         ScriptDatabase = self.InstancedDatabase(pathdb)
         uid = "32u"
