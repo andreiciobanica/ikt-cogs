@@ -87,7 +87,7 @@ class Diamante(commands.Cog):
         with open(str(cog_data_path(self) / "data.json"), "r+") as data_file:
             data = json.load(data_file)
             data.update(a_data)
-            file.seek(0)
+            data_file.seek(0)
             json.dump(data, data_file)
         
         data.update(a_data)
