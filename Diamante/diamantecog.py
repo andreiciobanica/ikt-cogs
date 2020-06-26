@@ -66,7 +66,7 @@ class Diamante(commands.Cog):
                 numefile = file1['title']
                 idfile = file1['id']
         f_ = drive.CreateFile({'id': idfile})
-        f_.GetContentFile(numefile)
+        f_.GetContentFile(str(cog_data_path(self) / numefile))
         await ctx.send("Baza de date s-a încărcat!")
         global ScriptDatabase
         pathdb = os.path.abspath(numefile)
