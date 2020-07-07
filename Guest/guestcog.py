@@ -9,4 +9,5 @@ class Guest(commands.Cog):
         for member in ctx.guild.members:
             for role in member.roles: 
                 if role.id == 462702735490285569:
-                    await ctx.send("<@253939849348907019>")
+                    s = "<@"+member.id+">"
+                    await ctx.send(s)
