@@ -5,8 +5,8 @@ class Guest(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         
-    @commands.command(name="getguests")
-    async def getGuests(self, ctx):
+    @commands.command(name="nouveniti")
+    async def getguests(self, ctx):
         table = []
         for member in ctx.guild.members:
             for role in member.roles:
