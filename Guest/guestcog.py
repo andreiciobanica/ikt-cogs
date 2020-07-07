@@ -5,7 +5,7 @@ class Guest(commands.Cog):
         self.bot = bot
         
     @commands.command(name="getguests")
-    async def getGuests(self, ctx):
+    async def getGuests(self, ctx, server):
         for member in server.members:
             for role in member.roles: 
                 if role.id == 730173883151286285:
