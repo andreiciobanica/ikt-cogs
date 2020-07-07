@@ -1,5 +1,4 @@
 from redbot.core import commands
-from tabulate import tabulate
 
 class Guest(commands.Cog):
     def __init__(self, bot):
