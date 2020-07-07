@@ -12,5 +12,5 @@ class Guest(commands.Cog):
             for role in member.roles:
                 if role.id == 462702735490285569:
                     s = "<@"+ str(member.id) +">"
-                    table.append(s, member.name)
+                    table.append([s, member.name])
         await ctx.send("```"+tabulate(table, headers=["ID", "Nume"])+"```")
