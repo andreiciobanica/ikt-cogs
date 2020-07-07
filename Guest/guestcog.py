@@ -8,5 +8,5 @@ class Guest(commands.Cog):
     async def getGuests(self, ctx):
         for member in ctx.guild.members:
             for role in member.roles: 
-                if role.id == 730173883151286285:
+                if role.id == 462702735490285569:
                     await ctx.send("a")
