@@ -1,6 +1,6 @@
 from redbot.core import commands
 
-class Diamante(commands.Cog):
+class Guest(commands.Cog):
     @commands.command(name="getguests")
     async def getGuests(self, ctx):
         for member in server.members:
