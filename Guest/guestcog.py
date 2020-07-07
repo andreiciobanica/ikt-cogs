@@ -7,10 +7,10 @@ class Guest(commands.Cog):
         
     @commands.command(name="getguests")
     async def getGuests(self, ctx):
-        await ctx.send("```")
+        table = []
         for member in ctx.guild.members:
             for role in member.roles:
                 if role.id == 462702735490285569:
                     s = "<@"+ str(member.id) +">"
-                    await ctx.send(s)
-        await ctx.send("```")
+                    table.append(s, member.name)
+        await ctx.send("```"+tabulate(table, headers=["ID", "Nume"])+"```")
