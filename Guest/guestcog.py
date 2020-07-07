@@ -6,7 +6,7 @@ class Guest(commands.Cog):
         
     @commands.command(name="getguests")
     async def getGuests(self, ctx):
-        for member in guild.members:
+        for member in ctx.guild.members:
             for role in member.roles: 
                 if role.id == 730173883151286285:
                     await ctx.send("a")
