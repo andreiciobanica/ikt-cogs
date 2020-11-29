@@ -9,5 +9,5 @@ class Notificare(commands.Cog):
 
     @commands.command(name="blocarechat")
     async def blocarechat(self, ctx):
-        channel = client.get_channel(440957219593519126)
+        channel = self.get_channel(440957219593519126)
         await channel.set_permissions(guild.default_role, send_messages=False)
