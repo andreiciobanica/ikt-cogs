@@ -28,6 +28,6 @@ class Notificare(commands.Cog):
         await channel.set_permissions(ctx.guild.default_role, send_messages=None)
         embed = discord.Embed(title="Deblocare chat 🤫", color=0xefe125)
         embed.add_field(name=" ", value="Autor", inline=True)
-        embed.add_field(name=str(ctx.author.name), value=str( ctx.author.id), inline=True)
+        embed.add_field(name=str(ctx.author.name), value=str(ctx.author.id), inline=True)
         embed.set_footer(text=str(datetime.now().strftime("%d %B %Y %H:%M:%S")))
         await logs_channel.send(embed=embed)
