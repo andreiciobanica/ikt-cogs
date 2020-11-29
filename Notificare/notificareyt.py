@@ -8,6 +8,6 @@ class Notificare(commands.Cog):
         self.bot = bot
 
     @commands.command(name="blocarechat")
-    async def blocarechat(self, ctx, client: discord.client()):
+    async def blocarechat(self, ctx):
         channel = client.get_channel(440957219593519126)
         await channel.set_permissions(guild.default_role, send_messages=False)
