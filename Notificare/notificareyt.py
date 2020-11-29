@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from redbot.core import commands
 from datetime import datetime, timedelta, timezone
+import discord
 
 class Notificare(commands.Cog):
 
@@ -16,7 +17,7 @@ class Notificare(commands.Cog):
         embed = discord.Embed(title="Blocare chat 🤫", color=0xefe125)
         embed.add_field(name="", value="Autor", inline=True)
         embed.add_field(name=str(ctx.author.name), value=str(ctx.author.id), inline=True)
-        embed.set_footer(text=str(datetime.datetime.now().strftime("%d %B %Y %H:%M")))
+        embed.set_footer(text=str(datetime.datetime.now().strftime("%d %B %Y %H:%M:%S")))
         await logs_channel.send(embed=embed)
     
     @commands.mod()
@@ -28,5 +29,5 @@ class Notificare(commands.Cog):
         embed = discord.Embed(title="Deblocare chat 🤫", color=0xefe125)
         embed.add_field(name="", value="Autor", inline=True)
         embed.add_field(name=str(ctx.author.name), value=str( ctx.author.id), inline=True)
-        embed.set_footer(text=str(datetime.datetime.now().strftime("%d %B %Y %H:%M")))
+        embed.set_footer(text=str(datetime.datetime.now().strftime("%d %B %Y %H:%M:%S")))
         await logs_channel.send(embed=embed)
