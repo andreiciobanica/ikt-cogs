@@ -22,6 +22,7 @@ class Notificare(commands.Cog):
         embed.add_field(name="NUME", value="ID", inline=True)
         embed.add_field(name=str(ctx.author.name), value=str(ctx.author.id), inline=True)
         embed.set_footer(text=str(data_log))
+        await client.send_message(message.author, "Chat-ul a fost blocat!")
         await logs_channel.send(embed=embed)
     
     @commands.mod()
@@ -35,4 +36,5 @@ class Notificare(commands.Cog):
         embed.add_field(name="NUME", value="ID", inline=True)
         embed.add_field(name=str(ctx.author.name), value=str(ctx.author.id), inline=True)
         embed.set_footer(text=str(data_log))
+        await client.send_message(message.author, "Chat-ul a fost deblocat!")
         await logs_channel.send(embed=embed)
