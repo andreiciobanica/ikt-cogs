@@ -12,11 +12,4 @@ class Notificare(commands.Cog):
         permissions = PermissionOverwrite()
         permissions.send_messages = False
         channel = client.get_channel(440957219593519126)
-        await channel.set_permissions(guild.default_role, overwrite=permissions)
-    
-    @commands.command(name="deblocarechat")
-    async def blocarechat(self, ctx):
-        permissions = PermissionOverwrite()
-        permissions.send_messages = None
-        channel = client.get_channel(440957219593519126)
-        await channel.set_permissions(guild.default_role, overwrite=permissions)
+        await ctx.channel.set_permissions(ctx.guild.default_role, overwrite=permissions)
