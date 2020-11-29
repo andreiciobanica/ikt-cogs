@@ -11,3 +11,8 @@ class Notificare(commands.Cog):
     async def blocarechat(self, ctx):
         channel = self.bot.get_channel(440957219593519126)
         await channel.set_permissions(ctx.guild.default_role, send_messages=False)
+    
+    @commands.command(name="deblocarechat")
+    async def deblocarechat(self, ctx):
+        channel = self.bot.get_channel(440957219593519126)
+        await channel.set_permissions(ctx.guild.default_role, send_messages=None)
