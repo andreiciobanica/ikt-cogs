@@ -12,7 +12,7 @@ class Notificare(commands.Cog):
         channel = self.bot.get_channel(440957219593519126)
         logs_channel = self.bot.get_channel(715676435372834927)
         await channel.set_permissions(ctx.guild.default_role, send_messages=False)
-        await logs_channel.send("Chat-ul a fost blocat de <@" + str(ctx.author.name) + ">)
+        await logs_channel.send("Chat-ul a fost blocat de <@" + str(ctx.author.name) + ">")
     
     @commands.command(name="deblocarechat")
     async def deblocarechat(self, ctx):
