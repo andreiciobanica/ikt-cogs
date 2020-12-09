@@ -10,9 +10,7 @@ class Notificare(commands.Cog):
         self.bot = bot
         global tz
         tz = timezone("Europe/Bucharest")
-        super().__init__(
-            allowed_mentions = discord.AllowedMentions(roles=False, users=False, everyone=False),
-        )
+        allowed_mentions = discord.AllowedMentions(roles=False, users=False, everyone=False),
 
     @commands.mod()
     @commands.command(name="blocarechat")
