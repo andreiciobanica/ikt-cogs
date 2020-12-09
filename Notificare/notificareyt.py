@@ -38,3 +38,8 @@ class Notificare(commands.Cog):
         embed.set_footer(text=str(data_log))
         await ctx.message.author.send("Chat-ul a fost deblocat!")
         await logs_channel.send(embed=embed)
+    
+    @commands.mod()
+    @commands.command(name="notificareyoutube")
+    async def notificareyoutube(self, ctx, message)
+        await ctx.message.author.send(message)
