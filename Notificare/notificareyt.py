@@ -41,5 +41,5 @@ class Notificare(commands.Cog):
     
     @commands.mod()
     @commands.command(name="notificareyoutube")
-    async def notificareyoutube(self, ctx, message):
-        await ctx.message.author.send(message)
+    async def notificareyoutube(self, ctx, linkyoutube):
+        await ctx.message.author.send(linkyoutube)
