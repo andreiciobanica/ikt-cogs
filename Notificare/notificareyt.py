@@ -42,5 +42,5 @@ class Notificare(commands.Cog):
     @commands.mod()
     @commands.command(name="notificareyoutube")
     async def notificareyoutube(self, ctx, linkyoutube):
-        mesajfinal = "@everyone, "+linkyoutube+"\n:purple_heart:  Nu uitați de like, un share este binevenit și dacă nu ați făcut-o până acum, nu uita să te abonezi și să apeși clopoțelul pentru a fi întotdeauna notificat când IKatheryne face live sau postează! :purple_heart:"
+        mesajfinal = "@everyone, "+linkyoutube+"\n\n:purple_heart:  Nu uitați de like, un share este binevenit și dacă nu ați făcut-o până acum, nu uita să te abonezi și să apeși clopoțelul pentru a fi întotdeauna notificat când IKatheryne face live sau postează! :purple_heart:"
         await ctx.message.author.send(mesajfinal)
