@@ -6,10 +6,13 @@ import discord
 
 class Notificare(commands.Cog):
 
-    def __init__(self, bot):
+    def __init__(self, bot, **kwargs):
         self.bot = bot
         global tz
         tz = timezone("Europe/Bucharest")
+        super().__init__(
+            allowed_mentions = discord.AllowedMentions(roles=False, users=False, everyone=False),
+        )
 
     @commands.mod()
     @commands.command(name="blocarechat")
@@ -41,7 +44,7 @@ class Notificare(commands.Cog):
     
     @commands.mod()
     @commands.command(name="notificareyoutube", pass_context = True)
-    async def notificareyoutube(self, ctx, linkyoutube, *args, **kwargs):
+    async def notificareyoutube(self, ctx, linkyoutube):
         channel = self.bot.get_channel(440957219593519126)
         mesajfinal = linkyoutube+"\n\n:purple_heart:  Nu uitați de like, un share este binevenit și dacă nu ați făcut-o până acum, nu uita să te abonezi și să apeși clopoțelul pentru a fi întotdeauna notificat când IKatheryne face live sau postează! :purple_heart:"
-        await channel.send(ctx.message.guild.default_role, allowed_mentions=discord.AllowedMentions(everyone=False, users=False, roles=False))
+        await channel.send(ctx.message.guild.default_role)
