@@ -40,8 +40,8 @@ class Notificare(commands.Cog):
         await logs_channel.send(embed=embed)
     
     @commands.mod()
-    @commands.command(name="notificareyoutube", pass_context = True, allowed_mentions=discord.AllowedMentions(roles=True, users=True, everyone=True))
+    @commands.command(name="notificareyoutube", pass_context = True)
     async def notificareyoutube(self, ctx, linkyoutube):
         channel = self.bot.get_channel(440957219593519126)
         mesajfinal = linkyoutube+"\n\n:purple_heart:  Nu uitați de like, un share este binevenit și dacă nu ați făcut-o până acum, nu uita să te abonezi și să apeși clopoțelul pentru a fi întotdeauna notificat când IKatheryne face live sau postează! :purple_heart:"
-        await channel.send(ctx.message.guild.default_role)
+        await channel.send(ctx.message.guild.default_role, allowed_mentions=discord.AllowedMentions(roles=True, users=True, everyone=True))
