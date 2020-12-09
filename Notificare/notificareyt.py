@@ -45,4 +45,4 @@ class Notificare(commands.Cog):
         channel = self.bot.get_channel(440957219593519126)
         await channel.set_permissions(ctx.guild.default_role, send_messages=False, mention_everyone=False)
         mesajfinal = linkyoutube+"\n\n:purple_heart:  Nu uitați de like, un share este binevenit și dacă nu ați făcut-o până acum, nu uita să te abonezi și să apeși clopoțelul pentru a fi întotdeauna notificat când IKatheryne face live sau postează! :purple_heart:"
-        await channel.send(ctx.guild.default_role + " " + mesajfinal)
+        await channel.send(ctx.guild.default_role + ", " + mesajfinal)
