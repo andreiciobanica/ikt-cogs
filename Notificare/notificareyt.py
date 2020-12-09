@@ -6,7 +6,7 @@ import discord
 
 class Notificare(commands.Cog):
 
-    def __init__(self, bot, **kwargs):
+    def __init__(self, bot, *args, **kwargs):
         self.bot = bot
         global tz
         tz = timezone("Europe/Bucharest")
