@@ -194,7 +194,7 @@ class lideri_grade(commands.Cog):
     @commands.command(name="membru", pass_context=True)
     async def membru(self, ctx, tip_factiune, user: discord.Member):
         if(tip_factiune == "pasnica"):
-        
+            await ctx.send("Test")
         else:
             verif = False
             for x in lideri_grade.roluri_lider:
