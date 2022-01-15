@@ -375,10 +375,15 @@ class lideri_grade(commands.Cog):
                 if member.guild.me.guild_permissions.manage_roles and role < member.guild.me.top_role:
                     if role in member.roles:
                         await member.remove_roles(role, reason=reason)
-                        await self._maybe_send_log(
-                            member.guild,
-                            f"{role.mention} pentru {member.mention} a fost inlaturat."
-                        )
+                        data_log = datetime.now(tz).strftime("%d %B %Y %H:%M:%S")
+                        embed=discord.Embed(title=f"{remover} ({remover.id}) - Inlaturare Somaj", color=0x4b66ec)
+                        embed.add_field(name=f"{remover} i-a scos somajul lui", value=f"{member.mention}", inline=False)
+                        embed.set_footer(text=str(data_log))
+                        await logs_channel_somaj.send(embed=embed)
+                        #await self._maybe_send_log(
+                        #    member.guild,
+                        #    f"{role.mention} pentru {member.mention} a fost inlaturat."
+                        #)
                     else:                
                         data_log = datetime.now(tz).strftime("%d %B %Y %H:%M:%S")
                         embed=discord.Embed(title=f"{remover} ({remover.id}) - Inlaturare Somaj", color=0x4b66ec)
