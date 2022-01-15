@@ -272,8 +272,9 @@ class lideri_grade(commands.Cog):
         await self._tr_end(user, role, admin=ctx.author)
 
     @_temp_role.command(name="remaining")
-    async def _remaining(self, ctx: commands.Context, role: discord.Role):
-        """See the time remaining for your TempRole."""
+    async def _remaining(self, ctx: commands.Context):
+        """Verifica cat timp mai ai somaj."""
+        role = ctx.guild.get_role(893597206123274241)
         user = ctx.author
         async with self.config.member(user).temp_roles() as user_tr:
             if not (cur_tr := user_tr.get(str(role.id))):
@@ -282,10 +283,10 @@ class lideri_grade(commands.Cog):
                     allowed_mentions=discord.AllowedMentions.none()
                 )
             r_time = datetime.fromtimestamp(cur_tr) - datetime.now()
-            return await ctx.maybe_send_embed(f"**Time remaining:** {r_time.days} days {round(r_time.seconds/3600, 1)} hours")
+            return await ctx.maybe_send_embed(f"**Timp ramas:** {r_time.days} zile {round(r_time.seconds/3600, 1)} ore")
 
     @commands.bot_has_permissions(embed_links=True)
-    @_temp_role.command(name="list")
+    @_temp_role.command(name="lista")
     async def _list(self, ctx: commands.Context, user: discord.Member = None):
         """Afiseaza toti somerii."""
         desc = ""
@@ -324,7 +325,7 @@ class lideri_grade(commands.Cog):
         return await ctx.tick()
 
     @commands.admin_or_permissions(manage_roles=True)
-    @_temp_role.command(name="confirmation")
+    @_temp_role.command(name="mesajconfirmare")
     async def _confirmation(self, ctx: commands.Context, true_or_false: bool):
         """Toggle whether to send confirmation messages after TempRole commands."""
         await self.config.guild(ctx.guild).confirmation.set(true_or_false)
