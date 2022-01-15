@@ -13,7 +13,8 @@ class lideri_grade(commands.Cog):
 
     @commands.command(name="grade")
     async def grade(self, ctx):
-        await ctx.message.author.send(ctx.author.roles)
+        if "440955056750198795" in ctx.author.roles:
+            await ctx.message.author.send(ctx.author.roles)
         
     
     
