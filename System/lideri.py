@@ -270,8 +270,8 @@ class lideri_grade(commands.Cog):
         message = f"{role.mention} pentru {user.mention} a fost inlaturat."
         await self._maybe_confirm(ctx, message)
         await self._maybe_send_log(ctx.guild, message)
-        await user.remove_roles(role)
-        #await self._tr_end(user, ctx.guild.get_role(893597206123274241), admin=ctx.author)
+        #await user.remove_roles(role)
+        await self._tr_end(user, role, admin=ctx.author)
 
     @_temp_role.command(name="ramas")
     async def _remaining(self, ctx: commands.Context):
@@ -373,7 +373,7 @@ class lideri_grade(commands.Cog):
                 reason = "TempRole: timer ended" if not admin else f"TempRole: timer ended early by {admin}"
                 if member.guild.me.guild_permissions.manage_roles and role < member.guild.me.top_role:
                     if role in member.roles:
-                        await member.remove_roles(role, reason=reason)
+                        await member.remove_roles(role)
                         await self._maybe_send_log(
                             member.guild,
                             f"TempRole {role.mention} for {member.mention} has been removed."
