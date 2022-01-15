@@ -13,7 +13,7 @@ class lideri_grade(commands.Cog):
 
     @commands.command(name="colider", pass_context=True)
     async def grade(self, ctx, user: discord.Member):
-            roluri_lider = [
+        roluri_lider = [
             865215495623934012, # Araba
             865215437531512842, # Triads
             865215444150648853, # OTF
