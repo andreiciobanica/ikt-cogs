@@ -2,6 +2,7 @@
 import typing
 import asyncio
 from datetime import datetime, timedelta, timezone
+from pytz import timezone
 
 import discord
 from redbot.core import commands, Config
@@ -190,6 +191,8 @@ class lideri_grade(commands.Cog):
 
     def __init__(self, bot, *args, **kwargs):
         self.bot = bot
+        global tz
+        tz = timezone("Europe/Bucharest")
         self.config = Config.get_conf(self, identifier=14000605, force_registration=True)
         default_guild = {
             "log": None,
