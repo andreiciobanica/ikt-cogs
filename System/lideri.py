@@ -237,3 +237,36 @@ class lideri_grade(commands.Cog):
                                 verif = True
                                 await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[lideri_grade.roluri_tester.index(x)]), ctx.guild.get_role(lideri_grade.roluri_membru[lideri_grade.roluri_tester.index(x)]), ctx.guild.get_role(865215401470066708))
                                 await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[lideri_grade.roluri_tester.index(x)]) +"> jucatorului <@" + str(user.id) + ">!")
+    
+    @commands.command(name="comisarsef", pass_context=True)
+    async def tester(self, ctx, user: discord.Member):
+        for x in lideri_grade.roluri_lider:
+            for y in ctx.author.roles:
+                if ctx.guild.get_role(x)==y:
+                            await user.add_roles(ctx.guild.get_role(lideri_grade.politie_grade[2]))
+                            await ctx.send("Am atribuit rolul de Comisar Sef <@&" + str(lideri_grade.id_factiune[20]) +"> jucatorului <@" + str(user.id) + ">!")
+    
+    @commands.command(name="comisar", pass_context=True)
+    async def tester(self, ctx, user: discord.Member):
+        for x in lideri_grade.roluri_lider:
+            for y in ctx.author.roles:
+                if ctx.guild.get_role(x)==y:
+                            await user.add_roles(ctx.guild.get_role(lideri_grade.politie_grade[3]))
+                            await ctx.send("Am atribuit rolul de Comisar <@&" + str(lideri_grade.id_factiune[20]) +"> jucatorului <@" + str(user.id) + ">!")
+    
+    @commands.command(name="subcomisar", pass_context=True)
+    async def tester(self, ctx, user: discord.Member):
+        for x in lideri_grade.roluri_lider:
+            for y in ctx.author.roles:
+                if ctx.guild.get_role(x)==y:
+                            await user.add_roles(ctx.guild.get_role(lideri_grade.politie_grade[4]))
+                            await ctx.send("Am atribuit rolul de Subcomisar <@&" + str(lideri_grade.id_factiune[20]) +"> jucatorului <@" + str(user.id) + ">!")
+   
+    @commands.command(name="agentprincipal", pass_context=True)
+    async def tester(self, ctx, user: discord.Member):
+        for x in lideri_grade.roluri_lider:
+            for y in ctx.author.roles:
+                if ctx.guild.get_role(x)==y:
+                    await user.add_roles(ctx.guild.get_role(lideri_grade.roluri_politie[]))
+                    await ctx.send("Am atribuit rolul de Agent Principal <@&" + str(lideri_grade.id_factiune[20]) +"> jucatorului <@" + str(user.id) + ">!")
+             
