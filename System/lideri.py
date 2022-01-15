@@ -224,8 +224,9 @@ class lideri_grade(commands.Cog):
         Pentru durata, introduceti saptamani (w), zile (d), si/sau ore (h)[exemplu: 3h -> 3 ore; 2w -> 2 saptamani].
         """
         role = ctx.guild.get_role(893597206123274241)
+        logs_channel_somaj = self.bot.get_channel(932033338347245628)
         if role in user.roles:
-            return await ctx.send(f"Acest utilizator are deja {role.mention}!")
+            return await ctx.send(f"Acest jucator este deja in {role.mention}!")
 
         if role >= ctx.guild.me.top_role or (role >= ctx.author.top_role and ctx.author != ctx.guild.owner):
             return await ctx.send("That role cannot be assigned due to the Discord role hierarchy!")
@@ -233,7 +234,7 @@ class lideri_grade(commands.Cog):
         async with self.config.member(user).temp_roles() as user_tr:
             if user_tr.get(str(role.id)):
                 return await ctx.send(
-                    f"That is already an active TempRole for {user.mention}!",
+                    f"{user.mention} se afla in somaj!",
                     allowed_mentions=discord.AllowedMentions.none()
                 )
             try:
@@ -251,14 +252,13 @@ class lideri_grade(commands.Cog):
         else:
             return await ctx.send("Nu pot sa atribui acest rol!")
 
-        message = f"{role.mention} a fost atribuit lui {user.mention}, expira in {time.days} zile {time.seconds//3600} ore."
+        message = f"{role.mention} a fost atribuit lui {user.mention}. Expira in {time.days} zile {time.seconds//3600} ore."
         await self._maybe_confirm(ctx, message)
-
-        logs_channel_somaj = self.bot.get_channel(932033338347245628)
+        
         data_log = datetime.now(tz).strftime("%d %B %Y %H:%M:%S")
-        embed=discord.Embed(title="NUMEUSER#TAG (@IDUSER) - Adaugare Somaj", color=0x4b66ec)
-        embed.add_field(name="<@> i-a dat somaj lui", value="<@>", inline=False)
-        embed.add_field(name="Durata", value="d", inline=True)
+        embed=discord.Embed(title=f"{ctx.author.name} ({ctx.author.id}) - Adaugare Somaj", color=0x4b66ec)
+        embed.add_field(name=f"{ctx.author} i-a dat somaj lui", value=f"{user.mention}", inline=False)
+        embed.add_field(name="Durata", value=f"{time.days} zile si {time.seconds//3600} ore", inline=True)
         embed.set_footer(text=str(data_log))
         await logs_channel_somaj.send(embed=embed)
         #await self._maybe_send_log(ctx.guild, message)
