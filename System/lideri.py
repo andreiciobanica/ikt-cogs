@@ -216,13 +216,14 @@ class lideri_grade(commands.Cog):
     @commands.bot_has_permissions(manage_roles=True)
     @commands.admin_or_permissions(manage_roles=True)
     @_temp_role.command(name="adauga")
-    async def _add(self, ctx: commands.Context, user: discord.Member, role: discord.Role, *, time: TimeConverter):
+    async def _add(self, ctx: commands.Context, user: discord.Member, *, time: TimeConverter):
         """
-        Assign a temporary role to expire after a time.
-        For the time, enter in terms of weeks (w), days (d), and/or hours (h).
+        Baga in somaj un jucator.
+        Pentru durata, introduceti saptamani (w), zile (d), si/sau ore (h)[exemplu: 3h -> 3 ore; 2w -> 2 saptamani].
         """
+        role = ctx.guild.get_role(440955553812971530)
         if role in user.roles:
-            return await ctx.send(f"That user already has {role.mention}!")
+            return await ctx.send(f"Acest utilizator are deja {role.mention}!")
 
         if role >= ctx.guild.me.top_role or (role >= ctx.author.top_role and ctx.author != ctx.guild.owner):
             return await ctx.send("That role cannot be assigned due to the Discord role hierarchy!")
