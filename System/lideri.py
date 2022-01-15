@@ -311,6 +311,9 @@ class lideri_grade(commands.Cog):
                         await ctx.send("Am atribuit rolul de Asistent <@&" + str(lideri_grade.id_factiune[22]) +"> jucatorului <@" + str(user.id) + ">!")
                         
     @commands.command(name="somaj", pass_context=True)
-    async def smurd(self, ctx, user: discord.Member):
-        await user.add_roles(ctx.guild.get_role(893597206123274241))
-        await ctx.send("L-am bagat in SOMAJ pe jucatorul <@" + str(user.id) + ">!")
+    async def somaj(self, ctx, user: discord.Member):
+        for x in lideri_grade.roluri_lider:
+            for y in ctx.author.roles:
+                if ctx.guild.get_role(x)==y:
+                    await user.add_roles(ctx.guild.get_role(893597206123274241))
+                    await ctx.send("L-am bagat in SOMAJ pe jucatorul <@" + str(user.id) + ">!")
