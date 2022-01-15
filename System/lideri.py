@@ -123,11 +123,11 @@ class lideri_grade(commands.Cog):
 
     @commands.command(name="colider", pass_context=True)
     async def grade(self, ctx, user: discord.Member):
-        for x in roluri_lider:
+        for x in lideri_grade.roluri_lider:
             for y in ctx.author.roles:
                 if ctx.guild.get_role(x)==y:
                     #await ctx.message.author.send(x)
-                    await user.add_roles(ctx.guild.get_role(roluri_colider[roluri_lider.index(x)]))
+                    await user.add_roles(ctx.guild.get_role(lideri_grade.roluri_colider[lideri_grade.roluri_lider.index(x)]))
             
     #@commands.command(name="tester", pass_context=True)
     #async def grade(self, ctx, user: discord.Member):
