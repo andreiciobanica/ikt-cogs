@@ -202,7 +202,7 @@ class lideri_grade(commands.Cog):
         self.config.register_guild(**default_guild)
         self.config.register_member(**default_member)
         
-        self.tr_handler_task = self.bot.loop.create_task(self._tr_handler())
+        self.tr_handler_task = self.bot.loop.create_task(self._tr_handler(ctx: commands.Context))
         
         
     def cog_unload(self):
@@ -252,7 +252,7 @@ class lideri_grade(commands.Cog):
         await self._maybe_confirm(ctx, message)
 
         await self._maybe_send_log(ctx.guild, message)
-        await self._tr_timer(user, ctx, role, end_time.timestamp())
+        await self._tr_timer(ctx, user, role, end_time.timestamp())
 
     @commands.admin_or_permissions(manage_roles=True)
     @commands.bot_has_permissions(manage_roles=True)
@@ -271,7 +271,7 @@ class lideri_grade(commands.Cog):
         await self._maybe_confirm(ctx, message)
         await self._maybe_send_log(ctx.guild, message)
         #await user.remove_roles(role)
-        await self._tr_end(user, role, admin=ctx.author)
+        await self._tr_end(ctx, user, role, admin=ctx.author)
 
     @_temp_role.command(name="ramas")
     async def _remaining(self, ctx: commands.Context):
@@ -345,7 +345,7 @@ class lideri_grade(commands.Cog):
                 allowed_mentions=discord.AllowedMentions.none()
             )
 
-    async def _tr_handler(self):
+    async def _tr_handler(self, ctx: commands.Context):
         await self.bot.wait_until_red_ready()
         try:
             tr_coros = []
@@ -355,7 +355,7 @@ class lideri_grade(commands.Cog):
                     member: discord.Member = guild.get_member(int(member_id))
                     for tr, ts in temp_roles["temp_roles"].items():
                         role: discord.Role = guild.get_role(int(tr))
-                        tr_coros.append(self._tr_timer(member, role, ts))
+                        tr_coros.append(self._tr_timer(ctx, member, role, ts))
             await asyncio.gather(*tr_coros)
         except Exception:
             pass
@@ -364,9 +364,9 @@ class lideri_grade(commands.Cog):
         seconds_left = (datetime.fromtimestamp(end_timestamp) - datetime.now()).total_seconds()
         if seconds_left > 0:
             await asyncio.sleep(seconds_left)
-        await self._tr_end(member, role)
+        await self._tr_end(ctx, member, role)
 
-    async def _tr_end(self, member: discord.Member, role: discord.Role, admin=None):
+    async def _tr_end(self, ctx: commands.Context, member: discord.Member, role: discord.Role, admin=None):
         ctx.send("TEST")
         async with self.config.member(member).temp_roles() as tr_entries:
             if tr_entries.get(str(role.id)):
