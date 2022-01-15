@@ -6,6 +6,7 @@ import discord
 
 class lideri_grade(commands.Cog):
     politie_grade = [
+        865215533573341184, # Chestor Sef
         865215532654788648, # Chestor Sef
         900110938563313675, # Comisar Sef
         865215529807904809, # Comisar
@@ -22,6 +23,7 @@ class lideri_grade(commands.Cog):
         908793125475082250  # Rutiera
     ]
     sias_grade = [
+        865215521094631435, # General SIAS
         865215520445431838, # Co-General SIAS
         865215519523209246, # Procuror SIAS
         865215518650531870, # Sub Procuror SIAS
@@ -33,6 +35,7 @@ class lideri_grade(commands.Cog):
         865215513800867850  # Agent SIAS
     ]
     smurd_grade = [
+        865215532654788648, # Chestor Sef
         865215509178875934, # Sef de Statie
         885474291410407444  # Tester SMURD
     ]
@@ -45,7 +48,7 @@ class lideri_grade(commands.Cog):
         865215523080241192, # Politia Romana
         865215512098242570, # SIAS
         865215505023238155, # Medic
-        885162367149809664 # Hitman
+        885162367149809664  # Hitman
     ]
     roluri_lider = [
             865215495623934012, # Araba
