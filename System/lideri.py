@@ -35,7 +35,7 @@ class lideri_grade(commands.Cog):
         865215513800867850  # Agent SIAS
     ]
     smurd_grade = [
-        865215532654788648, # Chestor Sef
+        865215510265331712, # Director SMURD
         865215509178875934, # Sef de Statie
         885474291410407444  # Tester SMURD
     ]
@@ -288,3 +288,24 @@ class lideri_grade(commands.Cog):
                     if ctx.guild.get_role(x)==y:
                         await user.add_roles(ctx.guild.get_role(lideri_grade.roluri_sias[1]))
                         await ctx.send("Am atribuit rolul de Agent Special <@&" + str(lideri_grade.id_factiune[21]) +"> jucatorului <@" + str(user.id) + ">!")
+                        
+    @commands.command(name="smurd", pass_context=True)
+    async def smurd(self, ctx, pozitie, user: discord.Member):
+        if pozitie == "medic":
+            for x in lideri_grade.smurd_grade:
+                for y in ctx.author.roles:
+                    if ctx.guild.get_role(x)==y:
+                        await user.add_roles(ctx.guild.get_role(lideri_grade.roluri_smurd[0]))
+                        await ctx.send("Am atribuit rolul de Medic <@&" + str(lideri_grade.id_factiune[22]) +"> jucatorului <@" + str(user.id) + ">!")
+        if pozitie == "paramedic":
+            for x in lideri_grade.smurd_grade:
+                for y in ctx.author.roles:
+                    if ctx.guild.get_role(x)==y:
+                        await user.add_roles(ctx.guild.get_role(lideri_grade.roluri_smurd[1]))
+                        await ctx.send("Am atribuit rolul de Paramedic <@&" + str(lideri_grade.id_factiune[22]) +"> jucatorului <@" + str(user.id) + ">!")
+        if pozitie == "asistent":
+            for x in lideri_grade.smurd_grade:
+                for y in ctx.author.roles:
+                    if ctx.guild.get_role(x)==y:
+                        await user.add_roles(ctx.guild.get_role(lideri_grade.roluri_smurd[2]))
+                        await ctx.send("Am atribuit rolul de Asistent <@&" + str(lideri_grade.id_factiune[22]) +"> jucatorului <@" + str(user.id) + ">!")
