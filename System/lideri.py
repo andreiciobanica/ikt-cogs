@@ -126,8 +126,8 @@ class lideri_grade(commands.Cog):
         for x in roluri_lider:
             for y in ctx.author.roles:
                 if ctx.guild.get_role(x)==y:
-                    await ctx.message.author.send(x)
-                    #await user.add_roles(roluri_colider[roluri_lider.index(x)])
+                    #await ctx.message.author.send(x)
+                    await user.add_roles(ctx.guild.get_role(roluri_colider[roluri_lider.index(x)]))
             
     #@commands.command(name="tester", pass_context=True)
     #async def grade(self, ctx, user: discord.Member):
