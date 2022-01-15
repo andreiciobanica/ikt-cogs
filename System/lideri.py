@@ -270,7 +270,7 @@ class lideri_grade(commands.Cog):
         message = f"{role.mention} pentru {user.mention} a fost inlaturat."
         await self._maybe_confirm(ctx, message)
         await self._maybe_send_log(ctx.guild, message)
-        await member.remove_roles(role)
+        await user.remove_roles(role)
         #await self._tr_end(user, ctx.guild.get_role(893597206123274241), admin=ctx.author)
 
     @_temp_role.command(name="ramas")
