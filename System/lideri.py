@@ -367,6 +367,7 @@ class lideri_grade(commands.Cog):
         await self._tr_end(member, role)
 
     async def _tr_end(self, member: discord.Member, role: discord.Role, admin=None):
+        ctx.send("TEST")
         async with self.config.member(member).temp_roles() as tr_entries:
             if tr_entries.get(str(role.id)):
                 del tr_entries[str(role.id)]
