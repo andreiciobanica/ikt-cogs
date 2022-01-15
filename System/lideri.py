@@ -122,16 +122,29 @@ class lideri_grade(commands.Cog):
         tz = timezone("Europe/Bucharest")
 
     @commands.command(name="colider", pass_context=True)
-    async def grade(self, ctx, user: discord.Member):
+    async def colider(self, ctx, user: discord.Member):
         for x in lideri_grade.roluri_lider:
             for y in ctx.author.roles:
                 if ctx.guild.get_role(x)==y:
-                    #await ctx.message.author.send(x)
                     await user.add_roles(ctx.guild.get_role(lideri_grade.roluri_colider[lideri_grade.roluri_lider.index(x)]))
-            
-    #@commands.command(name="tester", pass_context=True)
-    #async def grade(self, ctx, user: discord.Member):
-       # role = 440955056750198795
-       # if any(item in roles for item in ctx.author.roles):
-        #    await ctx.message.author.send(role) ---------- roluri_lider.index(x)
-            
+                    
+    @commands.command(name="tester", pass_context=True)
+    async def tester(self, ctx, user: discord.Member):
+        for x in lideri_grade.roluri_lider:
+            for y in ctx.author.roles:
+                if ctx.guild.get_role(x)==y:
+                    await user.add_roles(ctx.guild.get_role(lideri_grade.roluri_tester[lideri_grade.roluri_lider.index(x)]))
+                    
+    @commands.command(name="membru", pass_context=True)
+    async def tester(self, ctx, user: discord.Member):
+        verif = false
+        for x in lideri_grade.roluri_lider:
+            for y in ctx.author.roles:
+                if ctx.guild.get_role(x)==y:
+                    verif = true
+                    await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[lideri_grade.roluri_lider.index(x)]), ctx.guild.get_role(lideri_grade.roluri_membru[lideri_grade.roluri_lider.index(x)]))
+        if !verif:
+            for x in lideri_grade.roluri_colider:
+                for y in ctx.author.roles:
+                    if ctx.guild.get_role(x)==y:
+                        await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[lideri_grade.roluri_lider.index(x)]), ctx.guild.get_role(lideri_grade.roluri_membru[lideri_grade.roluri_lider.index(x)]))
