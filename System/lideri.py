@@ -368,7 +368,6 @@ class lideri_grade(commands.Cog):
 
     async def _tr_end(self, member: discord.Member, role: discord.Role, admin=None):
         async with self.config.member(member).temp_roles() as tr_entries:
-            await self.ctx.send("INTRA")
             if tr_entries.get(str(role.id)):
                 del tr_entries[str(role.id)]
                 reason = "TempRole: timer ended" if not admin else f"TempRole: timer ended early by {admin}"
