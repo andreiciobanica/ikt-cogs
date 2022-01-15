@@ -192,7 +192,7 @@ class lideri_grade(commands.Cog):
         self.bot = bot
         self.config = Config.get_conf(self, identifier=14000605, force_registration=True)
         default_guild = {
-            "log": 932007587711422474,
+            "log": None,
             "confirmation": True,
             "allowed": []
         }
@@ -368,6 +368,7 @@ class lideri_grade(commands.Cog):
 
     async def _tr_end(self, member: discord.Member, role: discord.Role, admin=None):
         async with self.config.member(member).temp_roles() as tr_entries:
+            await self.ctx.send("INTRA")
             if tr_entries.get(str(role.id)):
                 del tr_entries[str(role.id)]
                 reason = "TempRole: timer ended" if not admin else f"TempRole: timer ended early by {admin}"
