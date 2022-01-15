@@ -10,10 +10,8 @@ class lideri_grade(commands.Cog):
         self.bot = bot
         global tz
         tz = timezone("Europe/Bucharest")
-
-    @commands.command(name="colider", pass_context=True)
-    async def grade(self, ctx, user: discord.Member):
         roluri_lider = [
+            ctx.guild.get_role(440955056750198795),
             ctx.guild.get_role(865215495623934012),
             ctx.guild.get_role(865215437531512842),
             ctx.guild.get_role(865215444150648853),
@@ -35,7 +33,6 @@ class lideri_grade(commands.Cog):
             ctx.guild.get_role(929489154079871008),
             ctx.guild.get_role(865215430662291496)
             ]
-        
         roluri_colider = [
             ctx.guild.get_role(865215494813777960),
             ctx.guild.get_role(865215436748750849),
@@ -58,7 +55,6 @@ class lideri_grade(commands.Cog):
             ctx.guild.get_role(929489155854061578),
             ctx.guild.get_role(865215429869961237)
             ]
-
         roluri_tester = [
             ctx.guild.get_role(865215493908463626),
             ctx.guild.get_role(865215435707252737),
@@ -81,7 +77,6 @@ class lideri_grade(commands.Cog):
             ctx.guild.get_role(929489156906836020),
             ctx.guild.get_role(865215429039226890)
             ]
-
         roluri_membru = [
             ctx.guild.get_role(865215492935385118),
             ctx.guild.get_role(865215434935762955),
@@ -104,7 +99,6 @@ class lideri_grade(commands.Cog):
             ctx.guild.get_role(929489157955391498),
             ctx.guild.get_role(865215428170219560)
             ]
-
         id_factiune = [
             ctx.guild.get_role(865215490782789632), # Araba
             ctx.guild.get_role(865215433174155344), # Triads
@@ -127,16 +121,19 @@ class lideri_grade(commands.Cog):
             ctx.guild.get_role(929489158584545372), # Loz Aztecas
             ctx.guild.get_role(931739070688817212) # Hitman
             ]
+
+    @commands.command(name="colider", pass_context=True)
+    async def grade(self, ctx, user: discord.Member):
         
-        for x in roles:
+        for x in roluri_lider:
             for y in ctx.author.roles:
                 if x==y:
-                    await ctx.message.author.send(roles.index(x))
+                    await ctx.add_roles(ctx.guild.get_role(440955553812971530))
                     break
             
     #@commands.command(name="tester", pass_context=True)
     #async def grade(self, ctx, user: discord.Member):
        # role = 440955056750198795
        # if any(item in roles for item in ctx.author.roles):
-        #    await ctx.message.author.send(role)
+        #    await ctx.message.author.send(role) ---------- roles.index(x)
             
