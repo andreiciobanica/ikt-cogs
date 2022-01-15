@@ -6,7 +6,7 @@ import discord
 
 class lideri_grade(commands.Cog):
 
-    def __init__(self, bot, *args, **kwargs):
+    def __init__(self, bot, ctx, *args, **kwargs):
         self.bot = bot
         global tz
         tz = timezone("Europe/Bucharest")
