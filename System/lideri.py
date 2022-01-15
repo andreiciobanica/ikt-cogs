@@ -138,7 +138,7 @@ class lideri_grade(commands.Cog):
                     await ctx.send("Am atribuit rolul de TESTER <@&" + str(lideri_grade.id_factiune[lideri_grade.roluri_lider.index(x)]) +"> jucatorului <@" + str(user.id) + ">!")
                     
     @commands.command(name="membru", pass_context=True)
-    async def tester(self, ctx, user: discord.Member):
+    async def membru(self, ctx, user: discord.Member):
         verif = False
         for x in lideri_grade.roluri_lider:
             for y in ctx.author.roles:
