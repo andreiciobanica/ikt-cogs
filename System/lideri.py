@@ -6,7 +6,7 @@ import discord
 
 class lideri_grade(commands.Cog):
     politie_grade = [
-        865215533573341184, # Chestor Sef
+        865215533573341184, # Lider Politie
         865215532654788648, # Chestor Sef
         900110938563313675, # Comisar Sef
         865215529807904809, # Comisar
