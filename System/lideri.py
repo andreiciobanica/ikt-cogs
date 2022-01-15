@@ -192,7 +192,7 @@ class lideri_grade(commands.Cog):
         self.bot = bot
         self.config = Config.get_conf(self, identifier=14000605, force_registration=True)
         default_guild = {
-            "log": None,
+            "log": 932007587711422474,
             "confirmation": True,
             "allowed": []
         }
