@@ -165,7 +165,7 @@ class lideri_grade(commands.Cog):
             929489120433147905, # Crips
             929489158584545372, # Loz Aztecas
             931739070688817212, # Hitman
-            865215523586048001, # Politie
+            865215523586048001, # Politia Romana
             865215512602345473, # SIAS
             931916048817586188  # SMURD
             ]
@@ -193,27 +193,44 @@ class lideri_grade(commands.Cog):
                     
     @commands.command(name="membru", pass_context=True)
     async def membru(self, ctx, tip_factiune, user: discord.Member):
-        if(tip_factiune == "pasnica"):
-            await ctx.send("Test")
-        else:
-            verif = False
-            for x in lideri_grade.roluri_lider:
-                for y in ctx.author.roles:
-                    if ctx.guild.get_role(x)==y:
-                        verif = True
-                        await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[lideri_grade.roluri_lider.index(x)]), ctx.guild.get_role(lideri_grade.roluri_membru[lideri_grade.roluri_lider.index(x)]), ctx.guild.get_role(865215401470066708))
-                        await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[lideri_grade.roluri_lider.index(x)]) +"> jucatorului <@" + str(user.id) + ">!")
-            if not verif:
-                for x in lideri_grade.roluri_colider:
+        if tip_factiune == "politie":
+                for x in lideri_grade.politie_grade:
+                    for y in ctx.author.roles:
+                        if ctx.guild.get_role(x)==y:
+                            await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[20]), ctx.guild.get_role(lideri_grade.roluri_politie[2]))
+                            await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[20]) +"> jucatorului <@" + str(user.id) + ">!")
+        elif tip_factiune == "sias":
+                for x in lideri_grade.sias_grade:
+                    for y in ctx.author.roles:
+                        if ctx.guild.get_role(x)==y:
+                            await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[21]), ctx.guild.get_role(lideri_grade.roluri_sias[2]))
+                            await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[21]) +"> jucatorului <@" + str(user.id) + ">!")
+        elif tip_factiune == "smurd":
+            for x in lideri_grade.sias_grade:
+                    for y in ctx.author.roles:
+                        if ctx.guild.get_role(x)==y:
+                            await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[22]), ctx.guild.get_role(lideri_grade.roluri_smurd[2]))
+                            await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[22]) +"> jucatorului <@" + str(user.id) + ">!")
+        elif tip_factiune == 'ilegala':
+            if any(item in lideri_grade.roluri_lider-3 for item in ctx.author.roles) or any(item in lideri_grade.roluri_tester-3 for item in ctx.author.roles) any(item in lideri_grade.roluri_colider-3 for item in ctx.author.roles):
+                verif = False
+                for x in lideri_grade.roluri_lider:
                     for y in ctx.author.roles:
                         if ctx.guild.get_role(x)==y:
                             verif = True
-                            await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[lideri_grade.roluri_colider.index(x)]), ctx.guild.get_role(lideri_grade.roluri_membru[lideri_grade.roluri_colider.index(x)]), ctx.guild.get_role(865215401470066708))
-                            await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[lideri_grade.roluri_colider.index(x)]) +"> jucatorului <@" + str(user.id) + ">!")
-            if not verif:
-                for x in lideri_grade.roluri_tester:
-                    for y in ctx.author.roles:
-                        if ctx.guild.get_role(x)==y:
-                            verif = True
-                            await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[lideri_grade.roluri_tester.index(x)]), ctx.guild.get_role(lideri_grade.roluri_membru[lideri_grade.roluri_tester.index(x)]), ctx.guild.get_role(865215401470066708))
-                            await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[lideri_grade.roluri_tester.index(x)]) +"> jucatorului <@" + str(user.id) + ">!")
+                            await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[lideri_grade.roluri_lider.index(x)]), ctx.guild.get_role(lideri_grade.roluri_membru[lideri_grade.roluri_lider.index(x)]), ctx.guild.get_role(865215401470066708))
+                            await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[lideri_grade.roluri_lider.index(x)]) +"> jucatorului <@" + str(user.id) + ">!")
+                if not verif:
+                    for x in lideri_grade.roluri_colider:
+                        for y in ctx.author.roles:
+                            if ctx.guild.get_role(x)==y:
+                                verif = True
+                                await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[lideri_grade.roluri_colider.index(x)]), ctx.guild.get_role(lideri_grade.roluri_membru[lideri_grade.roluri_colider.index(x)]), ctx.guild.get_role(865215401470066708))
+                                await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[lideri_grade.roluri_colider.index(x)]) +"> jucatorului <@" + str(user.id) + ">!")
+                if not verif:
+                    for x in lideri_grade.roluri_tester:
+                        for y in ctx.author.roles:
+                            if ctx.guild.get_role(x)==y:
+                                verif = True
+                                await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[lideri_grade.roluri_tester.index(x)]), ctx.guild.get_role(lideri_grade.roluri_membru[lideri_grade.roluri_tester.index(x)]), ctx.guild.get_role(865215401470066708))
+                                await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[lideri_grade.roluri_tester.index(x)]) +"> jucatorului <@" + str(user.id) + ">!")
