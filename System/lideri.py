@@ -254,6 +254,7 @@ class lideri_grade(commands.Cog):
         await self._maybe_send_log(ctx.guild, message)
         await self._tr_timer(user, role, end_time.timestamp())
 
+    @commands.admin_or_permissions(manage_roles=True)
     @commands.bot_has_permissions(manage_roles=True)
     @_temp_role.command(name="elimina")
     async def _remove(self, ctx: commands.Context, user: discord.Member):
@@ -271,7 +272,7 @@ class lideri_grade(commands.Cog):
         await self._maybe_send_log(ctx.guild, message)
         await self._tr_end(user, role, admin=ctx.author)
 
-    @_temp_role.command(name="remaining")
+    @_temp_role.command(name="ramas")
     async def _remaining(self, ctx: commands.Context):
         """Verifica cat timp mai ai somaj."""
         role = ctx.guild.get_role(893597206123274241)
