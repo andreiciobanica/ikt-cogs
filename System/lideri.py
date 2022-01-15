@@ -604,6 +604,3 @@ class lideri_grade(commands.Cog):
                     await user.add_roles(ctx.guild.get_role(893597206123274241))
                     await ctx.send("L-am bagat in SOMAJ pe jucatorul <@" + str(user.id) + "> pentru **" + str(durata_zile) + " zile**" + "!")
                     
-    @commands.command(name="listasomaj", pass_context=True)
-    async def listasomaj(self, ctx):
-                    
