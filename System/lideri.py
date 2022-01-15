@@ -270,8 +270,8 @@ class lideri_grade(commands.Cog):
         message = f"{role.mention} pentru {user.mention} a fost inlaturat."
         await self._maybe_confirm(ctx, message)
         await self._maybe_send_log(ctx.guild, message)
-        #await user.remove_roles(role)
-        await self._tr_end(ctx, user, role, admin=ctx.author)
+        await user.remove_roles(role)
+        await self._tr_end(user, role, admin=ctx.author)
 
     @_temp_role.command(name="ramas")
     async def _remaining(self, ctx: commands.Context):
@@ -345,7 +345,7 @@ class lideri_grade(commands.Cog):
                 allowed_mentions=discord.AllowedMentions.none()
             )
 
-    async def _tr_handler(self, ctx: commands.Context):
+    async def _tr_handler(self):
         await self.bot.wait_until_red_ready()
         try:
             tr_coros = []
@@ -355,19 +355,18 @@ class lideri_grade(commands.Cog):
                     member: discord.Member = guild.get_member(int(member_id))
                     for tr, ts in temp_roles["temp_roles"].items():
                         role: discord.Role = guild.get_role(int(tr))
-                        tr_coros.append(self._tr_timer(ctx, member, role, ts))
+                        tr_coros.append(self._tr_timer(member, role, ts))
             await asyncio.gather(*tr_coros)
         except Exception:
             pass
 
-    async def _tr_timer(self, ctx: commands.Context, member: discord.Member, role: discord.Role, end_timestamp: float):
+    async def _tr_timer(self, member: discord.Member, role: discord.Role, end_timestamp: float):
         seconds_left = (datetime.fromtimestamp(end_timestamp) - datetime.now()).total_seconds()
         if seconds_left > 0:
             await asyncio.sleep(seconds_left)
-        await self._tr_end(ctx, member, role)
+        await self._tr_end(member, role)
 
-    async def _tr_end(self, ctx: commands.Context, member: discord.Member, role: discord.Role, admin=None):
-        ctx.send("TEST")
+    async def _tr_end(self, member: discord.Member, role: discord.Role, admin=None):
         async with self.config.member(member).temp_roles() as tr_entries:
             if tr_entries.get(str(role.id)):
                 del tr_entries[str(role.id)]
