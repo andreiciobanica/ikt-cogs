@@ -137,11 +137,11 @@ class lideri_grade(commands.Cog):
                     
     @commands.command(name="membru", pass_context=True)
     async def tester(self, ctx, user: discord.Member):
-        verif = false
+        verif = False
         for x in lideri_grade.roluri_lider:
             for y in ctx.author.roles:
                 if ctx.guild.get_role(x)==y:
-                    verif = true
+                    verif = True
                     await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[lideri_grade.roluri_lider.index(x)]), ctx.guild.get_role(lideri_grade.roluri_membru[lideri_grade.roluri_lider.index(x)]))
         if not verif:
             for x in lideri_grade.roluri_colider:
