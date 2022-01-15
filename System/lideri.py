@@ -38,7 +38,7 @@ class lideri_grade(commands.Cog):
             ]
         
         if any(item in roles for item in ctx.author.roles):
-            await ctx.message.author.send(roles.index(item))
+            await ctx.message.author.send(item)
             
     #@commands.command(name="tester", pass_context=True)
     #async def grade(self, ctx, user: discord.Member):
