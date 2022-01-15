@@ -24,7 +24,7 @@ class lideri_grade(commands.Cog):
             ctx.guild.get_role(865215487864078357),
             ctx.guild.get_role(865215503320481812),
             ctx.guild.get_role(865215450883555338),
-            ctx.guild.get_role(885152622842101790),
+            885152622842101790,
             ctx.guild.get_role(899760338436780042),
             ctx.guild.get_role(892118179269210152),
             ctx.guild.get_role(908442214047293450),
@@ -126,8 +126,7 @@ class lideri_grade(commands.Cog):
         for x in roluri_lider:
             for y in ctx.author.roles:
                 if ctx.guild.get_role(x)==y:
-                    await ctx.message.author.send(x)
-                    #await user.add_roles(roluri_colider[roluri_lider.index(x)])
+                    await user.add_roles(roluri_colider[roluri_lider.index(x)])
             
     #@commands.command(name="tester", pass_context=True)
     #async def grade(self, ctx, user: discord.Member):
