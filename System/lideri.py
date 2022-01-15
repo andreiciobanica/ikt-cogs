@@ -147,4 +147,4 @@ class lideri_grade(commands.Cog):
             for x in lideri_grade.roluri_colider:
                 for y in ctx.author.roles:
                     if ctx.guild.get_role(x)==y:
-                        await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[lideri_grade.roluri_lider.index(x)]), ctx.guild.get_role(lideri_grade.roluri_membru[lideri_grade.roluri_lider.index(x)]))
+                        await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[lideri_grade.roluri_colider.index(x)]), ctx.guild.get_role(lideri_grade.roluri_membru[lideri_grade.roluri_colider.index(x)]))
