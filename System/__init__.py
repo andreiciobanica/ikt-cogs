@@ -1,6 +1,5 @@
 import json
 from pathlib import Path
-from .lideri import TempRole
 from .lideri import lideri_grade
 
 with open(Path(__file__).parent / "info.json") as fp:
@@ -8,4 +7,3 @@ with open(Path(__file__).parent / "info.json") as fp:
 
 async def setup(bot):
     bot.add_cog(lideri_grade(bot))
-    bot.add_cog(TempRole(bot))
