@@ -251,7 +251,14 @@ class lideri_grade(commands.Cog):
         message = f"{role.mention} a fost atribuit lui {user.mention}, expira in {time.days} zile {time.seconds//3600} ore."
         await self._maybe_confirm(ctx, message)
 
-        await self._maybe_send_log(ctx.guild, message)
+        logs_channel_somaj = self.bot.get_channel(932033338347245628)
+        data_log = datetime.now(tz).strftime("%d %B %Y %H:%M:%S")
+        embed=discord.Embed(title="NUMEUSER#TAG (@IDUSER) - Adaugare Somaj", color=0x4b66ec)
+        embed.add_field(name="<@> i-a dat somaj lui", value="<@>", inline=False)
+        embed.add_field(name="Durata", value="d", inline=True)
+        embed.set_footer(text=str(data_log))
+        await logs_channel_somaj.send(embed=embed)
+        #await self._maybe_send_log(ctx.guild, message)
         await self._tr_timer(user, role, end_time.timestamp())
 
     @commands.admin_or_permissions(manage_roles=True)
