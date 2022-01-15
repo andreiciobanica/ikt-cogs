@@ -271,19 +271,6 @@ class lideri_grade(commands.Cog):
         await self._maybe_send_log(ctx.guild, message)
         await self._tr_end(user, role, admin=ctx.author)
 
-    @_self_role.command(name="list")
-    async def _self_list(self, ctx: commands.Context):
-        """List the available TempRoles you can assign to yourself."""
-        allowed = await self.config.guild(ctx.guild).allowed()
-        roles = []
-        for r in allowed:
-            if role := ctx.guild.get_role(r):
-                roles.append(role.name)
-        if roles:
-            return await ctx.send(f"Self-TempRoles for this server: {humanize_list(roles)}.")
-        else:
-            return await ctx.send("No self-TempRoles have been set up in this server yet.")
-
     @_temp_role.command(name="remaining")
     async def _remaining(self, ctx: commands.Context, role: discord.Role):
         """See the time remaining for your TempRole."""
