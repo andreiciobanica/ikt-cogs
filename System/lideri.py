@@ -267,21 +267,10 @@ class lideri_grade(commands.Cog):
     @commands.admin_or_permissions(manage_roles=True)
     @commands.bot_has_permissions(manage_roles=True)
     @_temp_role.command(name="elimina")
-    async def _remove(self, ctx: commands.Context, user: discord.Member):
+    async def _remove(self, ctx: commands.Context, user: discord.Member, role: discord.Role):
         """Scoate din somaj un jucator."""
-        role = ctx.guild.get_role(893597206123274241)
-        async with self.config.member(user).temp_roles() as user_tr:
-            if not (user_tr.get(str(role.id))):
-                return await ctx.send(
-                    f"That is not an active TempRole for {user.mention}.",
-                    allowed_mentions=discord.AllowedMentions.none()
-                )
-        message = f"{role.mention} pentru {user.mention} a fost inlaturat."
-        await self._maybe_confirm(ctx, message)
-        await self._maybe_send_log(ctx.guild, message)
-        #await user.remove_roles(role)
-        await self._tr_end(user, role, admin=ctx.author)
-        del user_tr[str(role.id)]
+        await self._tr_end(user, role, remover=ctx.author, ctx=ctx)
+        await self._maybe_confirm(ctx, f"{role.mention} pentru {user.mention} a fost inlaturat.")
 
     @_temp_role.command(name="ramas")
     async def _remaining(self, ctx: commands.Context):
@@ -376,28 +365,30 @@ class lideri_grade(commands.Cog):
             await asyncio.sleep(seconds_left)
         await self._tr_end(member, role)
 
-    async def _tr_end(self, member: discord.Member, role: discord.Role, admin=None):
+    async def _tr_end(self, member: discord.Member, role: discord.Role, remover=None, ctx=None):
         async with self.config.member(member).temp_roles() as tr_entries:
             if tr_entries.get(str(role.id)):
                 del tr_entries[str(role.id)]
-                reason = "TempRole: timer ended" if not admin else f"TempRole: timer ended early by {admin}"
+                reason = "Somer: timpul s-a scurs" if not remover else f"Somer: scos de catre {remover}"
                 if member.guild.me.guild_permissions.manage_roles and role < member.guild.me.top_role:
                     if role in member.roles:
-                        await member.remove_roles(role)
+                        await member.remove_roles(role, reason=reason)
                         await self._maybe_send_log(
                             member.guild,
-                            f"TempRole {role.mention} for {member.mention} has been removed."
+                            f"{role.mention} pentru {member.mention} a fost inlaturat."
                         )
                     else:
                         await self._maybe_send_log(
                             member.guild,
-                            f"TempRole {role.mention} for {member.mention} ended, but the role had already been removed."
+                            f"Perioada de {role.mention} pentru {member.mention} s-a incheiat, rolul v-a fost sters."
                         )
                 else:
                     await self._maybe_send_log(
                         member.guild,
-                        f"TempRole {role.mention} for {member.mention} was unable to be removed due to a lack of permissions."
+                        f"{role.mention} pentru {member.mention} nu a putut fi atribuit din cauza absentelor unor permisiuni."
                     )
+            elif ctx:
+                await ctx.send(f"Error: that is not an active TempRole.")
 
     @commands.command(name="colider", pass_context=True)
     async def colider(self, ctx, user: discord.Member):
