@@ -5,15 +5,7 @@ from pytz import timezone
 import discord
 
 class lideri_grade(commands.Cog):
-
-    def __init__(self, bot, *args, **kwargs):
-        self.bot = bot
-        global tz
-        tz = timezone("Europe/Bucharest")
-
-    @commands.command(name="colider", pass_context=True)
-    async def grade(self, ctx, user: discord.Member):
-        roluri_lider = [
+    roluri_lider = [
             865215495623934012, # Araba
             865215437531512842, # Triads
             865215444150648853, # OTF
@@ -35,7 +27,7 @@ class lideri_grade(commands.Cog):
             929489154079871008, # Loz Aztecas
             865215430662291496  # Hitman
             ]
-        roluri_colider = [
+    roluri_colider = [
             865215494813777960, # Araba
             865215436748750849, # Triads
             865215443546537995, # OTF
@@ -57,7 +49,7 @@ class lideri_grade(commands.Cog):
             929489155854061578, # Loz Aztecas
             865215429869961237  # Hitman
             ]
-        roluri_tester = [
+    roluri_tester = [
             865215493908463626, # Araba
             865215435707252737, # Triads
             865215442721570846, # OTF
@@ -79,7 +71,7 @@ class lideri_grade(commands.Cog):
             929489156906836020, # Loz Aztecas
             865215429039226890  # Hitman
             ]
-        roluri_membru = [
+    roluri_membru = [
             865215492935385118, # Araba
             865215434935762955, # Triads
             865215441818222592, # OTF
@@ -101,7 +93,7 @@ class lideri_grade(commands.Cog):
             929489157955391498, # Loz Aztecas
             865215428170219560  # Hitman
             ]
-        id_factiune = [
+    id_factiune = [
             865215490782789632, # Araba
             865215433174155344, # Triads
             865215440182706196, # OTF
@@ -123,6 +115,14 @@ class lideri_grade(commands.Cog):
             929489158584545372, # Loz Aztecas
             931739070688817212  # Hitman
             ]
+
+    def __init__(self, bot, *args, **kwargs):
+        self.bot = bot
+        global tz
+        tz = timezone("Europe/Bucharest")
+
+    @commands.command(name="colider", pass_context=True)
+    async def grade(self, ctx, user: discord.Member):
         for x in roluri_lider:
             for y in ctx.author.roles:
                 if ctx.guild.get_role(x)==y:
