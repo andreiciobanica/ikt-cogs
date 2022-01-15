@@ -47,7 +47,7 @@ class lideri_grade(commands.Cog):
         865215515210416179, # Coordonator SIAS
         865215514624131072, # Agent Special SIAS
         865215513800867850, # Agent SIAS
-        931961302342058104, # Recrut SIAS
+        931961302342058104  # Recrut SIAS
     ]
     smurd_grade = [
         865215510265331712, # Director SMURD
@@ -581,7 +581,7 @@ class lideri_grade(commands.Cog):
             for x in lideri_grade.sias_grade:
                 for y in ctx.author.roles:
                     if ctx.guild.get_role(x)==y:
-                        await user.add_roles(ctx.guild.get_role(lideri_grade.roluri_sias[0]))
+                        await user.add_roles(ctx.guild.get_role(lideri_grade.roluri_sias[3]))
                         await ctx.send("Am atribuit rolul de Coordonator <@&" + str(lideri_grade.id_factiune[21]) +"> jucatorului <@" + str(user.id) + ">!")
   
 
