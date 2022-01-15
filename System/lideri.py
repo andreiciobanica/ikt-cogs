@@ -37,12 +37,14 @@ class lideri_grade(commands.Cog):
             ctx.guild.get_role(865215430662291496)
             ]
         
-        if any(item in roles for item in ctx.author.roles):
-            await ctx.message.author.send(item)
+        for x in roles:
+            for y in ctx.author.roles:
+                if x==y:
+                    await ctx.message.author.send(x)
             
     #@commands.command(name="tester", pass_context=True)
     #async def grade(self, ctx, user: discord.Member):
        # role = 440955056750198795
-       # if ctx.guild.get_role(role) in ctx.author.roles:
+       # if any(item in roles for item in ctx.author.roles):
         #    await ctx.message.author.send(role)
             
