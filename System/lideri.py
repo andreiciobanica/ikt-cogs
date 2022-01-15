@@ -203,7 +203,8 @@ class lideri_grade(commands.Cog):
         
         self.tr_handler_task = self.bot.loop.create_task(self._tr_handler())
         
-        def cog_unload(self):
+        
+    def cog_unload(self):
         self.tr_handler_task.cancel()
 
     @commands.guild_only()
