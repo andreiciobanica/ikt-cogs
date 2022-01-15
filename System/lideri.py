@@ -271,69 +271,6 @@ class lideri_grade(commands.Cog):
         await self._maybe_send_log(ctx.guild, message)
         await self._tr_end(user, role, admin=ctx.author)
 
-    @commands.bot_has_permissions(manage_roles=True)
-    @_temp_role.group(name="self")
-    async def _self_role(self, ctx: commands.Context):
-        """Self-TempRoles"""
-
-    @commands.admin_or_permissions(manage_roles=True)
-    @_self_role.command(name="allow")
-    async def _allow(self, ctx: commands.Context, *roles: discord.Role):
-        """Set the TempRoles all users are allowed to add to themselves (leave blank to remove)."""
-        for role in roles:
-            if role >= ctx.guild.me.top_role or (role >= ctx.author.top_role and ctx.author != ctx.guild.owner):
-                return await ctx.send(f"{role.name} cannot be assigned due to the Discord role hierarchy!")
-        await self.config.guild(ctx.guild).allowed.set([r.id for r in roles])
-        return await ctx.tick()
-
-    @_self_role.command(name="add")
-    async def _self_add(self, ctx: commands.Context, role: discord.Role, *, time: TimeConverter):
-        """Add a TempRole to yourself."""
-        if role.id not in await self.config.guild(ctx.guild).allowed():
-            return await ctx.send("That is not a valid self-TempRole!")
-
-        async with self.config.member(ctx.author).temp_roles() as user_tr:
-            if user_tr.get(str(role.id)):
-                return await ctx.send(
-                    f"That is already an active self-TempRole!",
-                    allowed_mentions=discord.AllowedMentions.none()
-                )
-            try:
-                end_time = datetime.now() + time
-            except OverflowError:
-                return await ctx.send(OVERFLOW_ERROR)
-            user_tr[str(role.id)] = end_time.timestamp()
-
-        if role < ctx.guild.me.top_role:
-            if role not in ctx.author.roles:
-                await ctx.author.add_roles(
-                    role,
-                    reason=f"TempRole: added by {ctx.author}, expires in {time.days}d {time.seconds//3600}h"
-                )
-            else:
-                return await ctx.send("You already have this role!")
-        else:
-            return await ctx.send("I cannot assign this role!")
-
-        message = f"Self-TempRole {role.mention} has been added. Expires in {time.days} days {time.seconds//3600} hours."
-        await self._maybe_confirm(ctx, message)
-
-        await self._maybe_send_log(ctx.guild, message)
-        await self._tr_timer(ctx.author, role, end_time.timestamp())
-
-    @_self_role.command(name="list")
-    async def _self_list(self, ctx: commands.Context):
-        """List the available TempRoles you can assign to yourself."""
-        allowed = await self.config.guild(ctx.guild).allowed()
-        roles = []
-        for r in allowed:
-            if role := ctx.guild.get_role(r):
-                roles.append(role.name)
-        if roles:
-            return await ctx.send(f"Self-TempRoles for this server: {humanize_list(roles)}.")
-        else:
-            return await ctx.send("No self-TempRoles have been set up in this server yet.")
-
     @_temp_role.command(name="remaining")
     async def _remaining(self, ctx: commands.Context, role: discord.Role):
         """See the time remaining for your TempRole."""
