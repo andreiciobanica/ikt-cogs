@@ -127,7 +127,7 @@ class lideri_grade(commands.Cog):
             for y in ctx.author.roles:
                 if ctx.guild.get_role(x)==y:
                     await user.add_roles(ctx.guild.get_role(lideri_grade.roluri_colider[lideri_grade.roluri_lider.index(x)]))
-                    await ctx.send("TEST")
+                    await ctx.send("Am atribuit rolul de COLIDER <@&" + lideri_grade.id_factiune[lideri_grade.roluri_lider.index(x)]) +"> jucatorului <@" + user + ">!")
                     
     @commands.command(name="tester", pass_context=True)
     async def tester(self, ctx, user: discord.Member):
@@ -135,7 +135,7 @@ class lideri_grade(commands.Cog):
             for y in ctx.author.roles:
                 if ctx.guild.get_role(x)==y:
                     await user.add_roles(ctx.guild.get_role(lideri_grade.roluri_tester[lideri_grade.roluri_lider.index(x)]))
-                    await ctx.send("TEST")
+                    await ctx.send("Am atribuit rolul de TESTER <@&" + lideri_grade.id_factiune[lideri_grade.roluri_lider.index(x)]) +"> jucatorului <@" + user + ">!")
                     
     @commands.command(name="membru", pass_context=True)
     async def tester(self, ctx, user: discord.Member):
@@ -145,10 +145,10 @@ class lideri_grade(commands.Cog):
                 if ctx.guild.get_role(x)==y:
                     verif = True
                     await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[lideri_grade.roluri_lider.index(x)]), ctx.guild.get_role(lideri_grade.roluri_membru[lideri_grade.roluri_lider.index(x)]))
-                    await ctx.send("TEST")
+                    await ctx.send("Am atribuit rolul de MEMBRU <@&" + lideri_grade.id_factiune[lideri_grade.roluri_lider.index(x)]) +"> jucatorului <@" + user + ">!")
         if not verif:
             for x in lideri_grade.roluri_colider:
                 for y in ctx.author.roles:
                     if ctx.guild.get_role(x)==y:
                         await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[lideri_grade.roluri_colider.index(x)]), ctx.guild.get_role(lideri_grade.roluri_membru[lideri_grade.roluri_colider.index(x)]))
-                        await ctx.send("TEST")
+                        await ctx.send("Am atribuit rolul de MEMBRU <@&" + lideri_grade.id_factiune[lideri_grade.roluri_colider.index(x)]) +"> jucatorului <@" + user + ">!")
