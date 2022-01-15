@@ -267,8 +267,9 @@ class lideri_grade(commands.Cog):
     @commands.admin_or_permissions(manage_roles=True)
     @commands.bot_has_permissions(manage_roles=True)
     @_temp_role.command(name="elimina")
-    async def _remove(self, ctx: commands.Context, user: discord.Member, role: discord.Role):
+    async def _remove(self, ctx: commands.Context, user: discord.Member):
         """Scoate din somaj un jucator."""
+        role = ctx.guild.get_role(893597206123274241)
         await self._tr_end(user, role, remover=ctx.author, ctx=ctx)
         await self._maybe_confirm(ctx, f"{role.mention} pentru {user.mention} a fost inlaturat.")
 
