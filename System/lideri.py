@@ -5,6 +5,23 @@ from pytz import timezone
 import discord
 
 class lideri_grade(commands.Cog):
+    politie = [
+        865215532654788648, # Chestor Sef
+        900110938563313675, # Comisar Sef
+        865215529807904809, # Comisar
+        865215529039953923, # Sub Comisar
+        865215528472805416, # Tester
+    ]
+    sias = [
+        865215520445431838, # Co-General SIAS
+        865215519523209246, # Procuror SIAS
+        865215518650531870, # Sub Procuror SIAS
+        865215516507504641  # Tester
+    ]
+    smurd = [
+        865215509178875934, # Sef de Statie
+        885474291410407444, # Tester SMURD
+    ]
     roluri_lider = [
             865215495623934012, # Araba
             865215437531512842, # Triads
@@ -25,7 +42,10 @@ class lideri_grade(commands.Cog):
             929494693585227856, # Cosa Nostra
             929489148987981824, # Crips
             929489154079871008, # Loz Aztecas
-            865215430662291496  # Hitman
+            865215430662291496,  # Hitman
+            865215533573341184, # Politie
+            865215521094631435, # SIAS
+            865215510265331712  # SMURD
             ]
     roluri_colider = [
             865215494813777960, # Araba
@@ -47,7 +67,7 @@ class lideri_grade(commands.Cog):
             929489167438708806, # Cosa Nostra
             929489144936271893, # Crips
             929489155854061578, # Loz Aztecas
-            865215429869961237  # Hitman
+            865215429869961237, # Hitman
             ]
     roluri_tester = [
             865215493908463626, # Araba
@@ -69,7 +89,7 @@ class lideri_grade(commands.Cog):
             929489166494998578, # Cosa Nostra
             929489137231343656, # Crips
             929489156906836020, # Loz Aztecas
-            865215429039226890  # Hitman
+            865215429039226890, # Hitman
             ]
     roluri_membru = [
             865215492935385118, # Araba
@@ -113,7 +133,10 @@ class lideri_grade(commands.Cog):
             929489164850831400, # Cosa Nostra
             929489120433147905, # Crips
             929489158584545372, # Loz Aztecas
-            931739070688817212  # Hitman
+            931739070688817212, # Hitman
+            865215523586048001, # Politie
+            865215512602345473, # SIAS
+            931916048817586188  # SMURD
             ]
 
     def __init__(self, bot, *args, **kwargs):
