@@ -13,7 +13,7 @@ class lideri_grade(commands.Cog):
 
     @commands.command(name="grade")
     async def grade(self, ctx):
-        await ctx.message.author.send(author.roles)
+        await ctx.message.author.send(message.author.roles)
         
     
     
