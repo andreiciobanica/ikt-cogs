@@ -202,7 +202,7 @@ class lideri_grade(commands.Cog):
         self.config.register_guild(**default_guild)
         self.config.register_member(**default_member)
         
-        self.tr_handler_task = self.bot.loop.create_task(self._tr_handler())
+        self.tr_handler_task = self.bot.loop.create_task(self._tr_handler(commands.Context))
         
         
     def cog_unload(self):
