@@ -46,7 +46,8 @@ class lideri_grade(commands.Cog):
     roluri_sias = [
         865215515210416179, # Coordonator SIAS
         865215514624131072, # Agent Special SIAS
-        865215513800867850  # Agent SIAS
+        865215513800867850, # Agent SIAS
+        931961302342058104, # Recrut SIAS
     ]
     smurd_grade = [
         865215510265331712, # Director SMURD
@@ -208,20 +209,20 @@ class lideri_grade(commands.Cog):
         self.tr_handler_task.cancel()
 
     @commands.guild_only()
-    @commands.group(name="temprole")
+    @commands.group(name="somaj")
     async def _temp_role(self, ctx: commands.Context):
-        """TempRole Commands"""
+        """somaj Commands"""
 
     @commands.bot_has_permissions(manage_roles=True)
     @commands.admin_or_permissions(manage_roles=True)
-    @_temp_role.command(name="add")
-    async def _add(self, ctx: commands.Context, user: discord.Member, role: discord.Role, *, time: TimeConverter):
+    @_temp_role.command(name="adauga")
+    async def _adauga(self, ctx: commands.Context, user: discord.Member, role: discord.Role, *, time: TimeConverter):
         """
         Assign a temporary role to expire after a time.
         For the time, enter in terms of weeks (w), days (d), and/or hours (h).
         """
         if role in user.roles:
-            return await ctx.send(f"That user already has {role.mention}!")
+            return await ctx.send(f"Acel jucator are deja {role.mention}!")
 
         if role >= ctx.guild.me.top_role or (role >= ctx.author.top_role and ctx.author != ctx.guild.owner):
             return await ctx.send("That role cannot be assigned due to the Discord role hierarchy!")
@@ -242,10 +243,10 @@ class lideri_grade(commands.Cog):
             if role not in user.roles:
                 await user.add_roles(
                     role,
-                    reason=f"TempRole: added by {ctx.author}, expires in {time.days}d {time.seconds//3600}h"
+                    reason=f"Somaj: dat de {ctx.author}, expira in {time.days}d {time.seconds//3600}h"
                 )
         else:
-            return await ctx.send("I cannot assign this role!")
+            return await ctx.send("Nu pot sa atribui acest rol!")
 
         message = f"TempRole {role.mention} for {user.mention} has been added. Expires in {time.days} days {time.seconds//3600} hours."
         await self._maybe_confirm(ctx, message)
@@ -269,71 +270,6 @@ class lideri_grade(commands.Cog):
         await self._maybe_confirm(ctx, message)
         await self._maybe_send_log(ctx.guild, message)
         await self._tr_end(user, role, admin=ctx.author)
-
-    @commands.bot_has_permissions(manage_roles=True)
-    @_temp_role.group(name="self")
-    async def _self_role(self, ctx: commands.Context):
-        """Self-TempRoles"""
-
-    @commands.admin_or_permissions(manage_roles=True)
-    @_self_role.command(name="allow")
-    async def _allow(self, ctx: commands.Context, *roles: discord.Role):
-        """Set the TempRoles all users are allowed to add to themselves (leave blank to remove)."""
-        for role in roles:
-            if role >= ctx.guild.me.top_role or (role >= ctx.author.top_role and ctx.author != ctx.guild.owner):
-                return await ctx.send(f"{role.name} cannot be assigned due to the Discord role hierarchy!")
-        await self.config.guild(ctx.guild).allowed.set([r.id for r in roles])
-        return await ctx.tick()
-
-    @_self_role.command(name="add")
-    async def _self_add(self, ctx: commands.Context, role: discord.Role, *, time: TimeConverter):
-        """Add a TempRole to yourself."""
-        if role.id not in await self.config.guild(ctx.guild).allowed():
-            return await ctx.send("That is not a valid self-TempRole!")
-
-        async with self.config.member(ctx.author).temp_roles() as user_tr:
-            if user_tr.get(str(role.id)):
-                return await ctx.send(
-                    f"That is already an active self-TempRole!",
-                    allowed_mentions=discord.AllowedMentions.none()
-                )
-            try:
-                end_time = datetime.now() + time
-            except OverflowError:
-                return await ctx.send(OVERFLOW_ERROR)
-            user_tr[str(role.id)] = end_time.timestamp()
-
-        if role < ctx.guild.me.top_role:
-            if role not in ctx.author.roles:
-                await ctx.author.add_roles(
-                    role,
-                    reason=f"TempRole: added by {ctx.author}, expires in {time.days}d {time.seconds//3600}h"
-                )
-            else:
-                return await ctx.send("You already have this role!")
-        else:
-            return await ctx.send("I cannot assign this role!")
-
-        message = f"Self-TempRole {role.mention} has been added. Expires in {time.days} days {time.seconds//3600} hours."
-        await self._maybe_confirm(ctx, message)
-
-        await self._maybe_send_log(ctx.guild, message)
-        await self._tr_timer(ctx.author, role, end_time.timestamp())
-
-    @_self_role.command(name="remove")
-    async def _self_remove(self, ctx: commands.Context, role: discord.Role):
-        """Cancel the timer & remove a self-TempRole."""
-        async with self.config.member(ctx.author).temp_roles() as user_tr:
-            if not (user_tr.get(str(role.id))):
-                return await ctx.send(
-                    f"That is not an active self-TempRole.",
-                    allowed_mentions=discord.AllowedMentions.none()
-                )
-            del user_tr[str(role.id)]
-        message = f"Self-TempRole {role.mention} has been removed."
-        await self._maybe_confirm(ctx, message)
-        await self._maybe_send_log(ctx.guild, message)
-        await self._tr_end(ctx.author, role, admin=ctx.author)
 
     @_self_role.command(name="list")
     async def _self_list(self, ctx: commands.Context):
@@ -492,7 +428,7 @@ class lideri_grade(commands.Cog):
                 for x in lideri_grade.sias_grade:
                     for y in ctx.author.roles:
                         if ctx.guild.get_role(x)==y:
-                            await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[21]), ctx.guild.get_role(lideri_grade.roluri_sias[2]))
+                            await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[21]), ctx.guild.get_role(lideri_grade.roluri_sias[3]))
                             await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[21]) +"> jucatorului <@" + str(user.id) + ">!")
         elif tip_factiune == "smurd":
             for x in lideri_grade.sias_grade:
@@ -557,7 +493,7 @@ class lideri_grade(commands.Cog):
             for x in lideri_grade.sias_grade:
                 for y in ctx.author.roles:
                     if ctx.guild.get_role(x)==y:
-                        await user.add_roles(ctx.guild.get_role(lideri_grade.roluri_sias[0]))
+                        await user.add_roles(ctx.guild.get_role(lideri_grade.roluri_sias[1]))
                         await ctx.send("Am atribuit rolul de Coordonator <@&" + str(lideri_grade.id_factiune[21]) +"> jucatorului <@" + str(user.id) + ">!")
                     
     @commands.command(name="agent", pass_context=True)
@@ -572,7 +508,7 @@ class lideri_grade(commands.Cog):
             for x in lideri_grade.sias_grade:
                 for y in ctx.author.roles:
                     if ctx.guild.get_role(x)==y:
-                        await user.add_roles(ctx.guild.get_role(lideri_grade.roluri_sias[1]))
+                        await user.add_roles(ctx.guild.get_role(lideri_grade.roluri_sias[2]))
                         await ctx.send("Am atribuit rolul de Agent Special <@&" + str(lideri_grade.id_factiune[21]) +"> jucatorului <@" + str(user.id) + ">!")
                         
     @commands.command(name="smurd", pass_context=True)
