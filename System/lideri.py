@@ -45,7 +45,7 @@ class lideri_grade(commands.Cog):
         865215523080241192, # Politia Romana
         865215512098242570, # SIAS
         865215505023238155, # Medic
-        885162367149809664, # Hitman
+        885162367149809664 # Hitman
     ]
     roluri_lider = [
             865215495623934012, # Araba
@@ -212,7 +212,7 @@ class lideri_grade(commands.Cog):
                             await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[22]), ctx.guild.get_role(lideri_grade.roluri_smurd[2]))
                             await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[22]) +"> jucatorului <@" + str(user.id) + ">!")
         elif tip_factiune == 'ilegala':
-            if any(item in lideri_grade.roluri_lider-3 for item in ctx.author.roles) or any(item in lideri_grade.roluri_tester-3 for item in ctx.author.roles) or any(item in lideri_grade.roluri_colider-3 for item in ctx.author.roles):
+            if any(item in lideri_grade.roluri_lider[0:19] for item in ctx.author.roles) or any(item in lideri_grade.roluri_tester[0:19] for item in ctx.author.roles) or any(item in lideri_grade.roluri_colider[0:19] for item in ctx.author.roles):
                 verif = False
                 for x in lideri_grade.roluri_lider:
                     for y in ctx.author.roles:
