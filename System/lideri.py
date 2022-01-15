@@ -127,6 +127,7 @@ class lideri_grade(commands.Cog):
             for y in ctx.author.roles:
                 if ctx.guild.get_role(x)==y:
                     await user.add_roles(ctx.guild.get_role(lideri_grade.roluri_colider[lideri_grade.roluri_lider.index(x)]))
+                    await ctx.send("TEST")
                     
     @commands.command(name="tester", pass_context=True)
     async def tester(self, ctx, user: discord.Member):
@@ -134,6 +135,7 @@ class lideri_grade(commands.Cog):
             for y in ctx.author.roles:
                 if ctx.guild.get_role(x)==y:
                     await user.add_roles(ctx.guild.get_role(lideri_grade.roluri_tester[lideri_grade.roluri_lider.index(x)]))
+                    await ctx.send("TEST")
                     
     @commands.command(name="membru", pass_context=True)
     async def tester(self, ctx, user: discord.Member):
@@ -143,8 +145,10 @@ class lideri_grade(commands.Cog):
                 if ctx.guild.get_role(x)==y:
                     verif = True
                     await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[lideri_grade.roluri_lider.index(x)]), ctx.guild.get_role(lideri_grade.roluri_membru[lideri_grade.roluri_lider.index(x)]))
+                    await ctx.send("TEST")
         if not verif:
             for x in lideri_grade.roluri_colider:
                 for y in ctx.author.roles:
                     if ctx.guild.get_role(x)==y:
                         await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[lideri_grade.roluri_colider.index(x)]), ctx.guild.get_role(lideri_grade.roluri_membru[lideri_grade.roluri_colider.index(x)]))
+                        await ctx.send("TEST")
