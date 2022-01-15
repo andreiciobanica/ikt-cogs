@@ -239,28 +239,28 @@ class lideri_grade(commands.Cog):
                                 await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[lideri_grade.roluri_tester.index(x)]) +"> jucatorului <@" + str(user.id) + ">!")
     
     @commands.command(name="comisarsef", pass_context=True)
-    async def tester(self, ctx, user: discord.Member):
+    async def comisarsef(self, ctx, user: discord.Member):
             for y in ctx.author.roles:
                 if ctx.guild.get_role(lideri_grade.politie_grade[0])==y:
                             await user.add_roles(ctx.guild.get_role(lideri_grade.politie_grade[2]))
                             await ctx.send("Am atribuit rolul de Comisar Sef <@&" + str(lideri_grade.id_factiune[20]) +"> jucatorului <@" + str(user.id) + ">!")
     
     @commands.command(name="comisar", pass_context=True)
-    async def tester(self, ctx, user: discord.Member):
+    async def comisar(self, ctx, user: discord.Member):
             for y in ctx.author.roles:
                 if ctx.guild.get_role(lideri_grade.politie_grade[0])==y:
                             await user.add_roles(ctx.guild.get_role(lideri_grade.politie_grade[3]))
                             await ctx.send("Am atribuit rolul de Comisar <@&" + str(lideri_grade.id_factiune[20]) +"> jucatorului <@" + str(user.id) + ">!")
     
     @commands.command(name="subcomisar", pass_context=True)
-    async def tester(self, ctx, user: discord.Member):
+    async def subcomisar(self, ctx, user: discord.Member):
             for y in ctx.author.roles:
                 if ctx.guild.get_role(lideri_grade.politie_grade[0])==y:
                             await user.add_roles(ctx.guild.get_role(lideri_grade.politie_grade[4]))
                             await ctx.send("Am atribuit rolul de Subcomisar <@&" + str(lideri_grade.id_factiune[20]) +"> jucatorului <@" + str(user.id) + ">!")
    
     @commands.command(name="agentprincipal", pass_context=True)
-    async def tester(self, ctx, user: discord.Member):
+    async def agentprincipal(self, ctx, user: discord.Member):
         for x in lideri_grade.politie_grade:
             for y in ctx.author.roles:
                 if ctx.guild.get_role(x)==y:
@@ -268,7 +268,7 @@ class lideri_grade(commands.Cog):
                     await ctx.send("Am atribuit rolul de Agent Principal <@&" + str(lideri_grade.id_factiune[20]) +"> jucatorului <@" + str(user.id) + ">!")
                     
     @commands.command(name="agent", pass_context=True)
-    async def tester(self, ctx, user: discord.Member):
+    async def agent(self, ctx, user: discord.Member):
         for x in lideri_grade.politie_grade:
             for y in ctx.author.roles:
                 if ctx.guild.get_role(x)==y:
