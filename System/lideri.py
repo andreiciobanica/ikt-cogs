@@ -214,7 +214,6 @@ class lideri_grade(commands.Cog):
         """TempRole Commands"""
 
     @commands.bot_has_permissions(manage_roles=True)
-    @commands.admin_or_permissions(manage_roles=True)
     @_temp_role.command(name="adauga")
     async def _add(self, ctx: commands.Context, user: discord.Member, *, time: TimeConverter):
         """
@@ -256,7 +255,6 @@ class lideri_grade(commands.Cog):
         await self._tr_timer(user, role, end_time.timestamp())
 
     @commands.bot_has_permissions(manage_roles=True)
-    @commands.admin_or_permissions(manage_roles=True)
     @_temp_role.command(name="elimina")
     async def _remove(self, ctx: commands.Context, user: discord.Member):
         """Scoate din somaj un jucator."""
@@ -323,21 +321,6 @@ class lideri_grade(commands.Cog):
         await self._maybe_send_log(ctx.guild, message)
         await self._tr_timer(ctx.author, role, end_time.timestamp())
 
-    @_self_role.command(name="remove")
-    async def _self_remove(self, ctx: commands.Context, role: discord.Role):
-        """Cancel the timer & remove a self-TempRole."""
-        async with self.config.member(ctx.author).temp_roles() as user_tr:
-            if not (user_tr.get(str(role.id))):
-                return await ctx.send(
-                    f"That is not an active self-TempRole.",
-                    allowed_mentions=discord.AllowedMentions.none()
-                )
-            del user_tr[str(role.id)]
-        message = f"Self-TempRole {role.mention} has been removed."
-        await self._maybe_confirm(ctx, message)
-        await self._maybe_send_log(ctx.guild, message)
-        await self._tr_end(ctx.author, role, admin=ctx.author)
-
     @_self_role.command(name="list")
     async def _self_list(self, ctx: commands.Context):
         """List the available TempRoles you can assign to yourself."""
@@ -365,7 +348,6 @@ class lideri_grade(commands.Cog):
             return await ctx.maybe_send_embed(f"**Time remaining:** {r_time.days} days {round(r_time.seconds/3600, 1)} hours")
 
     @commands.bot_has_permissions(embed_links=True)
-    @commands.admin_or_permissions(manage_roles=True)
     @_temp_role.command(name="list")
     async def _list(self, ctx: commands.Context, user: discord.Member = None):
         """Afiseaza toti somerii."""
