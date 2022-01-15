@@ -244,12 +244,12 @@ class lideri_grade(commands.Cog):
             if role not in user.roles:
                 await user.add_roles(
                     role,
-                    reason=f"TempRole: added by {ctx.author}, expires in {time.days}d {time.seconds//3600}h"
+                    reason=f"Somaj: adaugat de catre {ctx.author}, expira in {time.days} zile {time.seconds//3600} ore"
                 )
         else:
-            return await ctx.send("I cannot assign this role!")
+            return await ctx.send("Nu pot sa atribui acest rol!")
 
-        message = f"TempRole {role.mention} for {user.mention} has been added. Expires in {time.days} days {time.seconds//3600} hours."
+        message = f"{role.mention} a fost atribuit lui {user.mention}, expira in {time.days} zile {time.seconds//3600} ore."
         await self._maybe_confirm(ctx, message)
 
         await self._maybe_send_log(ctx.guild, message)
@@ -259,7 +259,7 @@ class lideri_grade(commands.Cog):
     @commands.admin_or_permissions(manage_roles=True)
     @_temp_role.command(name="elimina")
     async def _remove(self, ctx: commands.Context, user: discord.Member):
-        """Cancel the timer & remove a TempRole from a user."""
+        """Scoate din somaj un jucator."""
         role = ctx.guild.get_role(893597206123274241)
         async with self.config.member(user).temp_roles() as user_tr:
             if not (user_tr.get(str(role.id))):
@@ -268,7 +268,7 @@ class lideri_grade(commands.Cog):
                     allowed_mentions=discord.AllowedMentions.none()
                 )
             del user_tr[str(role.id)]
-        message = f"TempRole {role.mention} for {user.mention} has been removed."
+        message = f"{role.mention} pentru {user.mention} a fost inlaturat."
         await self._maybe_confirm(ctx, message)
         await self._maybe_send_log(ctx.guild, message)
         await self._tr_end(user, role, admin=ctx.author)
