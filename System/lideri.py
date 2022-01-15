@@ -14,6 +14,7 @@ class lideri_grade(commands.Cog):
     @commands.command(name="colider", pass_context=True)
     async def grade(self, ctx, user: discord.Member):
         roles = [
+            ctx.guild.get_role(440955056750198795),
             ctx.guild.get_role(865215495623934012),
             ctx.guild.get_role(865215437531512842),
             ctx.guild.get_role(865215444150648853),
