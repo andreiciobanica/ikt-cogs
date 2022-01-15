@@ -5,22 +5,22 @@ from pytz import timezone
 import discord
 
 class lideri_grade(commands.Cog):
-    politie = [
+    politie_grade = [
         865215532654788648, # Chestor Sef
         900110938563313675, # Comisar Sef
         865215529807904809, # Comisar
         865215529039953923, # Sub Comisar
-        865215528472805416, # Tester
+        865215528472805416 # Tester
     ]
-    sias = [
+    sias_grade = [
         865215520445431838, # Co-General SIAS
         865215519523209246, # Procuror SIAS
         865215518650531870, # Sub Procuror SIAS
         865215516507504641  # Tester
     ]
-    smurd = [
+    smurd_grade = [
         865215509178875934, # Sef de Statie
-        885474291410407444, # Tester SMURD
+        885474291410407444 # Tester SMURD
     ]
     roluri_lider = [
             865215495623934012, # Araba
