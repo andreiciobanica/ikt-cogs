@@ -209,7 +209,7 @@ class lideri_grade(commands.Cog):
         self.tr_handler_task.cancel()
 
     @commands.guild_only()
-    @commands.group(name="temprole")
+    @commands.group(name="somaj")
     async def _temp_role(self, ctx: commands.Context):
         """TempRole Commands"""
 
