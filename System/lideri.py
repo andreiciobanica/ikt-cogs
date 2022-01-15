@@ -376,11 +376,11 @@ class lideri_grade(commands.Cog):
                 member: discord.Member = ctx.guild.get_member(int(member_id))
                 if member:
                     if roles := [ctx.guild.get_role(int(r)) for r in temp_roles["temp_roles"].keys()]:
-                        desc += f"{member.mention}: {humanize_list([r.duration for r in roles])}\n"
+                        desc += f"{member.mention}: {humanize_list([r.mention for r in roles])}:\n"
                     else:
                         await self.config.member(member).clear()
         else:
-            title = f"{user.display_name} TempRoles"
+            title = f"{user.display_name} - Durata somaj"
             async with self.config.member(user).temp_roles() as member_temp_roles:
                 for temp_role, end_ts in member_temp_roles.items():
                     role: discord.Role = ctx.guild.get_role(int(temp_role))
