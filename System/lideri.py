@@ -127,7 +127,7 @@ class lideri_grade(commands.Cog):
         for x in roluri_lider:
             for y in ctx.author.roles:
                 if x==y:
-                    await ctx.add_roles(user, ctx.guild.get_role(440955553812971530))
+                    await user.add_roles(ctx.guild.get_role(440955553812971530))
                     break
             
     #@commands.command(name="tester", pass_context=True)
