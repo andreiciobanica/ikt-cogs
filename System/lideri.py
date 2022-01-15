@@ -581,7 +581,7 @@ class lideri_grade(commands.Cog):
             for x in lideri_grade.sias_grade:
                 for y in ctx.author.roles:
                     if ctx.guild.get_role(x)==y:
-                        await user.add_roles(ctx.guild.get_role(lideri_grade.roluri_sias[3]))
+                        await user.add_roles(ctx.guild.get_role(lideri_grade.roluri_sias[0]))
                         await ctx.send("Am atribuit rolul de Coordonator <@&" + str(lideri_grade.id_factiune[21]) +"> jucatorului <@" + str(user.id) + ">!")
   
 
