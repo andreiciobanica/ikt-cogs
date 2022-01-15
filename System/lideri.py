@@ -6,10 +6,13 @@ import discord
 
 class lideri_grade(commands.Cog):
 
-    def __init__(self, bot, ctx, *args, **kwargs):
+    def __init__(self, bot, *args, **kwargs):
         self.bot = bot
         global tz
         tz = timezone("Europe/Bucharest")
+
+    @commands.command(name="colider", pass_context=True)
+    async def grade(self, ctx, user: discord.Member):
         roluri_lider = [
             ctx.guild.get_role(440955056750198795),
             ctx.guild.get_role(865215495623934012),
@@ -121,10 +124,6 @@ class lideri_grade(commands.Cog):
             ctx.guild.get_role(929489158584545372), # Loz Aztecas
             ctx.guild.get_role(931739070688817212) # Hitman
             ]
-
-    @commands.command(name="colider", pass_context=True)
-    async def grade(self, ctx, user: discord.Member):
-        
         for x in roluri_lider:
             for y in ctx.author.roles:
                 if x==y:
