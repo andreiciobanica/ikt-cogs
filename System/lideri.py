@@ -4,14 +4,7 @@ from datetime import datetime, timedelta, timezone
 from pytz import timezone
 import discord
 
-class lideri_grade(commands.Cog):
-
-    def __init__(self, bot, *args, **kwargs):
-        self.bot = bot
-        global tz
-        tz = timezone("Europe/Bucharest")
-        
-        roluri_lider = [
+roluri_lider = [
             865215495623934012, # Araba
             865215437531512842, # Triads
             865215444150648853, # OTF
@@ -121,6 +114,13 @@ class lideri_grade(commands.Cog):
             929489158584545372, # Loz Aztecas
             931739070688817212  # Hitman
             ]
+
+class lideri_grade(commands.Cog):
+
+    def __init__(self, bot, *args, **kwargs):
+        self.bot = bot
+        global tz
+        tz = timezone("Europe/Bucharest")
 
     @commands.command(name="colider", pass_context=True)
     async def grade(self, ctx, user: discord.Member):
