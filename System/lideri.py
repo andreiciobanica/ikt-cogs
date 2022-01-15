@@ -663,14 +663,14 @@ class lideri_grade(commands.Cog):
                 if verif == True:
                     break
                         
-    @commands.command(name="somaj", pass_context=True)
-    async def somaj(self, ctx, user: discord.Member, durata_zile: int):
-        verif = False
-        for x in lideri_grade.roluri_lider:
-            for y in ctx.author.roles:
-                if ctx.guild.get_role(x)==y:
-                    await user.add_roles(ctx.guild.get_role(893597206123274241))
-                    await ctx.send("L-am bagat in SOMAJ pe jucatorul <@" + str(user.id) + "> pentru **" + str(durata_zile) + " zile**" + "!")
-                    verif = True
-            if verif == True:
-                break
+#    @commands.command(name="somaj", pass_context=True)
+#    async def somaj(self, ctx, user: discord.Member, durata_zile: int):
+#        verif = False
+#        for x in lideri_grade.roluri_lider:
+#            for y in ctx.author.roles:
+#                if ctx.guild.get_role(x)==y:
+#                    await user.add_roles(ctx.guild.get_role(893597206123274241))
+#                    await ctx.send("L-am bagat in SOMAJ pe jucatorul <@" + str(user.id) + "> pentru **" + str(durata_zile) + " zile**" + "!")
+#                    verif = True
+#            if verif == True:
+#                break
