@@ -221,7 +221,7 @@ class lideri_grade(commands.Cog):
         Baga in somaj un jucator.
         Pentru durata, introduceti saptamani (w), zile (d), si/sau ore (h)[exemplu: 3h -> 3 ore; 2w -> 2 saptamani].
         """
-        role = ctx.guild.get_role(440955553812971530)
+        role = ctx.guild.get_role(893597206123274241)
         if role in user.roles:
             return await ctx.send(f"Acest utilizator are deja {role.mention}!")
 
@@ -258,8 +258,9 @@ class lideri_grade(commands.Cog):
     @commands.bot_has_permissions(manage_roles=True)
     @commands.admin_or_permissions(manage_roles=True)
     @_temp_role.command(name="elimina")
-    async def _remove(self, ctx: commands.Context, user: discord.Member, role: discord.Role):
+    async def _remove(self, ctx: commands.Context, user: discord.Member):
         """Cancel the timer & remove a TempRole from a user."""
+        role = ctx.guild.get_role(893597206123274241)
         async with self.config.member(user).temp_roles() as user_tr:
             if not (user_tr.get(str(role.id))):
                 return await ctx.send(
