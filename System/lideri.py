@@ -150,5 +150,13 @@ class lideri_grade(commands.Cog):
             for x in lideri_grade.roluri_colider:
                 for y in ctx.author.roles:
                     if ctx.guild.get_role(x)==y:
+                        verif = True
                         await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[lideri_grade.roluri_colider.index(x)]), ctx.guild.get_role(lideri_grade.roluri_membru[lideri_grade.roluri_colider.index(x)]))
                         await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[lideri_grade.roluri_colider.index(x)]) +"> jucatorului <@" + str(user.id) + ">!")
+        if not verif:
+            for x in lideri_grade.roluri_tester:
+                for y in ctx.author.roles:
+                    if ctx.guild.get_role(x)==y:
+                        verif = True
+                        await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[lideri_grade.roluri_tester.index(x)]), ctx.guild.get_role(lideri_grade.roluri_membru[lideri_grade.roluri_tester.index(x)]))
+                        await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[lideri_grade.roluri_tester.index(x)]) +"> jucatorului <@" + str(user.id) + ">!")
