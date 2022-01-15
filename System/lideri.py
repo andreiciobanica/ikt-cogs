@@ -14,7 +14,6 @@ class lideri_grade(commands.Cog):
     @commands.command(name="colider", pass_context=True)
     async def grade(self, ctx, user: discord.Member):
         roles = [
-            ctx.guild.get_role(440955056750198795),
             ctx.guild.get_role(865215495623934012),
             ctx.guild.get_role(865215437531512842),
             ctx.guild.get_role(865215444150648853),
@@ -34,14 +33,11 @@ class lideri_grade(commands.Cog):
             ctx.guild.get_role(929494693585227856),
             ctx.guild.get_role(929489148987981824),
             ctx.guild.get_role(929489154079871008),
-            ctx.guild.get_role(865215430662291496),
-            ctx.guild.get_role(865215510265331712),
-            ctx.guild.get_role(865215521094631435),
-            ctx.guild.get_role(865215533573341184)
+            ctx.guild.get_role(865215430662291496)
             ]
         
         if any(item in roles for item in ctx.author.roles):
-            await ctx.message.author.send("item")
+            await ctx.message.author.send(roles.index(item))
             
     #@commands.command(name="tester", pass_context=True)
     #async def grade(self, ctx, user: discord.Member):
