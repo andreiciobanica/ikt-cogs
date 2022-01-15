@@ -13,7 +13,7 @@ class lideri_grade(commands.Cog):
 
     @commands.command(name="grade")
     async def grade(self, ctx):
-        role = 440955056750198795
+        role = guild.get_role(440955056750198795)
         if role in ctx.author.roles:
             await ctx.message.author.send(ctx.author.roles)
         
