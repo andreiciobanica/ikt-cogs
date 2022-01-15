@@ -385,19 +385,19 @@ class lideri_grade(commands.Cog):
                         #    f"{role.mention} pentru {member.mention} a fost inlaturat."
                         #)
                     else:                
-                        data_log = datetime.now(tz).strftime("%d %B %Y %H:%M:%S")
-                        embed=discord.Embed(title=f"{remover} ({remover.id}) - Inlaturare Somaj", color=0x4b66ec)
-                        embed.add_field(name=f"{remover} i-a scos somajul lui", value=f"{member.mention}", inline=False)
-                        embed.set_footer(text=str(data_log))
-                        await logs_channel_somaj.send(embed=embed)
-                        #await self._maybe_send_log(
-                        #    member.guild,
-                        #    f"Perioada de {role.mention} pentru {member.mention} s-a incheiat, rolul v-a fost sters."
-                        #)
+                        #data_log = datetime.now(tz).strftime("%d %B %Y %H:%M:%S")
+                        #embed=discord.Embed(title=f"{remover} ({remover.id}) - Inlaturare Somaj", color=0x4b66ec)
+                        #embed.add_field(name=f"{remover} i-a scos somajul lui", value=f"{member.mention}", inline=False)
+                        #embed.set_footer(text=str(data_log))
+                        #await logs_channel_somaj.send(embed=embed)
+                        await self._maybe_send_log(
+                            member.guild,
+                            f"Perioada de {role.mention} pentru {member.mention} s-a incheiat, rolul v-a fost sters."
+                        )
                 else:
                     await self._maybe_send_log(
                         member.guild,
-                        f"{role.mention} pentru {member.mention} nu a putut fi atribuit din cauza absentelor unor permisiuni."
+                        f"{role.mention} pentru {member.mention} nu a putut fi scos din cauza absentelor unor permisiuni."
                     )
             elif ctx:
                 await ctx.send(f"Error: that is not an active TempRole.")
