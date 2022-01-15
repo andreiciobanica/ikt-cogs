@@ -266,12 +266,12 @@ class lideri_grade(commands.Cog):
                     f"That is not an active TempRole for {user.mention}.",
                     allowed_mentions=discord.AllowedMentions.none()
                 )
-            del user_tr[str(role.id)]
         message = f"{role.mention} pentru {user.mention} a fost inlaturat."
         await self._maybe_confirm(ctx, message)
         await self._maybe_send_log(ctx.guild, message)
         #await user.remove_roles(role)
         await self._tr_end(user, role, admin=ctx.author)
+        del user_tr[str(role.id)]
 
     @_temp_role.command(name="ramas")
     async def _remaining(self, ctx: commands.Context):
