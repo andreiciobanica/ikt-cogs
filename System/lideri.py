@@ -46,7 +46,7 @@ class lideri_grade(commands.Cog):
             ctx.guild.get_role(865215486693605377),
             ctx.guild.get_role(865215502014742559),
             ctx.guild.get_role(865215449708625932),
-            ctx.guild.get_role(865856937534029825),
+            865856937534029825,
             ctx.guild.get_role(903411093593001994),
             ctx.guild.get_role(892564801279123476),
             ctx.guild.get_role(908443445234901042),
@@ -125,7 +125,7 @@ class lideri_grade(commands.Cog):
             ]
         for x in roluri_lider:
             for y in ctx.author.roles:
-                if x==y:
+                if ctx.guild.get_role(x)==y:
                     await user.add_roles(roluri_colider[roluri_lider.index(x)])
                     break
             
