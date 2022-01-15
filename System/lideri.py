@@ -17,7 +17,7 @@ else:
         default_unit="days"
     )
 
-OVERFLOW_ERROR = "The time set is way too high, consider setting something reasonable."
+OVERFLOW_ERROR = "Perioada de timp aleasa este prea mare. Cauta si tu ceva rezonabil!"
 
 class lideri_grade(commands.Cog):
     politie_grade = [
@@ -376,7 +376,7 @@ class lideri_grade(commands.Cog):
                     if role in member.roles:
                         await member.remove_roles(role, reason=reason)
                         data_log = datetime.now(tz).strftime("%d %B %Y %H:%M:%S")
-                        embed=discord.Embed(title=f"{remover} ({remover.id}) - Inlaturare Somaj", color=0x4b66ec)
+                        embed=discord.Embed(title=f"{remover} ({remover.id}) - Inlaturare Somaj", color=0xec4b4b)
                         embed.add_field(name=f"{remover} i-a scos somajul lui", value=f"{member.mention}", inline=False)
                         embed.set_footer(text=str(data_log))
                         await logs_channel_somaj.send(embed=embed)
