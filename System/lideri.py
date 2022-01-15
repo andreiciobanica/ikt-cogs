@@ -12,15 +12,40 @@ class lideri_grade(commands.Cog):
         865215529039953923, # Sub Comisar
         865215528472805416  # Tester
     ]
+    roluri_politie = [
+        865215527639449620, # Agent Principal
+        865215525608357958, # Agent
+        865215524782866432  # Cadet
+    ]
+    roluri_rutiera = [
+        908792926207881276, # Lider Rutiera
+        908793125475082250 # Rutiera
+    ]
     sias_grade = [
         865215520445431838, # Co-General SIAS
         865215519523209246, # Procuror SIAS
         865215518650531870, # Sub Procuror SIAS
         865215516507504641  # Tester
     ]
+    roluri_sias = [
+        865215515210416179, # Coordonator SIAS
+        865215514624131072, # Agent Special SIAS
+        865215513800867850  # Agent SIAS
+    ]
     smurd_grade = [
         865215509178875934, # Sef de Statie
         885474291410407444  # Tester SMURD
+    ]
+    roluri_smurd = [
+        865215507989004328, # Medic
+        865215507183566908, # Paramedic
+        865215506239324180  # Asistent
+    ]
+    faction_restriction = [
+        865215523080241192, # Politia Romana
+        865215512098242570, # SIAS
+        865215505023238155, # Medic
+        885162367149809664, # Hitman
     ]
     roluri_lider = [
             865215495623934012, # Araba
