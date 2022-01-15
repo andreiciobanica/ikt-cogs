@@ -252,7 +252,7 @@ class lideri_grade(commands.Cog):
         await self._maybe_confirm(ctx, message)
 
         await self._maybe_send_log(ctx.guild, message)
-        await self._tr_timer(ctx, user, role, end_time.timestamp())
+        await self._tr_timer(user, role, end_time.timestamp())
 
     @commands.admin_or_permissions(manage_roles=True)
     @commands.bot_has_permissions(manage_roles=True)
