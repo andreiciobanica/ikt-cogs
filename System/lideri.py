@@ -11,9 +11,10 @@ class lideri_grade(commands.Cog):
         global tz
         tz = timezone("Europe/Bucharest")
 
+    @commands.command(pass_context=True)
     @commands.command(name="grade")
-    async def grade(self, ctx):
-        role = ctx.guild.get_role(440955056750198795)
-        if any(role in ctx.author.roles):
+    async def grade(self, ctx, user: discord.Member):
+        role = 440955056750198795
+        if ctx.guild.get_role(role) in ctx.author.roles:
             await ctx.message.author.send(role)
             
