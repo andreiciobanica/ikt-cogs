@@ -215,7 +215,7 @@ class lideri_grade(commands.Cog):
 
     @commands.bot_has_permissions(manage_roles=True)
     @commands.admin_or_permissions(manage_roles=True)
-    @_temp_role.command(name="add")
+    @_temp_role.command(name="adauga")
     async def _add(self, ctx: commands.Context, user: discord.Member, role: discord.Role, *, time: TimeConverter):
         """
         Assign a temporary role to expire after a time.
@@ -256,7 +256,7 @@ class lideri_grade(commands.Cog):
 
     @commands.bot_has_permissions(manage_roles=True)
     @commands.admin_or_permissions(manage_roles=True)
-    @_temp_role.command(name="remove")
+    @_temp_role.command(name="elimina")
     async def _remove(self, ctx: commands.Context, user: discord.Member, role: discord.Role):
         """Cancel the timer & remove a TempRole from a user."""
         async with self.config.member(user).temp_roles() as user_tr:
