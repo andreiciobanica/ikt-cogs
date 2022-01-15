@@ -367,6 +367,7 @@ class lideri_grade(commands.Cog):
         await self._tr_end(member, role)
 
     async def _tr_end(self, member: discord.Member, role: discord.Role, remover=None, ctx=None):
+        logs_channel_somaj = self.bot.get_channel(932033338347245628)
         async with self.config.member(member).temp_roles() as tr_entries:
             if tr_entries.get(str(role.id)):
                 del tr_entries[str(role.id)]
@@ -378,11 +379,16 @@ class lideri_grade(commands.Cog):
                             member.guild,
                             f"{role.mention} pentru {member.mention} a fost inlaturat."
                         )
-                    else:
-                        await self._maybe_send_log(
-                            member.guild,
-                            f"Perioada de {role.mention} pentru {member.mention} s-a incheiat, rolul v-a fost sters."
-                        )
+                    else:                
+                        data_log = datetime.now(tz).strftime("%d %B %Y %H:%M:%S")
+                        embed=discord.Embed(title=f"{remover} ({remover.id}) - Inlaturare Somaj", color=0x4b66ec)
+                        embed.add_field(name=f"{remover} i-a scos somajul lui", value=f"{member.mention}", inline=False)
+                        embed.set_footer(text=str(data_log))
+                        await logs_channel_somaj.send(embed=embed)
+                        #await self._maybe_send_log(
+                        #    member.guild,
+                        #    f"Perioada de {role.mention} pentru {member.mention} s-a incheiat, rolul v-a fost sters."
+                        #)
                 else:
                     await self._maybe_send_log(
                         member.guild,
