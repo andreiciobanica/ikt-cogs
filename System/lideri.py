@@ -19,7 +19,7 @@ class lideri_grade(commands.Cog):
     ]
     roluri_rutiera = [
         908792926207881276, # Lider Rutiera
-        908793125475082250 # Rutiera
+        908793125475082250  # Rutiera
     ]
     sias_grade = [
         865215520445431838, # Co-General SIAS
@@ -67,7 +67,7 @@ class lideri_grade(commands.Cog):
             929494693585227856, # Cosa Nostra
             929489148987981824, # Crips
             929489154079871008, # Loz Aztecas
-            865215430662291496,  # Hitman
+            865215430662291496, # Hitman
             865215533573341184, # Politie
             865215521094631435, # SIAS
             865215510265331712  # SMURD
@@ -93,6 +93,9 @@ class lideri_grade(commands.Cog):
             929489144936271893, # Crips
             929489155854061578, # Loz Aztecas
             865215429869961237, # Hitman
+            865215532654788648, # Politia Romana
+            865215520445431838, # SIAS
+            865215509178875934  # Sef de Statie
             ]
     roluri_tester = [
             865215493908463626, # Araba
@@ -115,6 +118,9 @@ class lideri_grade(commands.Cog):
             929489137231343656, # Crips
             929489156906836020, # Loz Aztecas
             865215429039226890, # Hitman
+            865215528472805416, # Politia Romana
+            865215516507504641, # SIAS
+            885474291410407444  # SMURD
             ]
     roluri_membru = [
             865215492935385118, # Araba
