@@ -360,7 +360,7 @@ class lideri_grade(commands.Cog):
         except Exception:
             pass
 
-    async def _tr_timer(self, member: discord.Member, role: discord.Role, end_timestamp: float):
+    async def _tr_timer(self, ctx: commands.Context, member: discord.Member, role: discord.Role, end_timestamp: float):
         seconds_left = (datetime.fromtimestamp(end_timestamp) - datetime.now()).total_seconds()
         if seconds_left > 0:
             await asyncio.sleep(seconds_left)
