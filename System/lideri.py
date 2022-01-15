@@ -368,15 +368,15 @@ class lideri_grade(commands.Cog):
     @commands.admin_or_permissions(manage_roles=True)
     @_temp_role.command(name="list")
     async def _list(self, ctx: commands.Context, user: discord.Member = None):
-        """List the active TempRoles for each user (or users with TempRoles in the server if user param is empty)."""
+        """Afiseaza toti somerii."""
         desc = ""
         if not user:
-            title = f"{ctx.guild.name} TempRoles"
+            title = f"{ctx.guild.name} - Lista Somaj"
             for member_id, temp_roles in (await self.config.all_members(ctx.guild)).items():
                 member: discord.Member = ctx.guild.get_member(int(member_id))
                 if member:
                     if roles := [ctx.guild.get_role(int(r)) for r in temp_roles["temp_roles"].keys()]:
-                        desc += f"{member.mention}: {humanize_list([r.mention for r in roles])}\n"
+                        desc += f"{member.mention}: {humanize_list([r.duration for r in roles])}\n"
                     else:
                         await self.config.member(member).clear()
         else:
