@@ -602,39 +602,41 @@ class lideri_grade(commands.Cog):
                 await ctx.send("Am inlaturat rolul de Subcomisar <@&" + str(lideri_grade.id_factiune[20]) +"> jucatorului <@" + str(user.id) + ">!")
             #break
             
-    @commands.group(name="agentprincipal")
+@commands.group(name="agentprincipal")
     async def agentprincipal(self, ctx: commands.Context):
         """Adauga sau inlatura Agent Principal/Special"""
         
     @agentprincipal.group(name="politie")
     async def agentprincipalpolitie(self, ctx: commands.Context):
-    
+        """Adauga sau inlatura Agent Principal din Politia Romana"""
+        
     @agentprincipalpolitie.command(name="adauga", pass_context=True)
     async def _adaugaagentprincipalpolitie(self, ctx, user: discord.Member):
         verif = False
-            for x in lideri_grade.politie_grade:
-                for y in ctx.author.roles:
-                    if ctx.guild.get_role(x)==y:
-                        await user.add_roles(ctx.guild.get_role(lideri_grade.roluri_politie[0]))
-                        await ctx.send("Am atribuit rolul de Agent Principal <@&" + str(lideri_grade.id_factiune[20]) +"> jucatorului <@" + str(user.id) + ">!")
-                        verif = True
-                if verif == True:
-                    break
+        for x in lideri_grade.politie_grade:
+            for y in ctx.author.roles:
+                if ctx.guild.get_role(x)==y:
+                    await user.add_roles(ctx.guild.get_role(lideri_grade.roluri_politie[0]))
+                    await ctx.send("Am atribuit rolul de Agent Principal <@&" + str(lideri_grade.id_factiune[20]) +"> jucatorului <@" + str(user.id) + ">!")
+                    verif = True
+            if verif == True:
+                break
                     
     @agentprincipalpolitie.command(name="inlatura", pass_context=True)
     async def _inlaturaagentprincipalpolitie(self, ctx, user: discord.Member):
         verif = False
-            for x in lideri_grade.politie_grade:
-                for y in ctx.author.roles:
-                    if ctx.guild.get_role(x)==y:
-                        await user.remove_roles(ctx.guild.get_role(lideri_grade.roluri_politie[0]))
-                        await ctx.send("Am inlaturat rolul de Agent Principal <@&" + str(lideri_grade.id_factiune[20]) +"> jucatorului <@" + str(user.id) + ">!")
-                        verif = True
-                if verif == True:
-                    break
+        for x in lideri_grade.politie_grade:
+            for y in ctx.author.roles:
+                if ctx.guild.get_role(x)==y:
+                    await user.remove_roles(ctx.guild.get_role(lideri_grade.roluri_politie[0]))
+                    await ctx.send("Am inlaturat rolul de Agent Principal <@&" + str(lideri_grade.id_factiune[20]) +"> jucatorului <@" + str(user.id) + ">!")
+                    verif = True
+            if verif == True:
+                break
                     
     @agentprincipal.group(name="sias")
     async def agentprincipalsias(self, ctx: commands.Context):
+        """Adauga sau inlatura Agent Special din SIAS"""
         
     @agentprincipalsias.command(name="inlatura", pass_context=True)
     async def _adaugaagentprincipalsias(self, ctx, user: discord.Member):
