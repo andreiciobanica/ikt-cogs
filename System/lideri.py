@@ -530,7 +530,8 @@ class lideri_grade(commands.Cog):
                                 await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[lideri_grade.roluri_tester.index(x)]) +"> jucatorului <@" + str(user.id) + ">!")
                         if verif == True:
                             break
-    
+                            
+    # COMISAR SEF ---------------------------- INCEPUT
     @commands.group(name="comisarsef")
     async def comisarsef(self, ctx: commands.Context):
         """Adauga sau inlatura Comisar Sef(**Doar pentru LIDER**)"""
@@ -554,7 +555,8 @@ class lideri_grade(commands.Cog):
                 await user.remove_roles(ctx.guild.get_role(lideri_grade.politie_grade[2]))
                 await ctx.send("Am inlaturat rolul de Comisar Sef <@&" + str(lideri_grade.id_factiune[20]) +"> jucatorului <@" + str(user.id) + ">!")
                             #break
-    
+    # COMISAR SEF ---------------------------- SFARSIT    
+    # COMISAR ---------------------------- INCEPUT
     @commands.group(name="comisar")
     async def comisar(self, ctx: commands.Context):
         """Adauga sau inlatura Comisar(**Doar pentru LIDER**)"""
@@ -577,7 +579,8 @@ class lideri_grade(commands.Cog):
                 await user.remove_roles(ctx.guild.get_role(lideri_grade.politie_grade[3]))
                 await ctx.send("Am inlaturat rolul de Comisar <@&" + str(lideri_grade.id_factiune[20]) +"> jucatorului <@" + str(user.id) + ">!")
             #break
-
+    # COMISAR ---------------------------- SFARSIT        
+    # SUBCOMISAR ---------------------------- INCEPUT
     @commands.group(name="subcomisar")
     async def subcomisar(self, ctx: commands.Context):
         """Adauga sau inlatura Subcomisar(**Doar pentru LIDER**)"""
@@ -601,7 +604,8 @@ class lideri_grade(commands.Cog):
                 await user.remove_roles(ctx.guild.get_role(lideri_grade.politie_grade[4]))
                 await ctx.send("Am inlaturat rolul de Subcomisar <@&" + str(lideri_grade.id_factiune[20]) +"> jucatorului <@" + str(user.id) + ">!")
             #break
-            
+    # SUBCOMISAR ---------------------------- SFARSIT
+    # AGENT PRINCIPAL ---------------------------- INCEPUT
     @commands.group(name="agentprincipal")
     async def agentprincipal(self, ctx: commands.Context):
         """Adauga sau inlatura Agent Principal/Special"""
@@ -661,7 +665,8 @@ class lideri_grade(commands.Cog):
                         verif = True
                 if verif == True:
                     break
-                    
+    # AGENT PRINCIPAL ---------------------------- SFARSIT
+    # AGENT ---------------------------- INCEPUT
     @commands.group(name="agent")
     async def agent(self, ctx: commands.Context):
         """Adauga sau inlatura Agent"""
@@ -725,7 +730,9 @@ class lideri_grade(commands.Cog):
                     verif = True
             if verif == True:
                 break
-    
+    # AGENT ---------------------------- SFARSIT
+    # COORDONATOR SIAS ---------------------------- INCEPUT
+
     @commands.group(name="coordonator")
     async def coordonator(self, ctx: commands.Context):
         """Adauga sau inlatura Coordonator(**Doar pentru LIDER**)"""
@@ -755,6 +762,7 @@ class lideri_grade(commands.Cog):
                         verif = True
                 if verif == True:
                     break
+    # COORDONATOR SIAS ---------------------------- SFARSIT
 
     @commands.command(name="smurd", pass_context=True)
     async def smurd(self, ctx, pozitie, user: discord.Member):
