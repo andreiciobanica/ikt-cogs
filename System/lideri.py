@@ -210,8 +210,10 @@ class lideri_grade(commands.Cog):
         global tz
         global logs_channel_somaj
         global logs_channel_factionrestriction
+        global logs_channel_gradefactiune
         logs_channel_somaj = self.bot.get_channel(932033338347245628)
         logs_channel_factionrestriction = self.bot.get_channel(932333705802973184)
+        logs_channel_gradefactiune = self.bot.get_channel(932066407909322812)
         tz = timezone("Europe/Bucharest")
         self.config = Config.get_conf(self, identifier=14000605, force_registration=True)
         default_guild = {
