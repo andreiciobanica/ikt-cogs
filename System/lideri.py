@@ -416,8 +416,8 @@ class lideri_grade(commands.Cog):
         """Adauga sau inlatura un colider factiunii tale(**Doar pentru LIDERI**)"""
 
     @commands.bot_has_permissions(manage_roles=True)
-    @colider.command(name="adaugacolider")
-    async def _adauga(self, ctx, user: discord.Member):
+    @colider.command(name="adauga")
+    async def _adaugacolider(self, ctx, user: discord.Member):
         verif = False
         for x in lideri_grade.roluri_lider:
             for y in ctx.author.roles:
@@ -427,8 +427,8 @@ class lideri_grade(commands.Cog):
                     verif = True
             if verif == True:
                 break
-    @colider.command(name="inlaturacolider", pass_context=True)
-    async def _inlatura(self, ctx, user: discord.Member):
+    @colider.command(name="inlatura", pass_context=True)
+    async def _inlaturacolider(self, ctx, user: discord.Member):
         verif = False
         for x in lideri_grade.roluri_lider:
             for y in ctx.author.roles:
@@ -444,8 +444,8 @@ class lideri_grade(commands.Cog):
         """Adauga sau inlatura un tester factiunii tale(**Doar pentru LIDERI**)"""
 
     @commands.bot_has_permissions(manage_roles=True)
-    @tester.command(name="adaugatester", pass_context=True)
-    async def _adauga(self, ctx, user: discord.Member):
+    @tester.command(name="adauga", pass_context=True)
+    async def _adaugatester(self, ctx, user: discord.Member):
         verif = False
         for x in lideri_grade.roluri_lider:
             for y in ctx.author.roles:
@@ -455,8 +455,8 @@ class lideri_grade(commands.Cog):
                     verif = True
             if verif == True:
                 break
-    @tester.command(name="inlaturatester", pass_context=True)
-    async def _inlatura(self, ctx, user: discord.Member):
+    @tester.command(name="inlatura", pass_context=True)
+    async def _inlaturatester(self, ctx, user: discord.Member):
         verif = False
         for x in lideri_grade.roluri_lider:
             for y in ctx.author.roles:
