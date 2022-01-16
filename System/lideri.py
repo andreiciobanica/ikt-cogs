@@ -218,11 +218,12 @@ class lideri_grade(commands.Cog):
 
     @commands.bot_has_permissions(manage_roles=True)
     @_temp_role.command(name="adauga")
-    async def _add(self, ctx: commands.Context, user: discord.Member, *, time: TimeConverter):
+    async def _add(self, ctx: commands.Context, user: discord.Member, time: TimeConverter):
         """
         Baga in somaj un jucator.
         Pentru durata, introduceti saptamani (w), zile (d), si/sau ore (h)[exemplu: 3h -> 3 ore; 2w -> 2 saptamani].
         """
+        user.remove_roles(ctx.guild.get_role(903411660042174465))
         role = ctx.guild.get_role(893597206123274241)
         logs_channel_somaj = self.bot.get_channel(932033338347245628)
         if role in user.roles:
@@ -255,10 +256,9 @@ class lideri_grade(commands.Cog):
         message = f"{role.mention} a fost atribuit lui {user.mention}. Expira in {time.days} zile {time.seconds//3600} ore."
         await self._maybe_confirm(ctx, message)
         
-        reason = "A primit somer."
+        #reason = "A primit somer."
         #for x in user.roles:
             #if x.id in lideri_grade.roluri_colider or x in lideri_grade.roluri_tester or x in lideri_grade.roluri_membru or x in lideri_grade.id_factiune or x in lideri_grade.roluri_smurd or x in lideri_grade.smurd_grade or x in lideri_grade.roluri_sias or x in lideri_grade.sias_grade or x in lideri_grade.roluri_rutiera or x in lideri_grade.roluri_politie or x in lideri_grade.politie_grade:
-        user.remove_roles(ctx.guild.get_role(903411660042174465))
         data_log = datetime.now(tz).strftime("%d %B %Y %H:%M:%S")
         embed=discord.Embed(title=f"{ctx.author.name} ({ctx.author.id}) - Adaugare Somaj", color=0x4b66ec)
         embed.add_field(name=f"{ctx.author} i-a dat somaj lui", value=f"{user.mention}", inline=False)
