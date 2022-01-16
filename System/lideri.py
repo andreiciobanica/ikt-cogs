@@ -636,27 +636,27 @@ class lideri_grade(commands.Cog):
     @politie.command(name="adauga", pass_context=True)
     async def _adaugaagentpolitie(self, ctx, user: discord.Member):
         verif = False
-            for x in lideri_grade.politie_grade:
-                for y in ctx.author.roles:
-                    if ctx.guild.get_role(x)==y:
-                        await user.add_roles(ctx.guild.get_role(lideri_grade.roluri_politie[1]))
-                        await ctx.send("Am atribuit rolul de Agent <@&" + str(lideri_grade.id_factiune[20]) +"> jucatorului <@" + str(user.id) + ">!")
-                        verif = True
-                if verif == True:
-                    break
+        for x in lideri_grade.politie_grade:
+            for y in ctx.author.roles:
+                if ctx.guild.get_role(x)==y:
+                    await user.add_roles(ctx.guild.get_role(lideri_grade.roluri_politie[1]))
+                    await ctx.send("Am atribuit rolul de Agent <@&" + str(lideri_grade.id_factiune[20]) +"> jucatorului <@" + str(user.id) + ">!")
+                    verif = True
+            if verif == True:
+                break
                     
     @commands.bot_has_permissions(manage_roles=True)
     @politie.command(name="inlatura", pass_context=True)
     async def _inlaturaagentpolitie(self, ctx, user: discord.Member):
         verif = False
-            for x in lideri_grade.politie_grade:
-                for y in ctx.author.roles:
-                    if ctx.guild.get_role(x)==y:
-                        await user.remove_roles(ctx.guild.get_role(lideri_grade.roluri_politie[1]))
-                        await ctx.send("Am inlaturat rolul de Agent <@&" + str(lideri_grade.id_factiune[20]) +"> jucatorului <@" + str(user.id) + ">!")
-                        verif = True
-                if verif == True:
-                    break
+        for x in lideri_grade.politie_grade:
+            for y in ctx.author.roles:
+                if ctx.guild.get_role(x)==y:
+                    await user.remove_roles(ctx.guild.get_role(lideri_grade.roluri_politie[1]))
+                    await ctx.send("Am inlaturat rolul de Agent <@&" + str(lideri_grade.id_factiune[20]) +"> jucatorului <@" + str(user.id) + ">!")
+                    verif = True
+            if verif == True:
+                break
                     
     @agent.commands.group(name="sias")
     async def sias(self, ctx: commands.Context):
@@ -665,6 +665,7 @@ class lideri_grade(commands.Cog):
     @commands.bot_has_permissions(manage_roles=True)
     @sias.command(name="adauga", pass_context=True)
     async def _adaugaagentsias(self, ctx, user: discord.Member):
+            verif = False
             for x in lideri_grade.sias_grade:
                 for y in ctx.author.roles:
                     if ctx.guild.get_role(x)==y:
@@ -677,14 +678,15 @@ class lideri_grade(commands.Cog):
     @commands.bot_has_permissions(manage_roles=True)               
     @sias.command(name="inlatura", pass_context=True)
     async def _inlaturaagentsias(self, ctx, user: discord.Member):
-            for x in lideri_grade.sias_grade:
-                for y in ctx.author.roles:
-                    if ctx.guild.get_role(x)==y:
-                        await user.remove_roles(ctx.guild.get_role(lideri_grade.roluri_sias[2]))
-                        await ctx.send("Am inlaturat rolul de Agent <@&" + str(lideri_grade.id_factiune[21]) +"> jucatorului <@" + str(user.id) + ">!")
-                        verif = True
-                if verif == True:
-                    break
+        verif = False
+        for x in lideri_grade.sias_grade:
+            for y in ctx.author.roles:
+                if ctx.guild.get_role(x)==y:
+                    await user.remove_roles(ctx.guild.get_role(lideri_grade.roluri_sias[2]))
+                    await ctx.send("Am inlaturat rolul de Agent <@&" + str(lideri_grade.id_factiune[21]) +"> jucatorului <@" + str(user.id) + ">!")
+                    verif = True
+            if verif == True:
+                break
     
     @commands.group(name="coordonator")
     async def coordonator(self, ctx: commands.Context):
