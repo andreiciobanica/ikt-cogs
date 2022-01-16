@@ -410,8 +410,14 @@ class lideri_grade(commands.Cog):
             elif ctx:
                 await ctx.send(f"Error: that is not an active TempRole.")
 
-    @commands.command(name="colider", pass_context=True)
-    async def colider(self, ctx, user: discord.Member):
+    
+    @commands.group(name="colider")
+    async def colider(self, ctx: commands.Context):
+        """Adauga sau inlatura un colider factiunii tale(**Doar pentru LIDERI**)"""
+
+    @commands.bot_has_permissions(manage_roles=True)
+    @colider.command(name="adaugacolider")
+    async def _adauga(self, ctx, user: discord.Member):
         verif = False
         for x in lideri_grade.roluri_lider:
             for y in ctx.author.roles:
@@ -421,15 +427,42 @@ class lideri_grade(commands.Cog):
                     verif = True
             if verif == True:
                 break
+    @colider.command(name="inlaturacolider", pass_context=True)
+    async def _inlatura(self, ctx, user: discord.Member):
+        verif = False
+        for x in lideri_grade.roluri_lider:
+            for y in ctx.author.roles:
+                if ctx.guild.get_role(x)==y:
+                    await user.remove_roles(ctx.guild.get_role(lideri_grade.roluri_colider[lideri_grade.roluri_lider.index(x)]))
+                    await ctx.send("Am inlaturat rolul de COLIDER <@&" + str(lideri_grade.id_factiune[lideri_grade.roluri_lider.index(x)]) +"> jucatorului <@" + str(user.id) + ">!")
+                    verif = True
+            if verif == True:
+                break
     
-    @commands.command(name="tester", pass_context=True)
-    async def tester(self, ctx, user: discord.Member):
+    @commands.group(name="tester")
+    async def tester(self, ctx: commands.Context):
+        """Adauga sau inlatura un tester factiunii tale(**Doar pentru LIDERI**)"""
+
+    @commands.bot_has_permissions(manage_roles=True)
+    @tester.command(name="adaugatester", pass_context=True)
+    async def _adauga(self, ctx, user: discord.Member):
         verif = False
         for x in lideri_grade.roluri_lider:
             for y in ctx.author.roles:
                 if ctx.guild.get_role(x)==y:
                     await user.add_roles(ctx.guild.get_role(lideri_grade.roluri_tester[lideri_grade.roluri_lider.index(x)]))
                     await ctx.send("Am atribuit rolul de TESTER <@&" + str(lideri_grade.id_factiune[lideri_grade.roluri_lider.index(x)]) +"> jucatorului <@" + str(user.id) + ">!")
+                    verif = True
+            if verif == True:
+                break
+    @tester.command(name="inlaturatester", pass_context=True)
+    async def _inlatura(self, ctx, user: discord.Member):
+        verif = False
+        for x in lideri_grade.roluri_lider:
+            for y in ctx.author.roles:
+                if ctx.guild.get_role(x)==y:
+                    await user.remove_roles(ctx.guild.get_role(lideri_grade.roluri_tester[lideri_grade.roluri_lider.index(x)]))
+                    await ctx.send("Am inlaturat rolul de TESTER <@&" + str(lideri_grade.id_factiune[lideri_grade.roluri_lider.index(x)]) +"> jucatorului <@" + str(user.id) + ">!")
                     verif = True
             if verif == True:
                 break
