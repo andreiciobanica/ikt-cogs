@@ -294,9 +294,19 @@ class lideri_grade(commands.Cog):
     @_temp_role.command(name="inlatura")
     async def _remove(self, ctx: commands.Context, user: discord.Member):
         """Scoate din somaj un jucator."""
-        role = ctx.guild.get_role(893597206123274241)
-        await self._tr_end(user, role, remover=ctx.author, ctx=ctx)
-        await self._maybe_confirm(ctx, f"{role.mention} pentru {user.mention} a fost inlaturat.")
+        verif = False
+        for x in ctx.author.roles:
+            for y in lider_grade.high_staff_roles:
+                if ctx.guild.get_role(y) == x:
+                    role = ctx.guild.get_role(893597206123274241)
+                    await self._tr_end(user, role, remover=ctx.author, ctx=ctx)
+                    await self._maybe_confirm(ctx, f"{role.mention} pentru {user.mention} a fost inlaturat.")
+                    verif = True
+            if verif == True:
+                break
+        if verif == False:
+            await self._maybe_confirm(ctx, f"Doar un membru din High Staff poate sa inlature somajul unui jucator!")
+                    
 
     @_temp_role.command(name="ramas")
     async def _remaining(self, ctx: commands.Context):
