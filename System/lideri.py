@@ -20,7 +20,7 @@ else:
 OVERFLOW_ERROR = "Perioada de timp aleasa este prea mare. Cauta si tu ceva rezonabil!"
 
 class lideri_grade(commands.Cog):
-    deep_web = 865215401470066708
+    deep_web = [865215401470066708]
     politie_grade = [
         865215533573341184, # Lider Politie
         865215532654788648, # Chestor Sef
