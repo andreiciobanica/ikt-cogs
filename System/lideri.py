@@ -630,6 +630,7 @@ class lideri_grade(commands.Cog):
     
     @agent.commands.group(name="politie")
     async def politie(self, ctx: commands.Context):
+        """Adauga sau inlatura Agent din Politia Romana"""
     
     @commands.bot_has_permissions(manage_roles=True)
     @politie.command(name="adauga", pass_context=True)
@@ -659,7 +660,8 @@ class lideri_grade(commands.Cog):
                     
     @agent.commands.group(name="sias")
     async def sias(self, ctx: commands.Context):
-
+        """Adauga sau inlatura Agent din SIAS"""
+        
     @commands.bot_has_permissions(manage_roles=True)
     @sias.command(name="adauga", pass_context=True)
     async def _adaugaagentsias(self, ctx, user: discord.Member):
