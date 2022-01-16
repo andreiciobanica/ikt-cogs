@@ -602,7 +602,7 @@ class lideri_grade(commands.Cog):
                 await ctx.send("Am inlaturat rolul de Subcomisar <@&" + str(lideri_grade.id_factiune[20]) +"> jucatorului <@" + str(user.id) + ">!")
             #break
             
-@commands.group(name="agentprincipal")
+    @commands.group(name="agentprincipal")
     async def agentprincipal(self, ctx: commands.Context):
         """Adauga sau inlatura Agent Principal/Special"""
         
