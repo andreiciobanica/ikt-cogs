@@ -628,7 +628,7 @@ class lideri_grade(commands.Cog):
     async def agent(self, ctx: commands.Context):
         """Adauga sau inlatura Agent"""
     
-    @agent.commands.group(name="politie")
+    @agent.group(name="politie")
     async def politie(self, ctx: commands.Context):
         """Adauga sau inlatura Agent din Politia Romana"""
     
@@ -658,7 +658,7 @@ class lideri_grade(commands.Cog):
             if verif == True:
                 break
                     
-    @agent.commands.group(name="sias")
+    @agent.group(name="sias")
     async def sias(self, ctx: commands.Context):
         """Adauga sau inlatura Agent din SIAS"""
         
