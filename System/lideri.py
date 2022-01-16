@@ -383,13 +383,22 @@ class lideri_grade(commands.Cog):
                 reason = "Somer: timpul s-a scurs" if not remover else f"Somer: scos de catre {remover}"
                 if member.guild.me.guild_permissions.manage_roles and role < member.guild.me.top_role:
                     if role in member.roles:
-                        await member.remove_roles(role, reason=reason)
-                        data_log = datetime.now(tz).strftime("%d %B %Y %H:%M:%S")
-                        embed=discord.Embed(title=f"{remover} ({remover.id}) - Inlaturare Somaj", color=0xec4b4b)
-                        embed.add_field(name=f"{remover} i-a scos somajul lui", value=f"{member.mention}", inline=False)
-                        embed.set_footer(text=str(data_log))
-                        embed.set_thumbnail(url=remover.avatar_url)
-                        await logs_channel_somaj.send(embed=embed)
+                        if remover == None:
+                            await member.remove_roles(role, reason=reason)
+                            data_log = datetime.now(tz).strftime("%d %B %Y %H:%M:%S")
+                            embed=discord.Embed(title=f"{member} ({member.id}) - Expirare Somaj", color=0xec4b4b)
+                            embed.add_field(name=f"A expirat perioada de somaj a lui", value=f"{member.mention}", inline=False)
+                            embed.set_footer(text=str(data_log))
+                            embed.set_thumbnail(url=member.avatar_url)
+                            await logs_channel_somaj.send(embed=embed)
+                        else:
+                            await member.remove_roles(role, reason=reason)
+                            data_log = datetime.now(tz).strftime("%d %B %Y %H:%M:%S")
+                            embed=discord.Embed(title=f"{remover} ({remover.id}) - Inlaturare Somaj", color=0xec4b4b)
+                            embed.add_field(name=f"{remover} i-a scos somajul lui", value=f"{member.mention}", inline=False)
+                            embed.set_footer(text=str(data_log))
+                            embed.set_thumbnail(url=remover.avatar_url)
+                            await logs_channel_somaj.send(embed=embed)
                         #await self._maybe_send_log(
                         #    member.guild,
                         #    f"{role.mention} pentru {member.mention} a fost inlaturat."
