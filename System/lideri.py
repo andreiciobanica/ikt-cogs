@@ -410,7 +410,7 @@ class lideri_grade(commands.Cog):
 
     @commands.command(name="colider", pass_context=True)
     async def colider(self, ctx, user: discord.Member):
-        user.remove_role(ctx.guild.get_role(903411660042174465))
+        user.remove_roles(ctx.guild.get_role(903411660042174465))
         verif = False
         for x in lideri_grade.roluri_lider:
             for y in ctx.author.roles:
