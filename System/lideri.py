@@ -260,6 +260,7 @@ class lideri_grade(commands.Cog):
         embed.add_field(name=f"{ctx.author} i-a dat somaj lui", value=f"{user.mention}", inline=False)
         embed.add_field(name="Durata", value=f"{time.days} zile si {time.seconds//3600} ore", inline=True)
         embed.set_footer(text=str(data_log))
+        embed.set_thumbnail(url=ctx.author.avatar_url)
         await logs_channel_somaj.send(embed=embed)
         #await self._maybe_send_log(ctx.guild, message)
         await self._tr_timer(user, role, end_time.timestamp())
@@ -379,6 +380,7 @@ class lideri_grade(commands.Cog):
                         embed=discord.Embed(title=f"{remover} ({remover.id}) - Inlaturare Somaj", color=0xec4b4b)
                         embed.add_field(name=f"{remover} i-a scos somajul lui", value=f"{member.mention}", inline=False)
                         embed.set_footer(text=str(data_log))
+                        embed.set_thumbnail(url=remover.avatar_url)
                         await logs_channel_somaj.send(embed=embed)
                         #await self._maybe_send_log(
                         #    member.guild,
