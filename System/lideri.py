@@ -580,7 +580,7 @@ class lideri_grade(commands.Cog):
 
     @commands.group(name="subcomisar")
     async def subcomisar(self, ctx: commands.Context):
-    """Adauga sau inlatura Subcomisar(**Doar pentru LIDER**)"""
+        """Adauga sau inlatura Subcomisar(**Doar pentru LIDER**)"""
     
     @commands.bot_has_permissions(manage_roles=True)
     @subcomisar.command(name="adauga", pass_context=True)
