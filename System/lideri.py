@@ -604,6 +604,7 @@ class lideri_grade(commands.Cog):
             
     @commands.group(name="agentprincipal")
     async def agentprincipal(self, ctx: commands.Context):
+        """Adauga sau inlatura Agent Principal/Special"""
         
     @agentprincipal.group(name="politie")
     async def agentprincipalpolitie(self, ctx: commands.Context):
