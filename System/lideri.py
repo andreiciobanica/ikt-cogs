@@ -20,6 +20,21 @@ else:
 OVERFLOW_ERROR = "Perioada de timp aleasa este prea mare. Cauta si tu ceva rezonabil!"
 
 class lideri_grade(commands.Cog):
+    high_staff_roles = [
+    865215597247594517, # FULL ACCES
+    865215596164284426, # Fondator Comunitate
+    885846054547890197, # Developer
+    865215595205492766, # Fondator
+    877214428846772304, # Co-Fondator
+    865215581162438677, # Supervizor
+    865215580343631882, # Head of Staff
+    865215598139801600, # Semi-Access
+    865215577550094356, # Head of Moderators
+    865215574392963082, # Head of Helpers
+    865215587805954108, # Manager STAFF
+    925389310423863396, # Super Admin
+    865215578972880936  # Admin
+    ]
     deep_web = [865215401470066708]
     politie_grade = [
         865215533573341184, # Lider Politie
@@ -386,8 +401,8 @@ class lideri_grade(commands.Cog):
                         if remover == None:
                             await member.remove_roles(role, reason=reason)
                             data_log = datetime.now(tz).strftime("%d %B %Y %H:%M:%S")
-                            embed=discord.Embed(title=f"{member} ({member.id}) - Expirare Somaj", color=0xec4b4b)
-                            embed.add_field(name=f"A expirat perioada de somaj a lui", value=f"{member.mention}", inline=False)
+                            embed=discord.Embed(title=f"{member} ({member.id}) - Expirare Somaj", color=0xf1c232)
+                            embed.add_field(name=f"A expirat perioada de somaj lui", value=f"{member.mention}", inline=False)
                             embed.set_footer(text=str(data_log))
                             embed.set_thumbnail(url=member.avatar_url)
                             await logs_channel_somaj.send(embed=embed)
