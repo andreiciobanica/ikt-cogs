@@ -256,9 +256,9 @@ class lideri_grade(commands.Cog):
         await self._maybe_confirm(ctx, message)
         
         reason = "A primit somer."
-        for x in user.roles:
-            if x.id in lideri_grade.roluri_colider or x in lideri_grade.roluri_tester or x in lideri_grade.roluri_membru or x in lideri_grade.id_factiune or x in lideri_grade.roluri_smurd or x in lideri_grade.smurd_grade or x in lideri_grade.roluri_sias or x in lideri_grade.sias_grade or x in lideri_grade.roluri_rutiera or x in lideri_grade.roluri_politie or x in lideri_grade.politie_grade:
-                await user.remove_roles(x, reason=reason)
+        #for x in user.roles:
+            #if x.id in lideri_grade.roluri_colider or x in lideri_grade.roluri_tester or x in lideri_grade.roluri_membru or x in lideri_grade.id_factiune or x in lideri_grade.roluri_smurd or x in lideri_grade.smurd_grade or x in lideri_grade.roluri_sias or x in lideri_grade.sias_grade or x in lideri_grade.roluri_rutiera or x in lideri_grade.roluri_politie or x in lideri_grade.politie_grade:
+        await user.remove_roles(ctx.guild.get_role(903411660042174465), reason=reason)
         data_log = datetime.now(tz).strftime("%d %B %Y %H:%M:%S")
         embed=discord.Embed(title=f"{ctx.author.name} ({ctx.author.id}) - Adaugare Somaj", color=0x4b66ec)
         embed.add_field(name=f"{ctx.author} i-a dat somaj lui", value=f"{user.mention}", inline=False)
