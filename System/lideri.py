@@ -638,7 +638,7 @@ class lideri_grade(commands.Cog):
     async def agentprincipalsias(self, ctx: commands.Context):
         """Adauga sau inlatura Agent Special din SIAS"""
         
-    @agentprincipalsias.command(name="inlatura", pass_context=True)
+    @agentprincipalsias.command(name="adauga", pass_context=True)
     async def _adaugaagentprincipalsias(self, ctx, user: discord.Member):
             verif = False
             for x in lideri_grade.sias_grade:
