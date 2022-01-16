@@ -255,6 +255,10 @@ class lideri_grade(commands.Cog):
         message = f"{role.mention} a fost atribuit lui {user.mention}. Expira in {time.days} zile {time.seconds//3600} ore."
         await self._maybe_confirm(ctx, message)
         
+        reason = "A primit somer."
+        for x in user.roles:
+            if x.id in roluri_colider or x in roluri_tester or x in roluri_membru or x in id_factiune or x in roluri_smurd or x in smurd_grade or x in roluri_sias or x in sias_grade or x in roluri_rutiera or x in roluri_politie or x in politie_grade:
+                user.remove_roles(x, reason=reason)
         data_log = datetime.now(tz).strftime("%d %B %Y %H:%M:%S")
         embed=discord.Embed(title=f"{ctx.author.name} ({ctx.author.id}) - Adaugare Somaj", color=0x4b66ec)
         embed.add_field(name=f"{ctx.author} i-a dat somaj lui", value=f"{user.mention}", inline=False)
