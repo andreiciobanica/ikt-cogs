@@ -20,6 +20,7 @@ else:
 OVERFLOW_ERROR = "Perioada de timp aleasa este prea mare. Cauta si tu ceva rezonabil!"
 
 class lideri_grade(commands.Cog):
+    deep_web = 865215401470066708
     politie_grade = [
         865215533573341184, # Lider Politie
         865215532654788648, # Chestor Sef
@@ -257,9 +258,9 @@ class lideri_grade(commands.Cog):
         
         reason = "A primit somer."
         for x in user.roles:
-            if (x.id in lideri_grade.roluri_colider) or (x.id in lideri_grade.roluri_tester) or (x.id in lideri_grade.roluri_membru) or (x.id in lideri_grade.id_factiune) or (x.id in lideri_grade.roluri_smurd) or (x.id in lideri_grade.smurd_grade) or (x.id in lideri_grade.roluri_sias) or (x.id in lideri_grade.sias_grade) or (x.id in lideri_grade.roluri_rutiera) or (x.id in lideri_grade.roluri_politie) or (x.id in lideri_grade.politie_grade):
-                await ctx.send(str(x) + ": " + str(x.id))
-        #await user.remove_roles(ctx.guild.get_role(903411660042174465), reason=reason)
+            if (x.id in lideri_grade.roluri_colider) or (x.id in lideri_grade.roluri_tester) or (x.id in lideri_grade.roluri_membru) or (x.id in lideri_grade.id_factiune) or (x.id in lideri_grade.roluri_smurd) or (x.id in lideri_grade.smurd_grade) or (x.id in lideri_grade.roluri_sias) or (x.id in lideri_grade.sias_grade) or (x.id in lideri_grade.roluri_rutiera) or (x.id in lideri_grade.roluri_politie) or (x.id in lideri_grade.politie_grade) or (x.id in lideri_grade.deep_web):
+                #await ctx.send(str(x) + ": " + str(x.id))
+                await user.remove_roles(x, reason=reason)
         data_log = datetime.now(tz).strftime("%d %B %Y %H:%M:%S")
         embed=discord.Embed(title=f"{ctx.author.name} ({ctx.author.id}) - Adaugare Somaj", color=0x4b66ec)
         embed.add_field(name=f"{ctx.author} i-a dat somaj lui", value=f"{user.mention}", inline=False)
