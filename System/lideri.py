@@ -194,7 +194,9 @@ class lideri_grade(commands.Cog):
         self.bot = bot
         global tz
         global logs_channel_somaj
+        global logs_channel_factionrestriction
         logs_channel_somaj = self.bot.get_channel(932033338347245628)
+        logs_channel_factionrestriction = self.bot.get_channel(932333705802973184)
         tz = timezone("Europe/Bucharest")
         self.config = Config.get_conf(self, identifier=14000605, force_registration=True)
         default_guild = {
@@ -795,15 +797,155 @@ class lideri_grade(commands.Cog):
                         verif = True
                 if verif == True:
                     break
+                    
+    # FACTION RESTRICTION
                         
-#    @commands.command(name="somaj", pass_context=True)
-#    async def somaj(self, ctx, user: discord.Member, durata_zile: int):
-#        verif = False
-#        for x in lideri_grade.roluri_lider:
-#            for y in ctx.author.roles:
-#                if ctx.guild.get_role(x)==y:
-#                    await user.add_roles(ctx.guild.get_role(893597206123274241))
-#                    await ctx.send("L-am bagat in SOMAJ pe jucatorul <@" + str(user.id) + "> pentru **" + str(durata_zile) + " zile**" + "!")
-#                    verif = True
-#            if verif == True:
-#                break
+    @commands.group(name="restriction")
+    async def restriction(self, ctx: commands.Context):
+        """Meniul Faction Restriction"""
+    
+    @restriction.group(name="politie", pass_context=True)
+    async def restrictionpolitie(self, ctx: commands.Context):
+        """Meniul Faction Restriction pentru Politia Romana"""
+
+    @commands.bot_has_permissions(manage_roles=True)   
+    @restrictionpolitie.command(name="adauga", pass_context=True)
+    async def adaugafactionrestrictionpolitie(self, ctx, user: discord.Member):
+            #verif = False
+            #for y in ctx.author.roles:
+            if ctx.guild.get_role(lideri_grade.politie_grade[0]) in ctx.author.roles:
+                await user.add_roles(ctx.guild.get_role(lideri_grade.faction_restriction[0]))
+                await ctx.send("L-am adaugat pe jucatorul <@" + str(user.id) +"> pe lista de persoane non-grata pentru <@&" + str(lideri_grade.id_factiune[20]) + ">! (<@&" + str(lideri_grade.faction_restriction[0]) + ">)")
+                data_log = datetime.now(tz).strftime("%d %B %Y %H:%M:%S")
+                embed=discord.Embed(title=f"{ctx.author.name} ({ctx.author.id}) - Atribuire Faction Restriction", color=0x4b66ec)
+                embed.add_field(name=f"{ctx.author} i-a atribuit FACTION RESTRICTION lui", value=f"{user.mention}", inline=False)
+                embed.add_field(name="Factiune", value=f"{lideri_grade.id_factiune[20]}", inline=True)
+                embed.set_footer(text=str(data_log))
+                embed.set_thumbnail(url=ctx.author.avatar_url)
+                await logs_channel_factionrestriction.send(embed=embed)
+           #break
+    @commands.bot_has_permissions(manage_roles=True)   
+    @restrictionpolitie.command(name="inlatura", pass_context=True)
+    async def inlaturafactionrestrictionpolitie(self, ctx, user: discord.Member):
+            if ctx.guild.get_role(lideri_grade.politie_grade[0]) in ctx.author.roles:
+                await user.remove_roles(ctx.guild.get_role(lideri_grade.faction_restriction[0]))
+                await ctx.send("L-am inlaturat pe jucatorul <@" + str(user.id) +"> de pe lista de persoane non-grata pentru <@&" + str(lideri_grade.id_factiune[20]) + ">! (<@&" + str(lideri_grade.faction_restriction[0]) + ">)")
+                data_log = datetime.now(tz).strftime("%d %B %Y %H:%M:%S")
+                embed=discord.Embed(title=f"{ctx.author.name} ({ctx.author.id}) - Inlaturare Faction Restriction", color=0xec4b4b)
+                embed.add_field(name=f"{ctx.author} i-a scos FACTION RESTRICTION-UL lui", value=f"{user.mention}", inline=False)
+                embed.add_field(name="Factiune", value=f"{lideri_grade.id_factiune[20]}", inline=True)
+                embed.set_footer(text=str(data_log))
+                embed.set_thumbnail(url=ctx.author.avatar_url)
+                await logs_channel_factionrestriction.send(embed=embed)
+
+    @restriction.group(name="sias", pass_context=True)
+    async def restrictionsias(self, ctx: commands.Context):
+        """Meniul Faction Restriction pentru SIAS"""
+        
+    @commands.bot_has_permissions(manage_roles=True)   
+    @restrictionsias.command(name="adauga", pass_context=True)
+    async def adaugafactionrestrictionsias(self, ctx, user: discord.Member):
+            #verif = False
+            #for y in ctx.author.roles:
+            if ctx.guild.get_role(lideri_grade.sias_grade[0]) in ctx.author.roles:
+                await user.add_roles(ctx.guild.get_role(lideri_grade.faction_restriction[1]))
+                await ctx.send("L-am adaugat pe jucatorul <@" + str(user.id) +"> pe lista de persoane non-grata pentru <@&" + str(lideri_grade.id_factiune[21]) + ">! (<@&" + str(lideri_grade.faction_restriction[1]) + ">)")
+                data_log = datetime.now(tz).strftime("%d %B %Y %H:%M:%S")
+                embed=discord.Embed(title=f"{ctx.author.name} ({ctx.author.id}) - Atribuire Faction Restriction", color=0x4b66ec)
+                embed.add_field(name=f"{ctx.author} i-a atribuit FACTION RESTRICTION lui", value=f"{user.mention}", inline=False)
+                embed.add_field(name="Factiune", value=f"{lideri_grade.id_factiune[21]}", inline=True)
+                embed.set_footer(text=str(data_log))
+                embed.set_thumbnail(url=ctx.author.avatar_url)
+                await logs_channel_factionrestriction.send(embed=embed)
+            #break
+    @commands.bot_has_permissions(manage_roles=True)   
+    @restrictionsias.command(name="inlatura", pass_context=True)
+    async def inlaturafactionrestrictionsias(self, ctx, user: discord.Member):
+            #verif = False
+            #for y in ctx.author.roles:
+            if ctx.guild.get_role(lideri_grade.sias_grade[0]) in ctx.author.roles:
+                await user.remove_roles(ctx.guild.get_role(lideri_grade.faction_restriction[1]))
+                await ctx.send("L-am inlaturat pe jucatorul <@" + str(user.id) +"> de pe lista de persoane non-grata pentru <@&" + str(lideri_grade.id_factiune[21]) + ">! (<@&" + str(lideri_grade.faction_restriction[1]) + ">)")
+                data_log = datetime.now(tz).strftime("%d %B %Y %H:%M:%S")
+                embed=discord.Embed(title=f"{ctx.author.name} ({ctx.author.id}) - Inlaturare Faction Restriction", color=0xec4b4b)
+                embed.add_field(name=f"{ctx.author} i-a scos FACTION RESTRICTION-UL lui", value=f"{user.mention}", inline=False)
+                embed.add_field(name="Factiune", value=f"{lideri_grade.id_factiune[21]}", inline=True)
+                embed.set_footer(text=str(data_log))
+                embed.set_thumbnail(url=ctx.author.avatar_url)
+                await logs_channel_factionrestriction.send(embed=embed)
+            #break
+
+    @restriction.group(name="smurd", pass_context=True)
+    async def restrictionsmurd(self, ctx: commands.Context):
+        """Meniul Faction Restriction pentru SMURD"""
+
+    @commands.bot_has_permissions(manage_roles=True)   
+    @restrictionsmurd.command(name="adauga", pass_context=True)
+    async def adaugafactionrestrictionsmurd(self, ctx, user: discord.Member):
+            #verif = False
+            #for y in ctx.author.roles:
+            if ctx.guild.get_role(lideri_grade.smurd_grade[0]) in ctx.author.roles:
+                await user.add_roles(ctx.guild.get_role(lideri_grade.faction_restriction[2]))
+                await ctx.send("L-am adaugat pe jucatorul <@" + str(user.id) +"> pe lista de persoane non-grata pentru <@&" + str(lideri_grade.id_factiune[22]) + ">! (<@&" + str(lideri_grade.faction_restriction[2]) + ">)")
+                data_log = datetime.now(tz).strftime("%d %B %Y %H:%M:%S")
+                embed=discord.Embed(title=f"{ctx.author.name} ({ctx.author.id}) - Atribuire Faction Restriction", color=0x4b66ec)
+                embed.add_field(name=f"{ctx.author} i-a atribuit FACTION RESTRICTION lui", value=f"{user.mention}", inline=False)
+                embed.add_field(name="Factiune", value=f"{lideri_grade.id_factiune[22]}", inline=True)
+                embed.set_footer(text=str(data_log))
+                embed.set_thumbnail(url=ctx.author.avatar_url)
+                await logs_channel_factionrestriction.send(embed=embed)
+            #break
+    @commands.bot_has_permissions(manage_roles=True)   
+    @restrictionsmurd.command(name="inlatura", pass_context=True)
+    async def inlaturafactionrestrictionsmurd(self, ctx, user: discord.Member):
+            #verif = False
+            #for y in ctx.author.roles:
+            if ctx.guild.get_role(lideri_grade.smurd_grade[0]) in ctx.author.roles:
+                await user.remove_roles(ctx.guild.get_role(lideri_grade.faction_restriction[2]))
+                await ctx.send("L-am inlaturat pe jucatorul <@" + str(user.id) +"> de pe lista de persoane non-grata pentru <@&" + str(lideri_grade.id_factiune[22]) + ">! (<@&" + str(lideri_grade.faction_restriction[2]) + ">)")
+                data_log = datetime.now(tz).strftime("%d %B %Y %H:%M:%S")
+                embed=discord.Embed(title=f"{ctx.author.name} ({ctx.author.id}) - Inlaturare Faction Restriction", color=0xec4b4b)
+                embed.add_field(name=f"{ctx.author} i-a scos FACTION RESTRICTION-UL lui", value=f"{user.mention}", inline=False)
+                embed.add_field(name="Factiune", value=f"{lideri_grade.id_factiune[22]}", inline=True)
+                embed.set_footer(text=str(data_log))
+                embed.set_thumbnail(url=ctx.author.avatar_url)
+                await logs_channel_factionrestriction.send(embed=embed)
+            #break
+
+    @restriction.group(name="hitman", pass_context=True)
+    async def restrictionhitman(self, ctx: commands.Context):
+        """Meniul Faction Restriction pentru Hitman"""
+        
+    @commands.bot_has_permissions(manage_roles=True)   
+    @restrictionhitman.command(name="adauga", pass_context=True)
+    async def adaugafactionrestrictionhitman(self, ctx, user: discord.Member):
+            #verif = False
+            #for y in ctx.author.roles:
+            if ctx.guild.get_role(lideri_grade.roluri_lider[19]) in ctx.author.roles:
+                await user.add_roles(ctx.guild.get_role(lideri_grade.faction_restriction[3]))
+                await ctx.send("L-am adaugat pe jucatorul <@" + str(user.id) +"> pe lista de persoane non-grata pentru <@&" + str(lideri_grade.id_factiune[19]) + ">! (<@&" + str(lideri_grade.faction_restriction[3]) + ">)")
+                data_log = datetime.now(tz).strftime("%d %B %Y %H:%M:%S")
+                embed=discord.Embed(title=f"{ctx.author.name} ({ctx.author.id}) - Atribuire Faction Restriction", color=0x4b66ec)
+                embed.add_field(name=f"{ctx.author} i-a atribuit FACTION RESTRICTION lui", value=f"{user.mention}", inline=False)
+                embed.add_field(name="Factiune", value=f"{lideri_grade.id_factiune[19]}", inline=True)
+                embed.set_footer(text=str(data_log))
+                embed.set_thumbnail(url=ctx.author.avatar_url)
+                await logs_channel_factionrestriction.send(embed=embed)
+            #break
+    @commands.bot_has_permissions(manage_roles=True)   
+    @restrictionhitman.command(name="inlatura", pass_context=True)
+    async def inlaturafactionrestrictionhitman(self, ctx, user: discord.Member):
+            #verif = False
+            #for y in ctx.author.roles:
+            if ctx.guild.get_role(lideri_grade.roluri_lider[19]) in ctx.author.roles:
+                await user.remove_roles(ctx.guild.get_role(lideri_grade.faction_restriction[3]))
+                await ctx.send("L-am inlaturat pe jucatorul <@" + str(user.id) +"> de pe lista de persoane non-grata pentru <@&" + str(lideri_grade.id_factiune[19]) + ">! (<@&" + str(lideri_grade.faction_restriction[3]) + ">)")
+                data_log = datetime.now(tz).strftime("%d %B %Y %H:%M:%S")
+                embed=discord.Embed(title=f"{ctx.author.name} ({ctx.author.id}) - Inlaturare Faction Restriction", color=0xec4b4b)
+                embed.add_field(name=f"{ctx.author} i-a scos FACTION RESTRICTION-UL lui", value=f"{user.mention}", inline=False)
+                embed.add_field(name="Factiune", value=f"{lideri_grade.id_factiune[19]}", inline=True)
+                embed.set_footer(text=str(data_log))
+                embed.set_thumbnail(url=ctx.author.avatar_url)
+                await logs_channel_factionrestriction.send(embed=embed)
+            #break
+    # END FACTION RESTRICTION
