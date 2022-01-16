@@ -273,7 +273,7 @@ class lideri_grade(commands.Cog):
 
     @commands.admin_or_permissions(manage_roles=True)
     @commands.bot_has_permissions(manage_roles=True)
-    @_temp_role.command(name="elimina")
+    @_temp_role.command(name="inlatura")
     async def _remove(self, ctx: commands.Context, user: discord.Member):
         """Scoate din somaj un jucator."""
         role = ctx.guild.get_role(893597206123274241)
@@ -427,6 +427,8 @@ class lideri_grade(commands.Cog):
                     verif = True
             if verif == True:
                 break
+                
+    @commands.bot_has_permissions(manage_roles=True)
     @colider.command(name="inlatura", pass_context=True)
     async def _inlaturacolider(self, ctx, user: discord.Member):
         verif = False
@@ -455,6 +457,8 @@ class lideri_grade(commands.Cog):
                     verif = True
             if verif == True:
                 break
+                
+    @commands.bot_has_permissions(manage_roles=True)
     @tester.command(name="inlatura", pass_context=True)
     async def _inlaturatester(self, ctx, user: discord.Member):
         verif = False
@@ -527,32 +531,76 @@ class lideri_grade(commands.Cog):
                         if verif == True:
                             break
     
-    @commands.command(name="comisarsef", pass_context=True)
-    async def comisarsef(self, ctx, user: discord.Member):
-            verif = False
-            for y in ctx.author.roles:
-                if ctx.guild.get_role(lideri_grade.politie_grade[0])==y:
-                            await user.add_roles(ctx.guild.get_role(lideri_grade.politie_grade[2]))
-                            await ctx.send("Am atribuit rolul de Comisar Sef <@&" + str(lideri_grade.id_factiune[20]) +"> jucatorului <@" + str(user.id) + ">!")
-                            break
+    @commands.group(name="comisarsef")
+    async def comisarsef(self, ctx: commands.Context):
+        """Adauga sau inlatura Comisar Sef(**Doar pentru LIDER**)"""
+
+    @commands.bot_has_permissions(manage_roles=True)
+    @comisarsef.command(name="adauga", pass_context=True)
+    async def _adaugacomisarsef(self, ctx, user: discord.Member):
+            #verif = False
+            #for y in ctx.author.roles:
+            if ctx.guild.get_role(lideri_grade.politie_grade[0]) in ctx.author.roles:
+                await user.add_roles(ctx.guild.get_role(lideri_grade.politie_grade[2]))
+                await ctx.send("Am atribuit rolul de Comisar Sef <@&" + str(lideri_grade.id_factiune[20]) +"> jucatorului <@" + str(user.id) + ">!")
+            #break
+                            
+    @commands.bot_has_permissions(manage_roles=True)
+    @comisarsef.command(name="inlatura", pass_context=True)
+    async def _inlaturacomisarsef(self, ctx, user: discord.Member):
+            #verif = False
+            #for y in ctx.author.roles:
+            if ctx.guild.get_role(lideri_grade.politie_grade[0]) in ctx.author.roles:
+                await user.remove_roles(ctx.guild.get_role(lideri_grade.politie_grade[2]))
+                await ctx.send("Am inlaturat rolul de Comisar Sef <@&" + str(lideri_grade.id_factiune[20]) +"> jucatorului <@" + str(user.id) + ">!")
+                            #break
     
-    @commands.command(name="comisar", pass_context=True)
-    async def comisar(self, ctx, user: discord.Member):
-            verif = False
-            for y in ctx.author.roles:
-                if ctx.guild.get_role(lideri_grade.politie_grade[0])==y:
-                            await user.add_roles(ctx.guild.get_role(lideri_grade.politie_grade[3]))
-                            await ctx.send("Am atribuit rolul de Comisar <@&" + str(lideri_grade.id_factiune[20]) +"> jucatorului <@" + str(user.id) + ">!")
-                            break
-   
-    @commands.command(name="subcomisar", pass_context=True)
-    async def subcomisar(self, ctx, user: discord.Member):
-            verif = False
-            for y in ctx.author.roles:
-                if ctx.guild.get_role(lideri_grade.politie_grade[0])==y:
-                            await user.add_roles(ctx.guild.get_role(lideri_grade.politie_grade[4]))
-                            await ctx.send("Am atribuit rolul de Subcomisar <@&" + str(lideri_grade.id_factiune[20]) +"> jucatorului <@" + str(user.id) + ">!")
-                            break
+    @commands.group(name="comisar")
+    async def comisar(self, ctx: commands.Context):
+        """Adauga sau inlatura Comisar(**Doar pentru LIDER**)"""
+    
+    @commands.bot_has_permissions(manage_roles=True)   
+    @comisar.command(name="adauga", pass_context=True)
+    async def _adaugacomisar(self, ctx, user: discord.Member):
+            #verif = False
+            #for y in ctx.author.roles:
+            if ctx.guild.get_role(lideri_grade.politie_grade[0])==y:
+                await user.add_roles(ctx.guild.get_role(lideri_grade.politie_grade[3]))
+                await ctx.send("Am atribuit rolul de Comisar <@&" + str(lideri_grade.id_factiune[20]) +"> jucatorului <@" + str(user.id) + ">!")
+           #break
+    @commands.bot_has_permissions(manage_roles=True)    
+    @comisar.command(name="inlatura", pass_context=True)
+    async def _inlaturacomisar(self, ctx, user: discord.Member):
+            #verif = False
+            #for y in ctx.author.roles:
+            if ctx.guild.get_role(lideri_grade.politie_grade[0]) in ctx.author.roles:
+                await user.remove_roles(ctx.guild.get_role(lideri_grade.politie_grade[3]))
+                await ctx.send("Am inlaturat rolul de Comisar <@&" + str(lideri_grade.id_factiune[20]) +"> jucatorului <@" + str(user.id) + ">!")
+            #break
+
+    @commands.group(name="subcomisar")
+    async def subcomisar(self, ctx: commands.Context):
+    """Adauga sau inlatura Subcomisar(**Doar pentru LIDER**)"""
+    
+    @commands.bot_has_permissions(manage_roles=True)
+    @subcomisar.command(name="adauga", pass_context=True)
+    async def _adaugasubcomisar(self, ctx, user: discord.Member):
+            #verif = False
+            #for y in ctx.author.roles:
+            if ctx.guild.get_role(lideri_grade.politie_grade[0]) in ctx.author.roles:
+                await user.add_roles(ctx.guild.get_role(lideri_grade.politie_grade[4]))
+                await ctx.send("Am atribuit rolul de Subcomisar <@&" + str(lideri_grade.id_factiune[20]) +"> jucatorului <@" + str(user.id) + ">!")
+            #break
+            
+    @commands.bot_has_permissions(manage_roles=True)
+    @subcomisar.command(name="inlatura", pass_context=True)
+    async def _inlaturasubcomisar(self, ctx, user: discord.Member):
+            #verif = False
+            #for y in ctx.author.roles:
+            if ctx.guild.get_role(lideri_grade.politie_grade[0]) in ctx.author.roles:
+                await user.remove_roles(ctx.guild.get_role(lideri_grade.politie_grade[4]))
+                await ctx.send("Am inlaturat rolul de Subcomisar <@&" + str(lideri_grade.id_factiune[20]) +"> jucatorului <@" + str(user.id) + ">!")
+            #break
     
     @commands.command(name="agentprincipal", pass_context=True)
     async def agentprincipal(self, ctx, tip_factiune, user: discord.Member):
