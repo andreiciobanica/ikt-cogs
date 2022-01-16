@@ -623,6 +623,10 @@ class lideri_grade(commands.Cog):
                         verif = True
                 if verif == True:
                     break
+                    
+    @commands.group(name="agent")
+    async def agent(self, ctx: commands.Context):
+        """Adauga sau inlatura Agent"""
                         
     @commands.command(name="agent", pass_context=True)
     async def agent(self, ctx, tip_factiune, user: discord.Member):
