@@ -193,6 +193,8 @@ class lideri_grade(commands.Cog):
     def __init__(self, bot, *args, **kwargs):
         self.bot = bot
         global tz
+        global logs_channel_somaj
+        logs_channel_somaj = self.bot.get_channel(932033338347245628)
         tz = timezone("Europe/Bucharest")
         self.config = Config.get_conf(self, identifier=14000605, force_registration=True)
         default_guild = {
@@ -225,7 +227,6 @@ class lideri_grade(commands.Cog):
         Pentru durata, introduceti saptamani (w), zile (d), si/sau ore (h)[exemplu: 3h -> 3 ore; 2w -> 2 saptamani].
         """
         role = ctx.guild.get_role(893597206123274241)
-        logs_channel_somaj = self.bot.get_channel(932033338347245628)
         if role in user.roles:
             return await ctx.send(f"Acest jucator este deja in {role.mention}!")
 
@@ -374,7 +375,6 @@ class lideri_grade(commands.Cog):
         await self._tr_end(member, role)
 
     async def _tr_end(self, member: discord.Member, role: discord.Role, remover=None, ctx=None):
-        logs_channel_somaj = self.bot.get_channel(932033338347245628)
         async with self.config.member(member).temp_roles() as tr_entries:
             if tr_entries.get(str(role.id)):
                 del tr_entries[str(role.id)]
@@ -545,6 +545,7 @@ class lideri_grade(commands.Cog):
                 await user.add_roles(ctx.guild.get_role(lideri_grade.politie_grade[2]))
                 await ctx.send("Am atribuit rolul de Comisar Sef <@&" + str(lideri_grade.id_factiune[20]) +"> jucatorului <@" + str(user.id) + ">!")
             #break
+            
                             
     @commands.bot_has_permissions(manage_roles=True)
     @comisarsef.command(name="inlatura", pass_context=True)
@@ -566,7 +567,7 @@ class lideri_grade(commands.Cog):
     async def _adaugacomisar(self, ctx, user: discord.Member):
             #verif = False
             #for y in ctx.author.roles:
-            if ctx.guild.get_role(lideri_grade.politie_grade[0])==y:
+            if ctx.guild.get_role(lideri_grade.politie_grade[0]) in ctx.author.roles:
                 await user.add_roles(ctx.guild.get_role(lideri_grade.politie_grade[3]))
                 await ctx.send("Am atribuit rolul de Comisar <@&" + str(lideri_grade.id_factiune[20]) +"> jucatorului <@" + str(user.id) + ">!")
            #break
