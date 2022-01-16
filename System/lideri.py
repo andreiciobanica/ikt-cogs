@@ -646,14 +646,32 @@ class lideri_grade(commands.Cog):
                 if verif == True:
                     break
     
-    @commands.command(name="coordonator", pass_context=True)
-    async def coordonatorsias(self, ctx, user: discord.Member):
+    @commands.group(name="coordonator")
+    async def coordonator(self, ctx: commands.Context):
+        """Adauga sau inlatura Coordonator(**Doar pentru LIDER**)"""
+    
+    @commands.bot_has_permissions(manage_roles=True)
+    @coordonator.command(name="adauga", pass_context=True)
+    async def _adaugacoordonatorsias(self, ctx, user: discord.Member):
             verif = False
             for x in lideri_grade.sias_grade:
                 for y in ctx.author.roles:
                     if ctx.guild.get_role(x)==y:
                         await user.add_roles(ctx.guild.get_role(lideri_grade.roluri_sias[0]))
                         await ctx.send("Am atribuit rolul de Coordonator <@&" + str(lideri_grade.id_factiune[21]) +"> jucatorului <@" + str(user.id) + ">!")
+                        verif = True
+                if verif == True:
+                    break
+                    
+    @commands.bot_has_permissions(manage_roles=True)
+    @coordonator.command(name="inlatura", pass_context=True)
+    async def _inlaturacoordonatorsias(self, ctx, user: discord.Member):
+            verif = False
+            for x in lideri_grade.sias_grade:
+                for y in ctx.author.roles:
+                    if ctx.guild.get_role(x)==y:
+                        await user.remove_roles(ctx.guild.get_role(lideri_grade.roluri_sias[0]))
+                        await ctx.send("Am inlaturat rolul de Coordonator <@&" + str(lideri_grade.id_factiune[21]) +"> jucatorului <@" + str(user.id) + ">!")
                         verif = True
                 if verif == True:
                     break
