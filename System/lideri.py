@@ -298,7 +298,7 @@ class lideri_grade(commands.Cog):
         """Scoate din somaj un jucator."""
         verif = False
         for x in ctx.author.roles:
-            for y in lider_grade.high_staff_roles:
+            for y in lideri_grade.high_staff_roles:
                 if ctx.guild.get_role(y) == x:
                     role = ctx.guild.get_role(893597206123274241)
                     await self._tr_end(user, role, remover=ctx.author, ctx=ctx)
