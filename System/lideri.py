@@ -576,13 +576,30 @@ class lideri_grade(commands.Cog):
     
     @membru.command(name="inlatura", pass_context=True)
     async def inlaturamembru(self, ctx, user: discord.Member):
+        verif = False
         for y in lideri_grade.roluri_lider:
             if ctx.guild.get_role(y) in ctx.author.roles:
                 reason = f"A fost inlaturat de catre liderul {ctx.author}."
+                verif = True
                 for x in user.roles:
-                    if (x.id in lideri_grade.roluri_colider) or (x.id in lideri_grade.roluri_tester) or (x.id in lideri_grade.roluri_membru) or (x.id in lideri_grade.id_factiune) or (x.id in lideri_grade.roluri_smurd[1:]) or (x.id in lideri_grade.smurd_grade) or (x.id in lideri_grade.roluri_sias[1:]) or (x.id in lideri_grade.sias_grade) or (x.id in lideri_grade.roluri_rutiera[1:]) or (x.id in lideri_grade.roluri_politie[1:]) or (x.id in lideri_grade.politie_grade) or (x.id in lideri_grade.deep_web):
+                    if (x.id in lideri_grade.roluri_colider) or (x.id in lideri_grade.roluri_tester) or (x.id in lideri_grade.roluri_membru) or (x.id in lideri_grade.id_factiune) or (x.id in lideri_grade.roluri_smurd) or (x.id in lideri_grade.smurd_grade[1:]) or (x.id in lideri_grade.roluri_sias) or (x.id in lideri_grade.sias_grade[1:]) or (x.id in lideri_grade.roluri_rutiera) or (x.id in lideri_grade.roluri_politie) or (x.id in lideri_grade.politie_grade[1:]) or (x.id in lideri_grade.deep_web):
                         await user.remove_roles(x, reason=reason)
-    
+        if verif == False:
+            for y in lideri_grade.roluri_colider:
+                if ctx.guild.get_role(y) in ctx.author.roles:
+                    reason = f"A fost inlaturat de catre coliderul {ctx.author}."
+                    verif = True
+                    for x in user.roles:
+                        if (x.id in lideri_grade.roluri_tester) or (x.id in lideri_grade.roluri_membru) or (x.id in lideri_grade.id_factiune) or (x.id in lideri_grade.smurd_grade) or (x.id in lideri_grade.sias_grade) or (x.id in lideri_grade.politie_grade) or (x.id in lideri_grade.deep_web):
+                            await user.remove_roles(x, reason=reason)
+        if verif == False:
+            for y in lideri_grade.roluri_tester:
+                if ctx.guild.get_role(y) in ctx.author.roles:
+                    reason = f"A fost inlaturat de catre tester-ul {ctx.author}."
+                    verif = True
+                    for x in user.roles:
+                        if  (x.id in lideri_grade.roluri_membru) or (x.id in lideri_grade.id_factiune) or (x.id in lideri_grade.smurd_grade) or (x.id in lideri_grade.sias_grade) or (x.id in lideri_grade.politie_grade) or (x.id in lideri_grade.deep_web):
+                            await user.remove_roles(x, reason=reason)
     #@commands.command(name="membru", pass_context=True)
     #async def membru(self, ctx, tip_factiune, user: discord.Member):
     #    verif = False
