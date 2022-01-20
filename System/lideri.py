@@ -510,7 +510,7 @@ class lideri_grade(commands.Cog):
                 break
     
     @commands.group(name="membru")
-    async def membru(self, ctx: commands.Context)
+    async def membru(self, ctx: commands.Context):
         """Adauga sau inlatura un membru din factiunea dvs."""
         
     @membru.command(name="adauga", pass_context=True)
