@@ -580,7 +580,7 @@ class lideri_grade(commands.Cog):
             if ctx.guild.get_role(y) in ctx.author.roles:
                 reason = f"A fost inlaturat de catre liderul {ctx.author}."
                 for x in user.roles:
-                    if (x.id in lideri_grade.roluri_colider) or (x.id in lideri_grade.roluri_tester) or (x.id in lideri_grade.roluri_membru) or (x.id in lideri_grade.id_factiune) or (x.id in lideri_grade.roluri_smurd) or (x.id in lideri_grade.smurd_grade) or (x.id in lideri_grade.roluri_sias) or (x.id in lideri_grade.sias_grade) or (x.id in lideri_grade.roluri_rutiera) or (x.id in lideri_grade.roluri_politie) or (x.id in lideri_grade.politie_grade) or (x.id in lideri_grade.deep_web):
+                    if (x.id in lideri_grade.roluri_colider) or (x.id in lideri_grade.roluri_tester) or (x.id in lideri_grade.roluri_membru) or (x.id in lideri_grade.id_factiune) or (x.id in lideri_grade.roluri_smurd[1:]) or (x.id in lideri_grade.smurd_grade) or (x.id in lideri_grade.roluri_sias[1:]) or (x.id in lideri_grade.sias_grade) or (x.id in lideri_grade.roluri_rutiera[1:]) or (x.id in lideri_grade.roluri_politie[1:]) or (x.id in lideri_grade.politie_grade) or (x.id in lideri_grade.deep_web):
                         await user.remove_roles(x, reason=reason)
     
     #@commands.command(name="membru", pass_context=True)
