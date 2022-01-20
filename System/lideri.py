@@ -510,7 +510,7 @@ class lideri_grade(commands.Cog):
                 break
     
     @commands.group(name="membru")
-    async def membru(self, ctx: commands.Context):
+    async def membru(self, ctx: commands.Context)
         """Adauga sau inlatura un membru din factiunea dvs."""
         
     @membru.command(name="adauga", pass_context=True)
@@ -577,7 +577,7 @@ class lideri_grade(commands.Cog):
     @membru.command(name="inlatura", pass_context=True)
     async def inlaturamembru(self, ctx, user: discord.Member):
         for y in lideri_grade.roluri_lider:
-            if y in ctx.author.roles:
+            if ctx.guild.get_role(y) in ctx.author.roles:
                 reason = f"A fost inlaturat de catre liderul {ctx.author}."
                 for x in user.roles:
                     if (x.id in lideri_grade.roluri_colider) or (x.id in lideri_grade.roluri_tester) or (x.id in lideri_grade.roluri_membru) or (x.id in lideri_grade.id_factiune) or (x.id in lideri_grade.roluri_smurd) or (x.id in lideri_grade.smurd_grade) or (x.id in lideri_grade.roluri_sias) or (x.id in lideri_grade.sias_grade) or (x.id in lideri_grade.roluri_rutiera) or (x.id in lideri_grade.roluri_politie) or (x.id in lideri_grade.politie_grade) or (x.id in lideri_grade.deep_web):
