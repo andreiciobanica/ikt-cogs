@@ -103,6 +103,8 @@ class lideri_grade(commands.Cog):
             929489148987981824, # Crips
             929489154079871008, # Loz Aztecas
             865215430662291496, # Hitman
+            914406930880024576, # Taxi
+            914407704125116478, # Mecanic
             865215533573341184, # Politie
             865215521094631435, # SIAS
             865215510265331712  # SMURD
@@ -128,6 +130,8 @@ class lideri_grade(commands.Cog):
             929489144936271893, # Crips
             929489155854061578, # Loz Aztecas
             865215429869961237, # Hitman
+            '_', # Taxi
+            '_', # Mecanic
             865215532654788648, # Politia Romana
             865215520445431838, # SIAS
             865215509178875934  # Sef de Statie
@@ -153,6 +157,8 @@ class lideri_grade(commands.Cog):
             929489137231343656, # Crips
             929489156906836020, # Loz Aztecas
             865215429039226890, # Hitman
+            '_', # Taxi
+            '_', # Mecanic
             865215528472805416, # Politia Romana
             865215516507504641, # SIAS
             885474291410407444  # SMURD
@@ -177,7 +183,9 @@ class lideri_grade(commands.Cog):
             929489165773570068, # Cosa Nostra
             929489128075173939, # Crips
             929489157955391498, # Loz Aztecas
-            865215428170219560  # Hitman
+            865215428170219560, # Hitman
+            913818971868909618, # Taxi
+            914407701260431361 # Mecanic
             ]
     id_factiune = [
             865215490782789632, # Araba
@@ -200,6 +208,8 @@ class lideri_grade(commands.Cog):
             929489120433147905, # Crips
             929489158584545372, # Loz Aztecas
             931739070688817212, # Hitman
+            '_', # Taxi
+            '_', # Mecanic
             865215523586048001, # Politia Romana
             865215512602345473, # SIAS
             931916048817586188  # SMURD
