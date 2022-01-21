@@ -579,7 +579,7 @@ class lideri_grade(commands.Cog):
         verif = False
         for y in lideri_grade.roluri_lider:
             if ctx.guild.get_role(y) in ctx.author.roles:
-                reason = f"A fost inlaturat de catre liderul {ctx.author}."
+                reason = f"{user.mention} a fost inlaturat de catre liderul {ctx.author}."
                 verif = True
                 for x in user.roles:
                     if (x.id in lideri_grade.roluri_colider) or (x.id in lideri_grade.roluri_tester) or (x.id in lideri_grade.roluri_membru) or (x.id in lideri_grade.id_factiune) or (x.id in lideri_grade.roluri_smurd) or (x.id in lideri_grade.smurd_grade[1:]) or (x.id in lideri_grade.roluri_sias) or (x.id in lideri_grade.sias_grade[1:]) or (x.id in lideri_grade.roluri_rutiera) or (x.id in lideri_grade.roluri_politie) or (x.id in lideri_grade.politie_grade[1:]) or (x.id in lideri_grade.deep_web):
@@ -587,7 +587,7 @@ class lideri_grade(commands.Cog):
         if verif == False:
             for y in lideri_grade.roluri_colider:
                 if ctx.guild.get_role(y) in ctx.author.roles:
-                    reason = f"A fost inlaturat de catre coliderul {ctx.author}."
+                    reason = f"{user.mention} a fost inlaturat de catre coliderul {ctx.author}."
                     verif = True
                     for x in user.roles:
                         if (x.id in lideri_grade.roluri_tester) or (x.id in lideri_grade.roluri_membru) or (x.id in lideri_grade.id_factiune) or (x.id in lideri_grade.smurd_grade) or (x.id in lideri_grade.sias_grade) or (x.id in lideri_grade.politie_grade) or (x.id in lideri_grade.deep_web):
@@ -595,7 +595,7 @@ class lideri_grade(commands.Cog):
         if verif == False:
             for y in lideri_grade.roluri_tester:
                 if ctx.guild.get_role(y) in ctx.author.roles:
-                    reason = f"A fost inlaturat de catre tester-ul {ctx.author}."
+                    reason = f"{user.mention} a fost inlaturat de catre tester-ul {ctx.author}."
                     verif = True
                     for x in user.roles:
                         if  (x.id in lideri_grade.roluri_membru) or (x.id in lideri_grade.id_factiune) or (x.id in lideri_grade.smurd_grade) or (x.id in lideri_grade.sias_grade) or (x.id in lideri_grade.politie_grade) or (x.id in lideri_grade.deep_web):
