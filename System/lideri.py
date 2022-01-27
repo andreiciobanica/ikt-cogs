@@ -103,6 +103,7 @@ class lideri_grade(commands.Cog):
             929489148987981824, # Crips
             929489154079871008, # Loz Aztecas
             865215430662291496, # Hitman
+            935017101524082699, # Omerta
             914406930880024576, # Taxi
             914407704125116478, # Mecanic
             865215533573341184, # Politie
@@ -130,6 +131,7 @@ class lideri_grade(commands.Cog):
             929489144936271893, # Crips
             929489155854061578, # Loz Aztecas
             865215429869961237, # Hitman
+            935017585492234250, # Omerta
             '_', # Taxi
             '_', # Mecanic
             865215532654788648, # Politia Romana
@@ -157,6 +159,7 @@ class lideri_grade(commands.Cog):
             929489137231343656, # Crips
             929489156906836020, # Loz Aztecas
             865215429039226890, # Hitman
+            935017642236989480, # Omerta
             '_', # Taxi
             '_', # Mecanic
             865215528472805416, # Politia Romana
@@ -184,6 +187,7 @@ class lideri_grade(commands.Cog):
             929489128075173939, # Crips
             929489157955391498, # Loz Aztecas
             865215428170219560, # Hitman
+            935017919144947802, # Omerta
             913818971868909618, # Taxi
             914407701260431361 # Mecanic
             ]
@@ -208,6 +212,7 @@ class lideri_grade(commands.Cog):
             929489120433147905, # Crips
             929489158584545372, # Loz Aztecas
             931739070688817212, # Hitman
+            935017996206870628, # Omerta
             '_', # Taxi
             '_', # Mecanic
             865215523586048001, # Politia Romana
@@ -529,8 +534,8 @@ class lideri_grade(commands.Cog):
         for x in lideri_grade.politie_grade:
             for y in ctx.author.roles:
                 if ctx.guild.get_role(x)==y:
-                    await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[20]), ctx.guild.get_role(lideri_grade.roluri_politie[2]))
-                    await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[20]) +"> jucatorului <@" + str(user.id) + ">!")
+                    await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[21]), ctx.guild.get_role(lideri_grade.roluri_politie[2]))
+                    await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[21]) +"> jucatorului <@" + str(user.id) + ">!")
                     veriff = True
                 if veriff == True:
                     break
@@ -539,8 +544,8 @@ class lideri_grade(commands.Cog):
             for x in lideri_grade.sias_grade:
                 for y in ctx.author.roles:
                     if ctx.guild.get_role(x)==y:
-                        await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[21]), ctx.guild.get_role(lideri_grade.roluri_sias[3]))
-                        await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[21]) +"> jucatorului <@" + str(user.id) + ">!")
+                        await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[22]), ctx.guild.get_role(lideri_grade.roluri_sias[3]))
+                        await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[22]) +"> jucatorului <@" + str(user.id) + ">!")
                         veriff = True
                 if veriff == True:
                     break
@@ -549,13 +554,13 @@ class lideri_grade(commands.Cog):
             for x in lideri_grade.smurd_grade:
                 for y in ctx.author.roles:
                     if ctx.guild.get_role(x)==y:
-                        await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[22]), ctx.guild.get_role(lideri_grade.roluri_smurd[2]))
-                        await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[22]) +"> jucatorului <@" + str(user.id) + ">!")
+                        await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[23]), ctx.guild.get_role(lideri_grade.roluri_smurd[2]))
+                        await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[23]) +"> jucatorului <@" + str(user.id) + ">!")
                         veriff = True
                 if veriff == True:
                     break
                     
-        if any(item in lideri_grade.roluri_lider[0:19] for item in ctx.author.roles) or any(item in lideri_grade.roluri_tester[0:19] for item in ctx.author.roles) or any(item in lideri_grade.roluri_colider[0:19] for item in ctx.author.roles):
+        if any(item in lideri_grade.roluri_lider[0:22] for item in ctx.author.roles) or any(item in lideri_grade.roluri_tester[0:22] for item in ctx.author.roles) or any(item in lideri_grade.roluri_colider[0:22] for item in ctx.author.roles):
             verif = False
             for x in lideri_grade.roluri_lider:
                 for y in ctx.author.roles:
