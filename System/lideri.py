@@ -529,7 +529,7 @@ class lideri_grade(commands.Cog):
         """Adauga sau inlatura un membru din factiunea dvs."""
         
     @membru.command(name="adauga", pass_context=True)
-    async def adaugamembru(self, ctx, user: discord.Member):
+    async def _adaugamembru(self, ctx, user: discord.Member):
         veriff = False
         for x in lideri_grade.politie_grade:
             for y in ctx.author.roles:
@@ -587,7 +587,7 @@ class lideri_grade(commands.Cog):
                         break
     
     @membru.command(name="inlatura", pass_context=True)
-    async def inlaturamembru(self, ctx, user: discord.Member):
+    async def _inlaturamembru(self, ctx, user: discord.Member):
         verif = False
         for y in lideri_grade.roluri_lider:
             if ctx.guild.get_role(y) in ctx.author.roles:
