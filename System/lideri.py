@@ -534,8 +534,8 @@ class lideri_grade(commands.Cog):
         for x in lideri_grade.politie_grade:
             for y in ctx.author.roles:
                 if ctx.guild.get_role(x)==y:
-                    await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[21]), ctx.guild.get_role(lideri_grade.roluri_politie[2]))
-                    await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[21]) +"> jucatorului <@" + str(user.id) + ">!")
+                    await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[23]), ctx.guild.get_role(lideri_grade.roluri_politie[2]))
+                    await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[23]) +"> jucatorului <@" + str(user.id) + ">!")
                     veriff = True
                 if veriff == True:
                     break
@@ -544,8 +544,8 @@ class lideri_grade(commands.Cog):
             for x in lideri_grade.sias_grade:
                 for y in ctx.author.roles:
                     if ctx.guild.get_role(x)==y:
-                        await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[22]), ctx.guild.get_role(lideri_grade.roluri_sias[3]))
-                        await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[22]) +"> jucatorului <@" + str(user.id) + ">!")
+                        await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[24]), ctx.guild.get_role(lideri_grade.roluri_sias[3]))
+                        await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[24]) +"> jucatorului <@" + str(user.id) + ">!")
                         veriff = True
                 if veriff == True:
                     break
@@ -554,8 +554,8 @@ class lideri_grade(commands.Cog):
             for x in lideri_grade.smurd_grade:
                 for y in ctx.author.roles:
                     if ctx.guild.get_role(x)==y:
-                        await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[23]), ctx.guild.get_role(lideri_grade.roluri_smurd[2]))
-                        await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[23]) +"> jucatorului <@" + str(user.id) + ">!")
+                        await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[25]), ctx.guild.get_role(lideri_grade.roluri_smurd[2]))
+                        await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[25]) +"> jucatorului <@" + str(user.id) + ">!")
                         veriff = True
                 if veriff == True:
                     break
@@ -563,8 +563,7 @@ class lideri_grade(commands.Cog):
         if any(item in lideri_grade.roluri_lider[0:22] for item in ctx.author.roles) or any(item in lideri_grade.roluri_tester[0:22] for item in ctx.author.roles) or any(item in lideri_grade.roluri_colider[0:22] for item in ctx.author.roles):
             verif = False
             for x in lideri_grade.roluri_lider:
-                for y in ctx.author.roles:
-                    if ctx.guild.get_role(x)==y:
+                    if ctx.guild.get_role(x) in ctx.author.roles:
                         verif = True
                         await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[lideri_grade.roluri_lider.index(x)]), ctx.guild.get_role(lideri_grade.roluri_membru[lideri_grade.roluri_lider.index(x)]), ctx.guild.get_role(865215401470066708))
                         await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[lideri_grade.roluri_lider.index(x)]) +"> jucatorului <@" + str(user.id) + ">!")
@@ -572,20 +571,18 @@ class lideri_grade(commands.Cog):
                         break
             if not verif:
                 for x in lideri_grade.roluri_colider:
-                    for y in ctx.author.roles:
-                        if ctx.guild.get_role(x)==y:
-                            verif = True
-                            await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[lideri_grade.roluri_colider.index(x)]), ctx.guild.get_role(lideri_grade.roluri_membru[lideri_grade.roluri_colider.index(x)]), ctx.guild.get_role(865215401470066708))
-                            await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[lideri_grade.roluri_colider.index(x)]) +"> jucatorului <@" + str(user.id) + ">!")
+                    if ctx.guild.get_role(x) in ctx.author.roles:
+                        verif = True
+                        await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[lideri_grade.roluri_colider.index(x)]), ctx.guild.get_role(lideri_grade.roluri_membru[lideri_grade.roluri_colider.index(x)]), ctx.guild.get_role(865215401470066708))
+                        await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[lideri_grade.roluri_colider.index(x)]) +"> jucatorului <@" + str(user.id) + ">!")
                     if verif == True:
                         break
             if not verif:
                 for x in lideri_grade.roluri_tester:
-                    for y in ctx.author.roles:
-                        if ctx.guild.get_role(x)==y:
-                            verif = True
-                            await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[lideri_grade.roluri_tester.index(x)]), ctx.guild.get_role(lideri_grade.roluri_membru[lideri_grade.roluri_tester.index(x)]), ctx.guild.get_role(865215401470066708))
-                            await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[lideri_grade.roluri_tester.index(x)]) +"> jucatorului <@" + str(user.id) + ">!")
+                    if ctx.guild.get_role(x) in ctx.author.roles:
+                        verif = True
+                        await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[lideri_grade.roluri_tester.index(x)]), ctx.guild.get_role(lideri_grade.roluri_membru[lideri_grade.roluri_tester.index(x)]), ctx.guild.get_role(865215401470066708))
+                        await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[lideri_grade.roluri_tester.index(x)]) +"> jucatorului <@" + str(user.id) + ">!")
                     if verif == True:
                         break
     
