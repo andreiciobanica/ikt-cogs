@@ -21,66 +21,66 @@ OVERFLOW_ERROR = "Perioada de timp aleasa este prea mare. Cauta si tu ceva rezon
 
 class lideri_grade(commands.Cog):
     high_staff_roles = [
-    865215597247594517, # FULL ACCES
-    865215596164284426, # Fondator Comunitate
-    885846054547890197, # Developer
-    865215595205492766, # Fondator
-    877214428846772304, # Co-Fondator
-    865215581162438677, # Supervizor
-    865215580343631882, # Head of Staff
-    865215598139801600, # Semi-Access
-    865215577550094356, # Head of Moderators
-    865215574392963082, # Head of Helpers
-    865215587805954108, # Manager STAFF
-    925389310423863396, # Super Admin
-    865215578972880936  # Admin
+            865215597247594517, # FULL ACCES
+            865215596164284426, # Fondator Comunitate
+            885846054547890197, # Developer
+            865215595205492766, # Fondator
+            877214428846772304, # Co-Fondator
+            865215581162438677, # Supervizor
+            865215580343631882, # Head of Staff
+            865215598139801600, # Semi-Access
+            865215577550094356, # Head of Moderators
+            865215574392963082, # Head of Helpers
+            865215587805954108, # Manager STAFF
+            925389310423863396, # Super Admin
+            865215578972880936  # Admin
     ]
     deep_web = [865215401470066708]
     politie_grade = [
-        865215533573341184, # Lider Politie
-        865215532654788648, # Chestor Sef
-        900110938563313675, # Comisar Sef
-        865215529807904809, # Comisar
-        865215529039953923, # Sub Comisar
-        865215528472805416  # Tester
+            865215533573341184, # Lider Politie
+            865215532654788648, # Chestor Sef
+            900110938563313675, # Comisar Sef
+            865215529807904809, # Comisar
+            865215529039953923, # Sub Comisar
+            865215528472805416  # Tester
     ]
     roluri_politie = [
-        865215527639449620, # Agent Principal
-        865215525608357958, # Agent
-        865215524782866432  # Cadet
+            865215527639449620, # Agent Principal
+            865215525608357958, # Agent
+            865215524782866432  # Cadet
     ]
     roluri_rutiera = [
-        908792926207881276, # Lider Rutiera
-        908793125475082250  # Rutiera
+            908792926207881276, # Lider Rutiera
+            908793125475082250  # Rutiera
     ]
     sias_grade = [
-        865215521094631435, # General SIAS
-        865215520445431838, # Co-General SIAS
-        865215519523209246, # Procuror SIAS
-        865215518650531870, # Sub Procuror SIAS
-        865215516507504641  # Tester
+            865215521094631435, # General SIAS
+            865215520445431838, # Co-General SIAS
+            865215519523209246, # Procuror SIAS
+            865215518650531870, # Sub Procuror SIAS
+            865215516507504641  # Tester
     ]
     roluri_sias = [
-        865215515210416179, # Coordonator SIAS
-        865215514624131072, # Agent Special SIAS
-        865215513800867850, # Agent SIAS
-        931961302342058104  # Recrut SIAS
+            865215515210416179, # Coordonator SIAS
+            865215514624131072, # Agent Special SIAS
+            865215513800867850, # Agent SIAS
+            931961302342058104  # Recrut SIAS
     ]
     smurd_grade = [
-        865215510265331712, # Director SMURD
-        865215509178875934, # Sef de Statie
-        885474291410407444  # Tester SMURD
+            865215510265331712, # Director SMURD
+            865215509178875934, # Sef de Statie
+            885474291410407444  # Tester SMURD
     ]
     roluri_smurd = [
-        865215507989004328, # Medic
-        865215507183566908, # Paramedic
-        865215506239324180  # Asistent
+            865215507989004328, # Medic
+            865215507183566908, # Paramedic
+            865215506239324180  # Asistent
     ]
     faction_restriction = [
-        865215523080241192, # Politia Romana
-        865215512098242570, # SIAS
-        865215505023238155, # Medic
-        885162367149809664  # Hitman
+            865215523080241192, # Politia Romana
+            865215512098242570, # SIAS
+            865215505023238155, # Medic
+            885162367149809664  # Hitman
     ]
     roluri_lider = [
             865215495623934012, # Araba
