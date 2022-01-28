@@ -560,7 +560,7 @@ class lideri_grade(commands.Cog):
                 if veriff == True:
                     break
                     
-        if any(item in lideri_grade.roluri_lider[0:22] for item in ctx.author.roles) or any(item in lideri_grade.roluri_tester[0:22] for item in ctx.author.roles) or any(item in lideri_grade.roluri_colider[0:22] for item in ctx.author.roles):
+        if any(ctx.guild.get_role(item) in lideri_grade.roluri_lider[0:22] for item in ctx.author.roles) or any(ctx.guild.get_role(item) in lideri_grade.roluri_tester[0:22] for item in ctx.author.roles) or any(ctx.guild.get_role(item) in lideri_grade.roluri_colider[0:22] for item in ctx.author.roles):
             verif = False
             for x in lideri_grade.roluri_lider:
                     if ctx.guild.get_role(x) in ctx.author.roles:
