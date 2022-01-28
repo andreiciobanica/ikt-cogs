@@ -132,8 +132,8 @@ class lideri_grade(commands.Cog):
             929489155854061578, # Loz Aztecas
             865215429869961237, # Hitman
             935017585492234250, # Omerta
-            '_', # Taxi
-            '_', # Mecanic
+            936411187422330950, # Taxi
+            914407701260431361, # Mecanic
             865215532654788648, # Politia Romana
             865215520445431838, # SIAS
             865215509178875934  # Sef de Statie
@@ -160,8 +160,8 @@ class lideri_grade(commands.Cog):
             929489156906836020, # Loz Aztecas
             865215429039226890, # Hitman
             935017642236989480, # Omerta
-            '_', # Taxi
-            '_', # Mecanic
+            936411187422330950, # Taxi
+            914407701260431361, # Mecanic
             865215528472805416, # Politia Romana
             865215516507504641, # SIAS
             885474291410407444  # SMURD
@@ -213,8 +213,8 @@ class lideri_grade(commands.Cog):
             929489158584545372, # Loz Aztecas
             931739070688817212, # Hitman
             935017996206870628, # Omerta
-            '_', # Taxi
-            '_', # Mecanic
+            936411187422330950, # Taxi
+            914407701260431361, # Mecanic
             865215523586048001, # Politia Romana
             865215512602345473, # SIAS
             931916048817586188  # SMURD
