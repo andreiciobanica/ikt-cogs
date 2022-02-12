@@ -75,7 +75,40 @@ class permisiuni_imperial(commands.Cog):
         865215226277003334, #ip-server
         865645173181513738  #invite-link
     ]
+    
+    imperial = [
+        930583333233123448, #campanie
+        865215147681513512, #evenimente
+        865215148751192064, #giveaway
+        920369552964067358, #intrebari-frecv
+        928402978036150352, #beneficii
+        865215149694648361, #server-boost
+        937562542652411964, #lista-staff
+        937553013265039370  #feedback-staff
+    ]
+    
+    evenimente = [
+        941403921899995197 #show yourself
+    ]
 
+    shop = [
+        865215157557526549, #ip-shop
+        895639061140734002, #ip-case
+    ]
+    
+    shop_donatii = [
+        #910103886210138162, #donatii-neacordate
+        920619711471960095  #licitatii
+    ]
+    
+    civil = [
+        865215169541570560, #free-chat
+        865215171593109514, #meme
+        904763186752921610, #sugestii
+        904762382562250804, #sugestii-reg
+        932007587711422474, #bot
+        865215172720328744  #tiktok
+    ]
 
     def __init__(self, bot, *args, **kwargs):
         self.bot = bot
@@ -132,5 +165,70 @@ class permisiuni_imperial(commands.Cog):
                  await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[i]), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
             await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[0]), view_channel=True, manage_channels=True, manage_permissions=True, manage_webhooks=True, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
             await c.set_permissions(ctx.guild.get_role(civil), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+            await c.set_permissions(ctx.guild.get_role(muted), view_channel=False, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+            await c.set_permissions(everyone, view_channel=False, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+
+        for x in permisiuni_imperial.imperial:
+            c = self.bot.get_channel(x)
+            for j in range(20):
+                await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[j]), overwrite=None)
+            for i in range(1, 10):
+                await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[i]), view_channel=True, manage_channels=True, manage_permissions=True, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+            for i in range(10, 20):
+                 await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[i]), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+            await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[0]), view_channel=True, manage_channels=True, manage_permissions=True, manage_webhooks=True, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+            await c.set_permissions(ctx.guild.get_role(civil), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+            await c.set_permissions(ctx.guild.get_role(muted), view_channel=False, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+            await c.set_permissions(everyone, view_channel=False, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+
+        for x in permisiuni_imperial.shop:
+            c = self.bot.get_channel(x)
+            for j in range(20):
+                await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[j]), overwrite=None)
+            for i in range(1, 10):
+                await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[i]), view_channel=True, manage_channels=True, manage_permissions=True, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+            for i in range(10, 20):
+                 await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[i]), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+            await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[0]), view_channel=True, manage_channels=True, manage_permissions=True, manage_webhooks=True, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+            await c.set_permissions(ctx.guild.get_role(civil), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+            await c.set_permissions(ctx.guild.get_role(muted), view_channel=False, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+            await c.set_permissions(everyone, view_channel=False, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+            
+        for x in permisiuni_imperial.shop_donatii:
+            c = self.bot.get_channel(x)
+            for j in range(20):
+                await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[j]), overwrite=None)
+            for i in range(1, 10):
+                await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[i]), view_channel=True, manage_channels=True, manage_permissions=True, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+            for i in range(10, 20):
+                 await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[i]), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+            await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[0]), view_channel=True, manage_channels=True, manage_permissions=True, manage_webhooks=True, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+            await c.set_permissions(ctx.guild.get_role(civil), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+            await c.set_permissions(ctx.guild.get_role(muted), view_channel=False, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+            await c.set_permissions(everyone, view_channel=False, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+
+        for x in permisiuni_imperial.evenimente:
+            c = self.bot.get_channel(x)
+            for j in range(20):
+                await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[j]), overwrite=None)
+            for i in range(1, 10):
+                await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[i]), view_channel=True, manage_channels=True, manage_permissions=True, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+            for i in range(10, 20):
+                 await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[i]), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+            await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[0]), view_channel=True, manage_channels=True, manage_permissions=True, manage_webhooks=True, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+            await c.set_permissions(ctx.guild.get_role(civil), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+            await c.set_permissions(ctx.guild.get_role(muted), view_channel=False, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+            await c.set_permissions(everyone, view_channel=False, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+
+        for x in permisiuni_imperial.civil:
+            c = self.bot.get_channel(x)
+            for j in range(20):
+                await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[j]), overwrite=None)
+            for i in range(1, 10):
+                await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[i]), view_channel=True, manage_channels=True, manage_permissions=True, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+            for i in range(10, 20):
+                 await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[i]), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+            await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[0]), view_channel=True, manage_channels=True, manage_permissions=True, manage_webhooks=True, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+            await c.set_permissions(ctx.guild.get_role(civil), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
             await c.set_permissions(ctx.guild.get_role(muted), view_channel=False, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
             await c.set_permissions(everyone, view_channel=False, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
