@@ -311,6 +311,10 @@ class lideri_grade(commands.Cog):
                     await logs_channel_somaj.send(embed=embed)
                     await self._tr_timer(user, role, end_time.timestamp())
                     #await self._maybe_send_log(ctx.guild, message)
+                if verif == True:
+                    break
+            if verif == False:
+                await self._maybe_confirm(ctx, f"Doar un lider poate sa bage in somaj un jucator!")
 
     @commands.admin_or_permissions(manage_roles=True)
     @commands.bot_has_permissions(manage_roles=True)
@@ -325,7 +329,7 @@ class lideri_grade(commands.Cog):
                     await self._tr_end(user, role, remover=ctx.author, ctx=ctx)
                     await self._maybe_confirm(ctx, f"{role.mention} pentru {user.mention} a fost inlaturat.")
                     verif = True
-             if verif == True:
+            if verif == True:
                 break
         if verif == False:
             await self._maybe_confirm(ctx, f"Doar un membru din High Staff poate sa inlature somajul unui jucator!")
