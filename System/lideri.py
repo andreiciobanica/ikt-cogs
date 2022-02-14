@@ -260,51 +260,62 @@ class lideri_grade(commands.Cog):
         Baga in somaj un jucator.
         Pentru durata, introduceti saptamani (w), zile (d), si/sau ore (h)[exemplu: 3h -> 3 ore; 2w -> 2 saptamani].
         """
-        role = ctx.guild.get_role(893597206123274241)
-        if role in user.roles:
-            return await ctx.send(f"Acest jucator este deja in {role.mention}!")
+        verif = False
+        for x in ctx.author.roles:
+            for y in lideri_grade.roluri_lider:
+                if ctx.guild.get_role(y) == x:
+                    role = ctx.guild.get_role(893597206123274241)
+                    if role in user.roles:
+                        return await ctx.send(f"Acest jucator este deja in {role.mention}!")
 
-        if role >= ctx.guild.me.top_role or (role >= ctx.author.top_role and ctx.author != ctx.guild.owner):
-            return await ctx.send("That role cannot be assigned due to the Discord role hierarchy!")
+                    if role >= ctx.guild.me.top_role or (role >= ctx.author.top_role and ctx.author != ctx.guild.owner):
+                        return await ctx.send("That role cannot be assigned due to the Discord role hierarchy!")
 
-        async with self.config.member(user).temp_roles() as user_tr:
-            if user_tr.get(str(role.id)):
-                return await ctx.send(
-                    f"{user.mention} se afla in somaj!",
-                    allowed_mentions=discord.AllowedMentions.none()
-                )
-            try:
-                end_time = datetime.now() + time
-            except OverflowError:
-                return await ctx.send(OVERFLOW_ERROR)
-            user_tr[str(role.id)] = end_time.timestamp()
+                    async with self.config.member(user).temp_roles() as user_tr:
+                        if user_tr.get(str(role.id)):
+                            return await ctx.send(
+                                f"{user.mention} se afla in somaj!",
+                                allowed_mentions=discord.AllowedMentions.none()
+                            )
+                        try:
+                            end_time = datetime.now() + time
+                        except OverflowError:
+                            return await ctx.send(OVERFLOW_ERROR)
+                        user_tr[str(role.id)] = end_time.timestamp()
 
-        if role < ctx.guild.me.top_role:
-            if role not in user.roles:
-                await user.add_roles(
-                    role,
-                    reason=f"Somaj: adaugat de catre {ctx.author}, expira in {time.days} zile {time.seconds//3600} ore"
-                )
-        else:
-            return await ctx.send("Nu pot sa atribui acest rol!")
+                    if role < ctx.guild.me.top_role:
+                        if role not in user.roles:
+                            await user.add_roles(
+                                role,
+                                reason=f"Somaj: adaugat de catre {ctx.author}, expira in {time.days} zile {time.seconds//3600} ore"
+                            )
+                    else:
+                        return await ctx.send("Nu pot sa atribui acest rol!")
 
-        message = f"{role.mention} a fost atribuit lui {user.mention}. Expira in {time.days} zile {time.seconds//3600} ore."
-        await self._maybe_confirm(ctx, message)
-        
-        reason = "A primit somer."
-        for x in user.roles:
-            if (x.id in lideri_grade.roluri_colider) or (x.id in lideri_grade.roluri_tester) or (x.id in lideri_grade.roluri_membru) or (x.id in lideri_grade.id_factiune) or (x.id in lideri_grade.roluri_smurd) or (x.id in lideri_grade.smurd_grade) or (x.id in lideri_grade.roluri_sias) or (x.id in lideri_grade.sias_grade) or (x.id in lideri_grade.roluri_rutiera) or (x.id in lideri_grade.roluri_politie) or (x.id in lideri_grade.politie_grade) or (x.id in lideri_grade.deep_web):
-                #await ctx.send(str(x) + ": " + str(x.id))
-                await user.remove_roles(x, reason=reason)
-        data_log = datetime.now(tz).strftime("%d %B %Y %H:%M:%S")
-        embed=discord.Embed(title=f"{ctx.author.name} ({ctx.author.id}) - Adaugare Somaj", color=0x4b66ec)
-        embed.add_field(name=f"{ctx.author} i-a dat somaj lui", value=f"{user.mention}", inline=False)
-        embed.add_field(name="Durata", value=f"{time.days} zile si {time.seconds//3600} ore", inline=True)
-        embed.set_footer(text=str(data_log))
-        embed.set_thumbnail(url=ctx.author.avatar_url)
-        await logs_channel_somaj.send(embed=embed)
-        #await self._maybe_send_log(ctx.guild, message)
-        await self._tr_timer(user, role, end_time.timestamp())
+                    message = f"{role.mention} a fost atribuit lui {user.mention}. Expira in {time.days} zile {time.seconds//3600} ore."
+                    verif = True
+                    await self._maybe_confirm(ctx, message)
+
+                    reason = "A primit somer."
+                    for x in user.roles:
+                        if (x.id in lideri_grade.roluri_colider) or (x.id in lideri_grade.roluri_tester) or (x.id in lideri_grade.roluri_membru) or (x.id in lideri_grade.id_factiune) or (x.id in lideri_grade.roluri_smurd) or (x.id in lideri_grade.smurd_grade) or (x.id in lideri_grade.roluri_sias) or (x.id in lideri_grade.sias_grade) or (x.id in lideri_grade.roluri_rutiera) or (x.id in lideri_grade.roluri_politie) or (x.id in lideri_grade.politie_grade) or (x.id in lideri_grade.deep_web):
+                            #await ctx.send(str(x) + ": " + str(x.id))
+                            await user.remove_roles(x, reason=reason)
+
+                    data_log = datetime.now(tz).strftime("%d %B %Y %H:%M:%S")
+                    embed=discord.Embed(title=f"{ctx.author.name} ({ctx.author.id}) - Adaugare Somaj", color=0x4b66ec)
+                    embed.add_field(name=f"{ctx.author} i-a dat somaj lui", value=f"{user.mention}", inline=False)
+                    embed.add_field(name="Durata", value=f"{time.days} zile si {time.seconds//3600} ore", inline=True)
+                    embed.set_footer(text=str(data_log))
+                    embed.set_thumbnail(url=ctx.author.avatar_url)
+                    await logs_channel_somaj.send(embed=embed)
+                    #await self._maybe_send_log(ctx.guild, message)
+                    await self._tr_timer(user, role, end_time.timestamp())
+                if verif == True:
+                    break
+            
+        if verif == False:
+            await self._maybe_confirm(ctx, f"Doar un membru din Lider poate sa bage in somaj un jucator!")
 
     @commands.admin_or_permissions(manage_roles=True)
     @commands.bot_has_permissions(manage_roles=True)
@@ -319,7 +330,7 @@ class lideri_grade(commands.Cog):
                     await self._tr_end(user, role, remover=ctx.author, ctx=ctx)
                     await self._maybe_confirm(ctx, f"{role.mention} pentru {user.mention} a fost inlaturat.")
                     verif = True
-            if verif == True:
+             if verif == True:
                 break
         if verif == False:
             await self._maybe_confirm(ctx, f"Doar un membru din High Staff poate sa inlature somajul unui jucator!")
