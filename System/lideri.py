@@ -309,12 +309,10 @@ class lideri_grade(commands.Cog):
                     embed.set_footer(text=str(data_log))
                     embed.set_thumbnail(url=ctx.author.avatar_url)
                     await logs_channel_somaj.send(embed=embed)
-                    #await self._maybe_send_log(ctx.guild, message)
                     await self._tr_timer(user, role, end_time.timestamp())
-                    
+                    #await self._maybe_send_log(ctx.guild, message)
             if verif == True:
                 break
-                
         if verif == False:
             await self._maybe_confirm(ctx, f"Doar un membru din Lider poate sa bage in somaj un jucator!")
 
