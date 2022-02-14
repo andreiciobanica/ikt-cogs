@@ -312,7 +312,7 @@ class lideri_grade(commands.Cog):
                     #await self._maybe_send_log(ctx.guild, message)
                     await self._tr_timer(user, role, end_time.timestamp())
             if verif == True:
-                    break
+                break
         if verif == False:
             await self._maybe_confirm(ctx, f"Doar un membru din Lider poate sa bage in somaj un jucator!")
 
