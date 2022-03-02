@@ -308,7 +308,7 @@ class lideri_grade(commands.Cog):
                     embed.add_field(name="Durata", value=f"{time.days} zile si {time.seconds//3600} ore", inline=True)
                     embed.set_footer(text=str(data_log))
                     embed.set_thumbnail(url=ctx.author.avatar_url)
-                    await self.bot.get_channel(932066407909322812).send(embed=embed)
+                    await self.bot.get_channel(932033338347245628).send(embed=embed)
                     await self._tr_timer(user, role, end_time.timestamp())
                     #await self._maybe_send_log(ctx.guild, message)
                 if verif == True:
@@ -442,7 +442,7 @@ class lideri_grade(commands.Cog):
                             embed.add_field(name=f"A expirat perioada de somaj lui", value=f"{member.mention}", inline=False)
                             embed.set_footer(text=str(data_log))
                             embed.set_thumbnail(url=member.avatar_url)
-                            await self.bot.get_channel(932066407909322812).send(embed=embed)
+                            await self.bot.get_channel(932033338347245628).send(embed=embed)
                         else:
                             await member.remove_roles(role, reason=reason)
                             data_log = datetime.now(tz).strftime("%d %B %Y %H:%M:%S")
@@ -450,7 +450,7 @@ class lideri_grade(commands.Cog):
                             embed.add_field(name=f"{remover} i-a scos somajul lui", value=f"{member.mention}", inline=False)
                             embed.set_footer(text=str(data_log))
                             embed.set_thumbnail(url=remover.avatar_url)
-                            await self.bot.get_channel(932066407909322812).send(embed=embed)
+                            await self.bot.get_channel(932033338347245628).send(embed=embed)
                         #await self._maybe_send_log(
                         #    member.guild,
                         #    f"{role.mention} pentru {member.mention} a fost inlaturat."
@@ -460,7 +460,7 @@ class lideri_grade(commands.Cog):
                         #embed=discord.Embed(title=f"{remover} ({remover.id}) - Inlaturare Somaj", color=0x4b66ec)
                         #embed.add_field(name=f"{remover} i-a scos somajul lui", value=f"{member.mention}", inline=False)
                         #embed.set_footer(text=str(data_log))
-                        #await self.bot.get_channel(932066407909322812).send(embed=embed)
+                        #await self.self.bot.get_channel(932033338347245628).send(embed=embed)
                         await self._maybe_send_log(
                             member.guild,
                             f"Perioada de {role.mention} pentru {member.mention} s-a incheiat, rolul v-a fost sters."
