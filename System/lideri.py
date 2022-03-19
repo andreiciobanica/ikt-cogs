@@ -298,7 +298,7 @@ class lideri_grade(commands.Cog):
 
                     reason = "A primit somer."
                     for x in user.roles:
-                        if (x.id in lideri_grade.roluri_colider) or (x.id in lideri_grade.roluri_tester) or (x.id in lideri_grade.roluri_membru) or (x.id in lideri_grade.id_factiune) or (x.id in lideri_grade.roluri_smurd) or (x.id in lideri_grade.smurd_grade) or (x.id in lideri_grade.roluri_sias) or (x.id in lideri_grade.sias_grade) or (x.id in lideri_grade.roluri_rutiera) or (x.id in lideri_grade.roluri_politie) or (x.id in lideri_grade.politie_grade) or (x.id in lideri_grade.deep_web):
+                        if (x.id in lideri_grade.roluri_colider) or (x.id in lideri_grade.roluri_membru) or (x.id in lideri_grade.id_factiune) or (x.id in lideri_grade.roluri_smurd) or (x.id in lideri_grade.smurd_grade) or (x.id in lideri_grade.roluri_sias) or (x.id in lideri_grade.sias_grade) or (x.id in lideri_grade.roluri_rutiera) or (x.id in lideri_grade.roluri_politie) or (x.id in lideri_grade.politie_grade) or (x.id in lideri_grade.deep_web):
                             #await ctx.send(str(x) + ": " + str(x.id))
                             await user.remove_roles(x, reason=reason)
 
@@ -589,14 +589,14 @@ class lideri_grade(commands.Cog):
                 if verif == True:
                     break
 
-        if not verif:
-            for x in lideri_grade.roluri_tester:
-                if ctx.guild.get_role(x) in ctx.author.roles:
-                    verif = True
-                    await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[lideri_grade.roluri_tester.index(x)]), ctx.guild.get_role(lideri_grade.roluri_membru[lideri_grade.roluri_tester.index(x)]), ctx.guild.get_role(865215401470066708))
-                    await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[lideri_grade.roluri_tester.index(x)]) +"> jucatorului <@" + str(user.id) + ">!")
-                if verif == True:
-                    break
+        #if not verif:
+        #    for x in lideri_grade.roluri_tester:
+        #        if ctx.guild.get_role(x) in ctx.author.roles:
+        #            verif = True
+        #            await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[lideri_grade.roluri_tester.index(x)]), ctx.guild.get_role(lideri_grade.roluri_membru[lideri_grade.roluri_tester.index(x)]), ctx.guild.get_role(865215401470066708))
+        #            await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[lideri_grade.roluri_tester.index(x)]) +"> jucatorului <@" + str(user.id) + ">!")
+        #        if verif == True:
+        #            break
     
     @membru.command(name="inlatura", pass_context=True)
     async def _inlaturamembru(self, ctx, user: discord.Member):
@@ -606,7 +606,7 @@ class lideri_grade(commands.Cog):
                 reason = f"{user.mention} a fost inlaturat de catre liderul {ctx.author}."
                 verif = True
                 for x in user.roles:
-                    if (x.id in lideri_grade.roluri_colider) or (x.id in lideri_grade.roluri_tester) or (x.id in lideri_grade.roluri_membru) or (x.id in lideri_grade.id_factiune) or (x.id in lideri_grade.roluri_smurd) or (x.id in lideri_grade.smurd_grade[1:]) or (x.id in lideri_grade.roluri_sias) or (x.id in lideri_grade.sias_grade[1:]) or (x.id in lideri_grade.roluri_rutiera) or (x.id in lideri_grade.roluri_politie) or (x.id in lideri_grade.politie_grade[1:]) or (x.id in lideri_grade.deep_web):
+                    if (x.id in lideri_grade.roluri_colider) or (x.id in lideri_grade.roluri_membru) or (x.id in lideri_grade.id_factiune) or (x.id in lideri_grade.roluri_smurd) or (x.id in lideri_grade.smurd_grade[1:]) or (x.id in lideri_grade.roluri_sias) or (x.id in lideri_grade.sias_grade[1:]) or (x.id in lideri_grade.roluri_rutiera) or (x.id in lideri_grade.roluri_politie) or (x.id in lideri_grade.politie_grade[1:]) or (x.id in lideri_grade.deep_web):
                         await user.remove_roles(x, reason=reason)
         if verif == False:
             for y in lideri_grade.roluri_colider:
@@ -614,16 +614,17 @@ class lideri_grade(commands.Cog):
                     reason = f"{user.mention} a fost inlaturat de catre coliderul {ctx.author}."
                     verif = True
                     for x in user.roles:
-                        if (x.id in lideri_grade.roluri_tester) or (x.id in lideri_grade.roluri_membru) or (x.id in lideri_grade.id_factiune) or (x.id in lideri_grade.smurd_grade) or (x.id in lideri_grade.sias_grade) or (x.id in lideri_grade.politie_grade) or (x.id in lideri_grade.deep_web):
-                            await user.remove_roles(x, reason=reason)
-        if verif == False:
-            for y in lideri_grade.roluri_tester:
-                if ctx.guild.get_role(y) in ctx.author.roles:
-                    reason = f"{user.mention} a fost inlaturat de catre tester-ul {ctx.author}."
-                    verif = True
-                    for x in user.roles:
                         if  (x.id in lideri_grade.roluri_membru) or (x.id in lideri_grade.id_factiune) or (x.id in lideri_grade.smurd_grade) or (x.id in lideri_grade.sias_grade) or (x.id in lideri_grade.politie_grade) or (x.id in lideri_grade.deep_web):
                             await user.remove_roles(x, reason=reason)
+        #if verif == False:
+        #    for y in lideri_grade.roluri_tester:
+        #        if ctx.guild.get_role(y) in ctx.author.roles:
+        #            reason = f"{user.mention} a fost inlaturat de catre tester-ul {ctx.author}."
+        #            verif = True
+        #            for x in user.roles:
+        #                if  (x.id in lideri_grade.roluri_membru) or (x.id in lideri_grade.id_factiune) or (x.id in lideri_grade.smurd_grade) or (x.id in lideri_grade.sias_grade) or (x.id in lideri_grade.politie_grade) or (x.id in lideri_grade.deep_web):
+        #                    await user.remove_roles(x, reason=reason)
+        
     #@commands.command(name="membru", pass_context=True)
     #async def membru(self, ctx, tip_factiune, user: discord.Member):
     #    verif = False
