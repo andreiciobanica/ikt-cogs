@@ -56,29 +56,6 @@ class permisiuni(commands.Cog):
         935017585492234250
     ]
 
-    tester = [
-        865215486098014208,
-        929489166494998578,
-        865215501537378344,
-        865215463491239936,
-        865215435707252737,
-        865215493908463626,
-        865215449243582494,
-        865215478807789578,
-        865215442721570846,
-        892564804898803762,
-        903411278939316235,
-        908443563346501652,
-        918482393143345192,
-        920325133091078155,
-        929489137231343656,
-        929489156906836020,
-        865215456226967574,
-        865215470801780736,
-        885154848390127676,
-        935017642236989480
-    ]
-
     membru = [
         865215484986392577,
         929489165773570068,
@@ -129,11 +106,11 @@ class permisiuni(commands.Cog):
                   909419605812998214, #Cosa
                   909418578128822302, #Bloods
                   909417928892502066, #Ballas
-                  865215380893073428, #Triads
+                  865215380893073428, #Cartof
                   909925632127934536, #Araba
                   909418978982633482, #Arizona
                   908441807954784277, #Groove
-                  865215367314669568, #OTF
+                  865215367314669568, #Albanian
                   893833971199275049, #Vagos
                   903409202700095528, #Racoons
                   908446168311287888, #Sons
@@ -144,7 +121,8 @@ class permisiuni(commands.Cog):
                   930584842993795092, #Siciliana
                   932315418264227861, #Clanul Sportivilor
                   934981038298501161, #Camorra
-                  935729282825715713  #Omerta
+                  935729282825715713, #Omerta
+                  938204817602519110  #Marabunta Grande
                  ]
 
     imbracaminte = [
@@ -167,7 +145,8 @@ class permisiuni(commands.Cog):
                     935250323629551656,
                     932315483452096562,
                     934981090509193266,
-                    935729313704189992
+                    935729313704189992,
+                    938204862884233216
                   ]
 
     anunturi = [
@@ -190,7 +169,8 @@ class permisiuni(commands.Cog):
                 935250343107907604,
                 932315521439891506,
                 934981134671052830,
-                935729441718538331
+                935729441718538331,
+                938204942286598144
                   ]
 
     chat = [
@@ -213,7 +193,8 @@ class permisiuni(commands.Cog):
         935250363156680715,
         932315545729114142,
         934981318117322772,
-        935729465663832114
+        935729465663832114,
+        954737105555308614
         ]
 
     taxe = [
@@ -236,7 +217,8 @@ class permisiuni(commands.Cog):
         935250444400349265,
         932315624275857448,
         934981374337777684,
-        935729490125008946
+        935729490125008946,
+        938205065519452160
         ]
 
     dovada = [
@@ -259,7 +241,8 @@ class permisiuni(commands.Cog):
         932315639681523804,
         935250465527050311,
         934981420550590484,
-        935729517958426676
+        935729517958426676,
+        938205115750432798
         ]
 
     invoire = [
@@ -282,7 +265,8 @@ class permisiuni(commands.Cog):
         935250483990368376,
         932315656806862879,
         934981476334850148,
-        935729652310364220
+        935729652310364220,
+        938205170398015548
         ]
 
     teste1 = [
@@ -305,30 +289,8 @@ class permisiuni(commands.Cog):
         935250628672905256,
         932315711563505694,
         934981522698665984,
-        935729699290771506
-        ]
-
-    teste2 = [
-        865733855150211073,
-        885160030997991484,
-        865708750413627422,
-        865733764349296690,
-        865710300865757184,
-        865706130319081472,
-        865733588690534410,
-        865733534265638973,
-        865712612988682250,
-        903070619980156969,
-        903409937286320148,
-        908446983033856010,
-        918486744972795904,
-        920328527239335976,
-        929892560485355601,
-        929901128727019590,
-        935250653079552010,
-        932315729838112848,
-        934981573009367140,
-        935729722267160637
+        935729699290771506,
+        938205220633182208
         ]
     
     voce1 = [
@@ -351,32 +313,9 @@ class permisiuni(commands.Cog):
         935250773636427776,
         932315867239284756,
         934981618299445289,
-        935729761349673031
+        935729761349673031,
+        938205326224805918
         ]
-
-    voce2 = [
-        865215285635579924,
-        885160180852084786,
-        865215353733644318,
-        865215325506764800,
-        865215387960344576,
-        865215344875536434,
-        865215316760723476,
-        865215365386993695,
-        865215378761973790,
-        893837220946010142,
-        903409835150811167,
-        908447042093862962,
-        918486930885332992,
-        920328747637424168,
-        929892850253066311,
-        929901206405529700,
-        935250790711443547,
-        932315852970295347,
-        934981661060378685,
-        935729782166003753
-        ]
-
 
     def __init__(self, bot, *args, **kwargs):
         self.bot = bot
@@ -558,27 +497,6 @@ class permisiuni(commands.Cog):
             await c.set_permissions(ctx.guild.get_role(muted), view_channel=True, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=False, speak=False, priority_speaker=False, mute_members=False, deafen_members=False, move_members=False, use_voice_activation=False)
             await c.set_permissions(everyone, view_channel=True, manage_channels=None, manage_permissions=None, create_instant_invite=None, connect=False, speak=True, priority_speaker=None, mute_members=False, deafen_members=False, move_members=False, use_voice_activation=None)
 
-        for x in permisiuni.teste2:
-            c = self.bot.get_channel(x)
-            #perms_manager = discord.Permissions(view_channel=True, manage_channels=True, manage_permissions=False, create_instant_invite=None, connect=True, speak=True, priority_speaker=None, mute_members=True, deafen_members=True, move_members=True, use_voice_activation=None)
-            #perms_lider = discord.Permissions(view_channel=True, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=True, speak=True, priority_speaker=None, mute_members=True, deafen_members=True, move_members=True, use_voice_activation=None)
-            #perms_colider = discord.Permissions(view_channel=True, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=True, speak=True, priority_speaker=None, mute_members=True, deafen_members=True, move_members=True, use_voice_activation=None)
-            #perms_tester = discord.Permissions(view_channel=True, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=True, speak=True, priority_speaker=None, mute_members=True, deafen_members=True, move_members=True, use_voice_activation=None)
-            #perms_membru = discord.Permissions(view_channel=True, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=True, speak=True, priority_speaker=None, mute_members=True, deafen_members=True, move_members=True, use_voice_activation=None)
-            #perms_mafia = discord.Permissions(view_channel=True, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=True, speak=True, priority_speaker=None, mute_members=True, deafen_members=True, move_members=True, use_voice_activation=None)
-            #perms_civil = discord.Permissions(view_channel=True, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=True, speak=True, priority_speaker=None, mute_members=False, deafen_members=False, move_members=False, use_voice_activation=None)
-            #perms_muted = discord.Permissions(view_channel=True, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=False, speak=False, priority_speaker=False, mute_members=False, deafen_members=False, move_members=False, use_voice_activation=False)
-            #perms_everyone = discord.Permissions(view_channel=True, manage_channels=None, manage_permissions=None, create_instant_invite=None, connect=False, speak=True, priority_speaker=None, mute_members=False, deafen_members=False, move_members=False, use_voice_activation=None)
-            await c.set_permissions(ctx.guild.get_role(manager), view_channel=True, manage_channels=True, manage_permissions=False, create_instant_invite=None, connect=True, speak=True, priority_speaker=None, mute_members=True, deafen_members=True, move_members=True, use_voice_activation=None)
-            await c.set_permissions(ctx.guild.get_role(permisiuni.lideri[permisiuni.teste2.index(x)]), view_channel=True, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=True, speak=True, priority_speaker=None, mute_members=True, deafen_members=True, move_members=True, use_voice_activation=None)
-            await c.set_permissions(ctx.guild.get_role(permisiuni.colideri[permisiuni.teste2.index(x)]), view_channel=True, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=True, speak=True, priority_speaker=None, mute_members=True, deafen_members=True, move_members=True, use_voice_activation=None)
-            await c.set_permissions(ctx.guild.get_role(permisiuni.tester[permisiuni.teste2.index(x)]), view_channel=True, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=True, speak=True, priority_speaker=None, mute_members=True, deafen_members=True, move_members=True, use_voice_activation=None)
-            await c.set_permissions(ctx.guild.get_role(permisiuni.membru[permisiuni.teste2.index(x)]), view_channel=True, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=True, speak=True, priority_speaker=None, mute_members=True, deafen_members=True, move_members=True, use_voice_activation=None)
-            await c.set_permissions(ctx.guild.get_role(permisiuni.mafia[permisiuni.teste2.index(x)]), view_channel=True, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=True, speak=True, priority_speaker=None, mute_members=True, deafen_members=True, move_members=True, use_voice_activation=None)
-            await c.set_permissions(ctx.guild.get_role(civil), view_channel=True, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=True, speak=True, priority_speaker=None, mute_members=False, deafen_members=False, move_members=False, use_voice_activation=None)
-            await c.set_permissions(ctx.guild.get_role(muted), view_channel=True, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=False, speak=False, priority_speaker=False, mute_members=False, deafen_members=False, move_members=False, use_voice_activation=False)
-            await c.set_permissions(everyone, view_channel=True, manage_channels=None, manage_permissions=None, create_instant_invite=None, connect=False, speak=True, priority_speaker=None, mute_members=False, deafen_members=False, move_members=False, use_voice_activation=None)
-
         for x in permisiuni.voce1:
             c = self.bot.get_channel(x)
             #perms_manager = discord.Permissions(view_channel=True, manage_channels=True, manage_permissions=False, create_instant_invite=None, connect=True, speak=True, priority_speaker=None, mute_members=True, deafen_members=True, move_members=True, use_voice_activation=None)
@@ -596,27 +514,6 @@ class permisiuni(commands.Cog):
             await c.set_permissions(ctx.guild.get_role(permisiuni.tester[permisiuni.voce1.index(x)]), view_channel=True, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=True, speak=True, priority_speaker=None, mute_members=True, deafen_members=True, move_members=True, use_voice_activation=None)
             await c.set_permissions(ctx.guild.get_role(permisiuni.membru[permisiuni.voce1.index(x)]), view_channel=True, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=True, speak=True, priority_speaker=None, mute_members=True, deafen_members=True, move_members=True, use_voice_activation=None)
             await c.set_permissions(ctx.guild.get_role(permisiuni.mafia[permisiuni.voce1.index(x)]), view_channel=True, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=True, speak=True, priority_speaker=None, mute_members=True, deafen_members=True, move_members=True, use_voice_activation=None)
-            await c.set_permissions(ctx.guild.get_role(civil), view_channel=False, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=False, speak=True, priority_speaker=None, mute_members=False, deafen_members=False, move_members=False, use_voice_activation=None)
-            await c.set_permissions(ctx.guild.get_role(muted), view_channel=False, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=False, speak=False, priority_speaker=False, mute_members=False, deafen_members=False, move_members=False, use_voice_activation=False)
-            await c.set_permissions(everyone, view_channel=False, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=False, speak=True, priority_speaker=None, mute_members=False, deafen_members=False, move_members=False, use_voice_activation=None)
-
-        for x in permisiuni.voce2:
-            c = self.bot.get_channel(x)
-            #perms_manager = discord.Permissions(view_channel=True, manage_channels=True, manage_permissions=False, create_instant_invite=None, connect=True, speak=True, priority_speaker=None, mute_members=True, deafen_members=True, move_members=True, use_voice_activation=None)
-            #perms_lider = discord.Permissions(view_channel=True, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=True, speak=True, priority_speaker=None, mute_members=True, deafen_members=True, move_members=True, use_voice_activation=None)
-            #perms_colider = discord.Permissions(view_channel=True, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=True, speak=True, priority_speaker=None, mute_members=True, deafen_members=True, move_members=True, use_voice_activation=None)
-            #perms_tester = discord.Permissions(view_channel=True, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=True, speak=True, priority_speaker=None, mute_members=True, deafen_members=True, move_members=True, use_voice_activation=None)
-            #perms_membru = discord.Permissions(view_channel=True, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=True, speak=True, priority_speaker=None, mute_members=True, deafen_members=True, move_members=True, use_voice_activation=None)
-            #perms_mafia = discord.Permissions(view_channel=True, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=True, speak=True, priority_speaker=None, mute_members=True, deafen_members=True, move_members=True, use_voice_activation=None)
-            #perms_civil = discord.Permissions(view_channel=False, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=False, speak=True, priority_speaker=None, mute_members=False, deafen_members=False, move_members=False, use_voice_activation=None)
-            #perms_muted = discord.Permissions(view_channel=False, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=False, speak=False, priority_speaker=False, mute_members=False, deafen_members=False, move_members=False, use_voice_activation=False)
-            #perms_everyone = discord.Permissions(view_channel=False, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=False, speak=True, priority_speaker=None, mute_members=False, deafen_members=False, move_members=False, use_voice_activation=None)
-            await c.set_permissions(ctx.guild.get_role(manager), view_channel=True, manage_channels=True, manage_permissions=False, create_instant_invite=None, connect=True, speak=True, priority_speaker=None, mute_members=True, deafen_members=True, move_members=True, use_voice_activation=None)
-            await c.set_permissions(ctx.guild.get_role(permisiuni.lideri[permisiuni.voce2.index(x)]), view_channel=True, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=True, speak=True, priority_speaker=None, mute_members=True, deafen_members=True, move_members=True, use_voice_activation=None)
-            await c.set_permissions(ctx.guild.get_role(permisiuni.colideri[permisiuni.voce2.index(x)]), view_channel=True, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=True, speak=True, priority_speaker=None, mute_members=True, deafen_members=True, move_members=True, use_voice_activation=None)
-            await c.set_permissions(ctx.guild.get_role(permisiuni.tester[permisiuni.voce2.index(x)]), view_channel=True, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=True, speak=True, priority_speaker=None, mute_members=True, deafen_members=True, move_members=True, use_voice_activation=None)
-            await c.set_permissions(ctx.guild.get_role(permisiuni.membru[permisiuni.voce2.index(x)]), view_channel=True, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=True, speak=True, priority_speaker=None, mute_members=True, deafen_members=True, move_members=True, use_voice_activation=None)
-            await c.set_permissions(ctx.guild.get_role(permisiuni.mafia[permisiuni.voce2.index(x)]), view_channel=True, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=True, speak=True, priority_speaker=None, mute_members=True, deafen_members=True, move_members=True, use_voice_activation=None)
             await c.set_permissions(ctx.guild.get_role(civil), view_channel=False, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=False, speak=True, priority_speaker=None, mute_members=False, deafen_members=False, move_members=False, use_voice_activation=None)
             await c.set_permissions(ctx.guild.get_role(muted), view_channel=False, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=False, speak=False, priority_speaker=False, mute_members=False, deafen_members=False, move_members=False, use_voice_activation=False)
             await c.set_permissions(everyone, view_channel=False, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=False, speak=True, priority_speaker=None, mute_members=False, deafen_members=False, move_members=False, use_voice_activation=None)
