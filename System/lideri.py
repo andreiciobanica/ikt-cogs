@@ -84,8 +84,8 @@ class lideri_grade(commands.Cog):
     ]
     roluri_lider = [
             865215495623934012, # Araba
-            865215437531512842, # Triads
-            865215444150648853, # OTF
+            865215437531512842, # Cartof
+            932247900677865482, # OTF
             865215457672822815, # Siciliana
             865215465290334278, # Ballas
             865215472979279872, # Clanul Sportivilor
@@ -112,8 +112,8 @@ class lideri_grade(commands.Cog):
             ]
     roluri_colider = [
             865215494813777960, # Araba
-            865215436748750849, # Triads
-            865215443546537995, # OTF
+            865215436748750849, # Cartof
+            932247374049456128, # Albanian
             865215457161904168, # Siciliana
             865215464363393104, # Ballas
             865215471640248321, # Clanul Sportivilor
@@ -138,46 +138,46 @@ class lideri_grade(commands.Cog):
             865215520445431838, # SIAS
             865215509178875934  # Sef de Statie
             ]
-    roluri_tester = [
-            865215493908463626, # Araba
-            865215435707252737, # Triads
-            865215442721570846, # OTF
-            865215456226967574, # Siciliana
-            865215463491239936, # Ballas
-            865215470801780736, # Clanul Sportivilor
-            865215478807789578, # Groove Street
-            865215486098014208, # Bratva
-            865215501537378344, # Bloods
-            865215449243582494, # Arizona
-            885154848390127676, # Gommora
-            903411278939316235, # Racoons
-            892564804898803762, # Los Vagos
-            908443563346501652, # Sons of Anarchy
-            918482393143345192, # Tokyo Manji
-            920325133091078155, # 6rats
-            929489166494998578, # Cosa Nostra
-            929489137231343656, # Crips
-            929489156906836020, # Loz Aztecas
-            865215429039226890, # Hitman
-            935017642236989480, # Omerta
-            936411187422330950, # Taxi
-            914407701260431361, # Mecanic
-            865215528472805416, # Politia Romana
-            865215516507504641, # SIAS
-            885474291410407444  # SMURD
-            ]
+    #roluri_tester = [
+    #        865215493908463626, # Araba
+    #        865215435707252737, # Cartof
+    #        865215442721570846, # Albanian
+    #        865215456226967574, # Siciliana
+    #        865215463491239936, # Ballas
+    #        865215470801780736, # Clanul Sportivilor
+    #        865215478807789578, # Groove Street
+    #        865215486098014208, # Bratva
+    #        865215501537378344, # Bloods
+    #        865215449243582494, # Arizona
+    #        885154848390127676, # Gommora
+    #        903411278939316235, # Racoons
+    #        892564804898803762, # Los Vagos
+    #        908443563346501652, # Sons of Anarchy
+    #        918482393143345192, # Tokyo Manji
+    #        920325133091078155, # 6rats
+    #        929489166494998578, # Cosa Nostra
+    #        929489137231343656, # Crips
+    #        929489156906836020, # Loz Aztecas
+    #        865215429039226890, # Hitman
+    #        935017642236989480, # Omerta
+    #        936411187422330950, # Taxi
+    #        914407701260431361, # Mecanic
+    #        865215528472805416, # Politia Romana
+    #        865215516507504641, # SIAS
+    #        885474291410407444  # SMURD
+    #        ]
     roluri_membru = [
             865215492935385118, # Araba
-            865215434935762955, # Triads
-            865215441818222592, # OTF
+            865215434935762955, # Cartof
+            932247302750478407, # Albanian
             865215455261491220, # Siciliana
             865215462232293378, # Ballas
             865215469371654185, # Clanul Sportivilor
             865215477432320030, # Groove Street
             865215484986392577, # Bratva
-            865215500698648587, # Bloods
+            865215500698648587, # Yakuza
             865215448470650900, # Arizona
-            885155574428360775, # Gommora
+            885155574428360775, # Camora
             903411660042174465, # Racoons
             892564807771897957, # Los Vagos
             908443944818454569, # Sons of Anarchy
@@ -193,16 +193,16 @@ class lideri_grade(commands.Cog):
             ]
     id_factiune = [
             865215490782789632, # Araba
-            865215433174155344, # Triads
-            865215440182706196, # OTF
+            865215433174155344, # Cartof
+            932246795495563314, # Albanian
             865215453235642410, # Siciliana
             865215460815405056, # Ballas
             865215467727224852, # Clanul Sportivilor
             865215475835076678, # Groove Street
             865215482767736833, # Bratva
-            865215498564534292, # Bloods
+            865215498564534292, # Yakuza
             865215446848503808, # Arizona
-            885156306397315152, # Gomorra
+            885156306397315152, # Camorra
             903411840732790835, # Racoons
             892564826671435847, # Los Vagos
             908444404283490305, # Sons of Anarchy
@@ -504,35 +504,35 @@ class lideri_grade(commands.Cog):
             if verif == True:
                 break
     
-    @commands.group(name="tester")
-    async def tester(self, ctx: commands.Context):
-        """Adauga sau inlatura un tester factiunii tale(**Doar pentru LIDERI**)"""
+#    @commands.group(name="tester")
+#    async def tester(self, ctx: commands.Context):
+#        """Adauga sau inlatura un tester factiunii tale(**Doar pentru LIDERI**)"""
 
-    @commands.bot_has_permissions(manage_roles=True)
-    @tester.command(name="adauga", pass_context=True)
-    async def _adaugatester(self, ctx, user: discord.Member):
-        verif = False
-        for x in lideri_grade.roluri_lider:
-            for y in ctx.author.roles:
-                if ctx.guild.get_role(x)==y:
-                    await user.add_roles(ctx.guild.get_role(lideri_grade.roluri_tester[lideri_grade.roluri_lider.index(x)]))
-                    await ctx.send("Am atribuit rolul de TESTER <@&" + str(lideri_grade.id_factiune[lideri_grade.roluri_lider.index(x)]) +"> jucatorului <@" + str(user.id) + ">!")
-                    verif = True
-            if verif == True:
-                break
+#    @commands.bot_has_permissions(manage_roles=True)
+#    @tester.command(name="adauga", pass_context=True)
+#    async def _adaugatester(self, ctx, user: discord.Member):
+#        verif = False
+#        for x in lideri_grade.roluri_lider:
+#            for y in ctx.author.roles:
+#                if ctx.guild.get_role(x)==y:
+#                    await user.add_roles(ctx.guild.get_role(lideri_grade.roluri_tester[lideri_grade.roluri_lider.index(x)]))
+#                    await ctx.send("Am atribuit rolul de TESTER <@&" + str(lideri_grade.id_factiune[lideri_grade.roluri_lider.index(x)]) +"> jucatorului <@" + str(user.id) + ">!")
+#                    verif = True
+#            if verif == True:
+#                break
                 
-    @commands.bot_has_permissions(manage_roles=True)
-    @tester.command(name="inlatura", pass_context=True)
-    async def _inlaturatester(self, ctx, user: discord.Member):
-        verif = False
-        for x in lideri_grade.roluri_lider:
-            for y in ctx.author.roles:
-                if ctx.guild.get_role(x)==y:
-                    await user.remove_roles(ctx.guild.get_role(lideri_grade.roluri_tester[lideri_grade.roluri_lider.index(x)]))
-                    await ctx.send("Am inlaturat rolul de TESTER <@&" + str(lideri_grade.id_factiune[lideri_grade.roluri_lider.index(x)]) +"> jucatorului <@" + str(user.id) + ">!")
-                    verif = True
-            if verif == True:
-                break
+#    @commands.bot_has_permissions(manage_roles=True)
+#    @tester.command(name="inlatura", pass_context=True)
+#    async def _inlaturatester(self, ctx, user: discord.Member):
+#        verif = False
+#        for x in lideri_grade.roluri_lider:
+#            for y in ctx.author.roles:
+#                if ctx.guild.get_role(x)==y:
+#                    await user.remove_roles(ctx.guild.get_role(lideri_grade.roluri_tester[lideri_grade.roluri_lider.index(x)]))
+#                    await ctx.send("Am inlaturat rolul de TESTER <@&" + str(lideri_grade.id_factiune[lideri_grade.roluri_lider.index(x)]) +"> jucatorului <@" + str(user.id) + ">!")
+#                    verif = True
+#            if verif == True:
+#                break
     
     @commands.group(name="membru")
     async def membru(self, ctx: commands.Context):
