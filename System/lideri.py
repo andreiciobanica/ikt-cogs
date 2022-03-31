@@ -138,59 +138,6 @@ class lideri_grade(commands.Cog):
             865215520445431838, # SIAS
             865215509178875934  # Sef de Statie
             ]
-    #roluri_tester = [
-    #        865215493908463626, # Araba
-    #        865215435707252737, # Cartof
-    #        865215442721570846, # Albanian
-    #        865215456226967574, # Siciliana
-    #        865215463491239936, # Ballas
-    #        865215470801780736, # Clanul Sportivilor
-    #        865215478807789578, # Groove Street
-    #        865215486098014208, # Bratva
-    #        865215501537378344, # Bloods
-    #        865215449243582494, # Arizona
-    #        885154848390127676, # Gommora
-    #        903411278939316235, # Racoons
-    #        892564804898803762, # Los Vagos
-    #        908443563346501652, # Sons of Anarchy
-    #        918482393143345192, # Tokyo Manji
-    #        920325133091078155, # 6rats
-    #        929489166494998578, # Cosa Nostra
-    #        929489137231343656, # Crips
-    #        929489156906836020, # Loz Aztecas
-    #        865215429039226890, # Hitman
-    #        935017642236989480, # Omerta
-    #        936411187422330950, # Taxi
-    #        914407701260431361, # Mecanic
-    #        865215528472805416, # Politia Romana
-    #        865215516507504641, # SIAS
-    #        885474291410407444  # SMURD
-    #        ]
-    roluri_membru = [
-            865215492935385118, # Araba
-            865215434935762955, # Cartof
-            932247302750478407, # Albanian
-            865215455261491220, # Siciliana
-            865215462232293378, # Ballas
-            865215469371654185, # Clanul Sportivilor
-            865215477432320030, # Groove Street
-            865215484986392577, # Bratva
-            865215500698648587, # Yakuza
-            865215448470650900, # Arizona
-            885155574428360775, # Camora
-            903411660042174465, # Racoons
-            892564807771897957, # Los Vagos
-            908443944818454569, # Sons of Anarchy
-            918482112280141825, # Tokyo Manji
-            920325233016205322, # 6rats
-            929489165773570068, # Cosa Nostra
-            929489128075173939, # Crips
-            929489157955391498, # Loz Aztecas
-            865215428170219560, # Hitman
-            935017919144947802, # Omerta
-            913818971868909618, # Taxi
-            914407701260431361 # Mecanic
-            ]
     id_factiune = [
             865215490782789632, # Araba
             865215433174155344, # Cartof
@@ -298,7 +245,7 @@ class lideri_grade(commands.Cog):
 
                     reason = "A primit somer."
                     for x in user.roles:
-                        if (x.id in lideri_grade.roluri_colider) or (x.id in lideri_grade.roluri_membru) or (x.id in lideri_grade.id_factiune) or (x.id in lideri_grade.roluri_smurd) or (x.id in lideri_grade.smurd_grade) or (x.id in lideri_grade.roluri_sias) or (x.id in lideri_grade.sias_grade) or (x.id in lideri_grade.roluri_rutiera) or (x.id in lideri_grade.roluri_politie) or (x.id in lideri_grade.politie_grade) or (x.id in lideri_grade.deep_web):
+                        if (x.id in lideri_grade.roluri_colider) or (x.id in lideri_grade.id_factiune) or (x.id in lideri_grade.roluri_smurd) or (x.id in lideri_grade.smurd_grade) or (x.id in lideri_grade.roluri_sias) or (x.id in lideri_grade.sias_grade) or (x.id in lideri_grade.roluri_rutiera) or (x.id in lideri_grade.roluri_politie) or (x.id in lideri_grade.politie_grade) or (x.id in lideri_grade.deep_web):
                             #await ctx.send(str(x) + ": " + str(x.id))
                             await user.remove_roles(x, reason=reason)
 
@@ -575,7 +522,7 @@ class lideri_grade(commands.Cog):
         for x in lideri_grade.roluri_lider:
             if ctx.guild.get_role(x) in ctx.author.roles:
                 verif = True
-                await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[lideri_grade.roluri_lider.index(x)]), ctx.guild.get_role(lideri_grade.roluri_membru[lideri_grade.roluri_lider.index(x)]), ctx.guild.get_role(865215401470066708))
+                await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[lideri_grade.roluri_lider.index(x)]), ctx.guild.get_role(865215401470066708))
                 await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[lideri_grade.roluri_lider.index(x)]) +"> jucatorului <@" + str(user.id) + ">!")
             if verif == True:
                 break
@@ -584,7 +531,7 @@ class lideri_grade(commands.Cog):
             for x in lideri_grade.roluri_colider:
                 if ctx.guild.get_role(x) in ctx.author.roles:
                     verif = True
-                    await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[lideri_grade.roluri_colider.index(x)]), ctx.guild.get_role(lideri_grade.roluri_membru[lideri_grade.roluri_colider.index(x)]), ctx.guild.get_role(865215401470066708))
+                    await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[lideri_grade.roluri_colider.index(x)]), ctx.guild.get_role(865215401470066708))
                     await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[lideri_grade.roluri_colider.index(x)]) +"> jucatorului <@" + str(user.id) + ">!")
                 if verif == True:
                     break
@@ -606,7 +553,7 @@ class lideri_grade(commands.Cog):
                 reason = f"{user.mention} a fost inlaturat de catre liderul {ctx.author}."
                 verif = True
                 for x in user.roles:
-                    if (x.id in lideri_grade.roluri_colider) or (x.id in lideri_grade.roluri_membru) or (x.id in lideri_grade.id_factiune) or (x.id in lideri_grade.roluri_smurd) or (x.id in lideri_grade.smurd_grade[1:]) or (x.id in lideri_grade.roluri_sias) or (x.id in lideri_grade.sias_grade[1:]) or (x.id in lideri_grade.roluri_rutiera) or (x.id in lideri_grade.roluri_politie) or (x.id in lideri_grade.politie_grade[1:]) or (x.id in lideri_grade.deep_web):
+                    if (x.id in lideri_grade.roluri_colider) or (x.id in lideri_grade.id_factiune) or (x.id in lideri_grade.roluri_smurd) or (x.id in lideri_grade.smurd_grade[1:]) or (x.id in lideri_grade.roluri_sias) or (x.id in lideri_grade.sias_grade[1:]) or (x.id in lideri_grade.roluri_rutiera) or (x.id in lideri_grade.roluri_politie) or (x.id in lideri_grade.politie_grade[1:]) or (x.id in lideri_grade.deep_web):
                         await user.remove_roles(x, reason=reason)
         if verif == False:
             for y in lideri_grade.roluri_colider:
@@ -614,7 +561,7 @@ class lideri_grade(commands.Cog):
                     reason = f"{user.mention} a fost inlaturat de catre coliderul {ctx.author}."
                     verif = True
                     for x in user.roles:
-                        if  (x.id in lideri_grade.roluri_membru) or (x.id in lideri_grade.id_factiune) or (x.id in lideri_grade.smurd_grade) or (x.id in lideri_grade.sias_grade) or (x.id in lideri_grade.politie_grade) or (x.id in lideri_grade.deep_web):
+                        if (x.id in lideri_grade.id_factiune) or (x.id in lideri_grade.smurd_grade) or (x.id in lideri_grade.sias_grade) or (x.id in lideri_grade.politie_grade) or (x.id in lideri_grade.deep_web):
                             await user.remove_roles(x, reason=reason)
         #if verif == False:
         #    for y in lideri_grade.roluri_tester:
