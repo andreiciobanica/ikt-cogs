@@ -31,7 +31,8 @@ class permisiuni_imperial(commands.Cog):
         885487935116431410, # choco-main
         865215133432414219, # mixas-blacklist-key
         885488187391234068, # choco-explo
-        885488481487433758  # chat-choco
+        885488481487433758, # chat-choco
+        943485936333897788  # kill-feed
         ]
 
     roluri = [
@@ -140,7 +141,7 @@ class permisiuni_imperial(commands.Cog):
             await c.set_permissions(everyone, view_channel=False, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
 
             for i in range(1, 7):
-                await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[i]), view_channel=True, manage_channels=True, manage_permissions=True, manage_webhooks=True, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+                await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[i]), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
             for i in range(7, 20):
                 await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[i]), view_channel=False, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=False, attach_files=False, add_reactions=False, use_external_emojis=False, mention_everyone=False, manage_messages=False, read_message_history=False, send_tts_messages=False, use_slash_commands=None)
         
@@ -173,7 +174,7 @@ class permisiuni_imperial(commands.Cog):
             for j in range(20):
                 await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[j]), overwrite=None)
             for i in range(1, 10):
-                await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[i]), view_channel=True, manage_channels=True, manage_permissions=True, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+                await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[i]), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
             for i in range(10, 20):
                  await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[i]), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
             await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[0]), view_channel=True, manage_channels=True, manage_permissions=True, manage_webhooks=True, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
@@ -186,7 +187,7 @@ class permisiuni_imperial(commands.Cog):
             for j in range(20):
                 await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[j]), overwrite=None)
             for i in range(1, 10):
-                await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[i]), view_channel=True, manage_channels=True, manage_permissions=True, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+                await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[i]), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
             for i in range(10, 20):
                  await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[i]), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
             await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[0]), view_channel=True, manage_channels=True, manage_permissions=True, manage_webhooks=True, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
@@ -199,7 +200,7 @@ class permisiuni_imperial(commands.Cog):
             for j in range(20):
                 await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[j]), overwrite=None)
             for i in range(1, 10):
-                await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[i]), view_channel=True, manage_channels=True, manage_permissions=True, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+                await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[i]), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
             for i in range(10, 20):
                  await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[i]), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
             await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[0]), view_channel=True, manage_channels=True, manage_permissions=True, manage_webhooks=True, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
@@ -212,7 +213,7 @@ class permisiuni_imperial(commands.Cog):
             for j in range(20):
                 await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[j]), overwrite=None)
             for i in range(1, 10):
-                await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[i]), view_channel=True, manage_channels=True, manage_permissions=True, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+                await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[i]), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
             for i in range(10, 20):
                  await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[i]), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
             await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[0]), view_channel=True, manage_channels=True, manage_permissions=True, manage_webhooks=True, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
@@ -225,7 +226,7 @@ class permisiuni_imperial(commands.Cog):
             for j in range(20):
                 await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[j]), overwrite=None)
             for i in range(1, 10):
-                await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[i]), view_channel=True, manage_channels=True, manage_permissions=True, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+                await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[i]), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
             for i in range(10, 20):
                  await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[i]), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
             await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[0]), view_channel=True, manage_channels=True, manage_permissions=True, manage_webhooks=True, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
