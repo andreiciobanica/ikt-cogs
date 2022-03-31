@@ -489,36 +489,33 @@ class lideri_grade(commands.Cog):
     async def _adaugamembru(self, ctx, user: discord.Member):
         veriff = False
         for x in lideri_grade.politie_grade:
-            for y in ctx.author.roles:
-                if ctx.guild.get_role(x)==y:
-                    await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[23]), ctx.guild.get_role(lideri_grade.roluri_politie[2]))
-                    await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[23]) +"> jucatorului <@" + str(user.id) + ">!")
-                    veriff = True
-                if veriff == True:
-                    break
+            if ctx.guild.get_role(x) in ctx.author.roles:
+                await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[23]), ctx.guild.get_role(lideri_grade.roluri_politie[2]))
+                await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[23]) +"> jucatorului <@" + str(user.id) + ">!")
+                veriff = True
+            if veriff == True:
+                break
         
         if veriff == False:
             for x in lideri_grade.sias_grade:
-                for y in ctx.author.roles:
-                    if ctx.guild.get_role(x)==y:
-                        await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[24]), ctx.guild.get_role(lideri_grade.roluri_sias[3]))
-                        await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[24]) +"> jucatorului <@" + str(user.id) + ">!")
-                        veriff = True
-                if veriff == True:
-                    break
+                if ctx.guild.get_role(x) in ctx.author.roles:
+                    await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[24]), ctx.guild.get_role(lideri_grade.roluri_sias[3]))
+                    await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[24]) +"> jucatorului <@" + str(user.id) + ">!")
+                    veriff = True
+            if veriff == True:
+                break
         
         if veriff == False:
             for x in lideri_grade.smurd_grade:
-                for y in ctx.author.roles:
-                    if ctx.guild.get_role(x)==y:
-                        await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[25]), ctx.guild.get_role(lideri_grade.roluri_smurd[2]))
-                        await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[25]) +"> jucatorului <@" + str(user.id) + ">!")
-                        veriff = True
-                if veriff == True:
-                    break
+                if ctx.guild.get_role(x) in ctx.author.roles:
+                    await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[25]), ctx.guild.get_role(lideri_grade.roluri_smurd[2]))
+                    await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[25]) +"> jucatorului <@" + str(user.id) + ">!")
+                    veriff = True
+            if veriff == True:
+                break
                     
         #if any(ctx.guild.get_role(item) in lideri_grade.roluri_lider[0:22] for item in ctx.author.roles) or any(ctx.guild.get_role(item) in lideri_grade.roluri_tester[0:22] for item in ctx.author.roles) or any(ctx.guild.get_role(item) in lideri_grade.roluri_colider[0:22] for item in ctx.author.roles):
-        verif = False
+        if veriff == False:
         for x in lideri_grade.roluri_lider:
             if ctx.guild.get_role(x) in ctx.author.roles:
                 verif = True
@@ -527,7 +524,7 @@ class lideri_grade(commands.Cog):
             if verif == True:
                 break
 
-        if not verif:
+        if veriff == False:
             for x in lideri_grade.roluri_colider:
                 if ctx.guild.get_role(x) in ctx.author.roles:
                     verif = True
