@@ -499,7 +499,7 @@ class lideri_grade(commands.Cog):
         if not veriff:
             for x in lideri_grade.sias_grade:
                 if ctx.guild.get_role(x) in ctx.author.roles:
-                    await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[24]), ctx.guild.get_role(lideri_grade.roluri_sias[0]))
+                    await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[24]), ctx.guild.get_role(lideri_grade.roluri_sias[3]))
                     await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[24]) +"> jucatorului <@" + str(user.id) + ">!")
                     veriff = True
                 if veriff:
