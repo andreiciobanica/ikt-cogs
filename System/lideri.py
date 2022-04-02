@@ -169,6 +169,8 @@ class lideri_grade(commands.Cog):
             865215512602345473, # SIAS
             931916048817586188  # SMURD
             ]
+    
+    rol_factiune = [959691074966781962]
 
     def __init__(self, bot, *args, **kwargs):
         self.bot = bot
@@ -493,7 +495,7 @@ class lideri_grade(commands.Cog):
         veriff = False
         for x in lideri_grade.politie_grade:
             if ctx.guild.get_role(x) in ctx.author.roles:
-                await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[24]), ctx.guild.get_role(lideri_grade.roluri_politie[0]))
+                await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[24]), ctx.guild.get_role(lideri_grade.roluri_politie[2]), ctx.guild.get_role(959691074966781962))
                 await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[24]) +"> jucatorului <@" + str(user.id) + ">!")
                 veriff = True
             if veriff:
@@ -502,7 +504,7 @@ class lideri_grade(commands.Cog):
         if not veriff:
             for x in lideri_grade.sias_grade:
                 if ctx.guild.get_role(x) in ctx.author.roles:
-                    await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[25]), ctx.guild.get_role(lideri_grade.roluri_sias[3]))
+                    await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[25]), ctx.guild.get_role(lideri_grade.roluri_sias[3]), ctx.guild.get_role(959691074966781962))
                     await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[25]) +"> jucatorului <@" + str(user.id) + ">!")
                     veriff = True
                 if veriff:
@@ -511,7 +513,7 @@ class lideri_grade(commands.Cog):
         if not veriff:
             for x in lideri_grade.smurd_grade:
                 if ctx.guild.get_role(x) in ctx.author.roles:
-                    await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[26]), ctx.guild.get_role(lideri_grade.roluri_smurd[2]))
+                    await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[26]), ctx.guild.get_role(lideri_grade.roluri_smurd[2]), ctx.guild.get_role(959691074966781962))
                     await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[26]) +"> jucatorului <@" + str(user.id) + ">!")
                     veriff = True
                 if veriff:
@@ -521,7 +523,7 @@ class lideri_grade(commands.Cog):
         if not veriff:
             for x in lideri_grade.roluri_lider:
                 if ctx.guild.get_role(x) in ctx.author.roles:
-                    await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[lideri_grade.roluri_lider.index(x)]), ctx.guild.get_role(865215401470066708))
+                    await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[lideri_grade.roluri_lider.index(x)]), ctx.guild.get_role(865215401470066708), ctx.guild.get_role(959691074966781962))
                     await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[lideri_grade.roluri_lider.index(x)]) +"> jucatorului <@" + str(user.id) + ">!")
                     veriff = True
                 if veriff:
@@ -530,7 +532,7 @@ class lideri_grade(commands.Cog):
         if not veriff:
             for x in lideri_grade.roluri_colider:
                 if ctx.guild.get_role(x) in ctx.author.roles:
-                    await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[lideri_grade.roluri_colider.index(x)]), ctx.guild.get_role(865215401470066708))
+                    await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[lideri_grade.roluri_colider.index(x)]), ctx.guild.get_role(865215401470066708), ctx.guild.get_role(959691074966781962))
                     await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[lideri_grade.roluri_colider.index(x)]) +"> jucatorului <@" + str(user.id) + ">!")
                     veriff = True
                 if veriff:
@@ -553,7 +555,7 @@ class lideri_grade(commands.Cog):
                 reason = f"{user.mention} a fost inlaturat de catre liderul {ctx.author}."
                 verif = True
                 for x in user.roles:
-                    if (x.id in lideri_grade.roluri_colider) or (x.id in lideri_grade.id_factiune) or (x.id in lideri_grade.roluri_smurd) or (x.id in lideri_grade.smurd_grade[1:]) or (x.id in lideri_grade.roluri_sias) or (x.id in lideri_grade.sias_grade[1:]) or (x.id in lideri_grade.roluri_rutiera) or (x.id in lideri_grade.roluri_politie) or (x.id in lideri_grade.politie_grade[1:]) or (x.id in lideri_grade.deep_web):
+                    if (x.id in lideri_grade.roluri_colider) or (x.id in lideri_grade.id_factiune) or (x.id in lideri_grade.roluri_smurd) or (x.id in lideri_grade.smurd_grade[1:]) or (x.id in lideri_grade.roluri_sias) or (x.id in lideri_grade.sias_grade[1:]) or (x.id in lideri_grade.roluri_rutiera) or (x.id in lideri_grade.roluri_politie) or (x.id in lideri_grade.politie_grade[1:]) or (x.id in lideri_grade.deep_web) or (x.id in lideri_grade.rol_factiune):
                         await user.remove_roles(x, reason=reason)
         if not verif:
             for y in lideri_grade.roluri_colider:
