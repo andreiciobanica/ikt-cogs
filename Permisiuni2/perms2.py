@@ -111,7 +111,35 @@ class permisiuni_imperial(commands.Cog):
         865215172720328744  #tiktok
     ]
     
-    civili = [865215538229542972, 907588821091221546]
+    civili = [
+            865215490782789632, # Araba
+            865215433174155344, # Cartof
+            932246795495563314, # Albanian
+            865215453235642410, # Siciliana
+            865215460815405056, # Ballas
+            865215467727224852, # Clanul Sportivilor
+            865215475835076678, # Groove Street
+            865215482767736833, # Bratva
+            865215498564534292, # Yakuza
+            865215446848503808, # Arizona
+            885156306397315152, # Camorra
+            903411840732790835, # Racoons
+            892564826671435847, # Los Vagos
+            908444404283490305, # Sons of Anarchy
+            918481525140488193, # Tokyo Manji
+            920325822852767744, # 6rats
+            929489164850831400, # Cosa Nostra
+            929489120433147905, # Crips
+            929489158584545372, # Loz Aztecas
+            931739070688817212, # Hitman
+            935017996206870628, # Omerta
+            938206980789661697, #Marabunta Grande
+            936411187422330950, # Taxi
+            914407701260431361, # Mecanic
+            865215523586048001, # Politia Romana
+            865215512602345473, # SIAS
+            931916048817586188  # SMURD
+    ]
     
 
     def __init__(self, bot, *args, **kwargs):
@@ -124,11 +152,7 @@ class permisiuni_imperial(commands.Cog):
         for x in ctx.guild.members:
             for y in permisiuni_imperial.civili:
                 if ctx.guild.get_role(y) in x.roles:
-                    await x.add_roles(ctx.guild.get_role(959689872770207814))
-                    verif = True
-                if verif:
-                    break
-        
+                    await x.add_roles(ctx.guild.get_role(959691074966781962))
 
     @commands.command(name="permisiuniIMP")
     async def permisiuniIMP(self, ctx):
