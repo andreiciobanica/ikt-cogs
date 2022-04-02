@@ -250,7 +250,7 @@ class lideri_grade(commands.Cog):
 
                     reason = "A primit somer."
                     for x in user.roles:
-                        if (x.id in lideri_grade.roluri_colider) or (x.id in lideri_grade.id_factiune) or (x.id in lideri_grade.roluri_smurd) or (x.id in lideri_grade.smurd_grade) or (x.id in lideri_grade.roluri_sias) or (x.id in lideri_grade.sias_grade) or (x.id in lideri_grade.roluri_rutiera) or (x.id in lideri_grade.roluri_politie) or (x.id in lideri_grade.politie_grade) or (x.id in lideri_grade.deep_web):
+                        if (x.id in lideri_grade.roluri_colider) or (x.id in lideri_grade.id_factiune) or (x.id in lideri_grade.roluri_smurd) or (x.id in lideri_grade.smurd_grade) or (x.id in lideri_grade.roluri_sias) or (x.id in lideri_grade.sias_grade) or (x.id in lideri_grade.roluri_rutiera) or (x.id in lideri_grade.roluri_politie) or (x.id in lideri_grade.politie_grade) or (x.id in lideri_grade.deep_web) or (x.id in lideri_grade.rol_factiune):
                             #await ctx.send(str(x) + ": " + str(x.id))
                             await user.remove_roles(x, reason=reason)
 
