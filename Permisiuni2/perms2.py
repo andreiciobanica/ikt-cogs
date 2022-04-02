@@ -141,6 +141,11 @@ class permisiuni_imperial(commands.Cog):
             931916048817586188  # SMURD
     ]
     
+    extra = [865215535947710466, 865215542734356490, 886270681325649970, 865215552485851167, 923175781637697606, 929489162850152469, 941217820363096146, 941413701456646204, 865243528476753921, 893597206123274241, 907952459505352714, 865215414018768926, 865215413179908107, 907877902043975711, 865215410471305226, 865215409716592660, 907952924355887104, 865215409716592660, 907952924355887104, 865215417391251456, 865215416456445952, 907953214731730964, 865215420889825311, 865215420025929729, 916334742314569778, 955074419309559819, 954862013362872340]
+    donatori = [865215543634821160, 865215538791972895, 865215585838432286, 865215583963709460, 875537273666539520, 865215426182774804, 865215424952795147, 865215424094404640, 865215423392514048, 866634644602355773]
+    resp = [865215550786633758, 865215551853035540]
+    atr = [865215567547727883, 865215566418411541, 941758011414831225]
+    stf = [865215570843533332]
 
     def __init__(self, bot, *args, **kwargs):
         self.bot = bot
@@ -153,6 +158,41 @@ class permisiuni_imperial(commands.Cog):
             for y in permisiuni_imperial.civili:
                 if ctx.guild.get_role(y) in x.roles:
                     await x.add_roles(ctx.guild.get_role(959691074966781962))
+                    
+    @commands.command(name="extraIMP")
+    async def extraIMP(self, ctx):
+        for x in ctx.guild.members:
+            for y in permisiuni_imperial.extra:
+                if ctx.guild.get_role(y) in x.roles:
+                    await x.add_roles(ctx.guild.get_role(959689948519338064))
+                    
+    @commands.command(name="donatIMP")
+    async def donatIMP(self, ctx):
+        for x in ctx.guild.members:
+            for y in permisiuni_imperial.donatori:
+                if ctx.guild.get_role(y) in x.roles:
+                    await x.add_roles(ctx.guild.get_role(959698678950531072))
+                    
+    @commands.command(name="respIMP")
+    async def respIMP(self, ctx):
+        for x in ctx.guild.members:
+            for y in permisiuni_imperial.resp:
+                if ctx.guild.get_role(y) in x.roles:
+                    await x.add_roles(ctx.guild.get_role(959689661041745951))
+                    
+    @commands.command(name="atrIMP")
+    async def atrIMP(self, ctx):
+        for x in ctx.guild.members:
+            for y in permisiuni_imperial.atr:
+                if ctx.guild.get_role(y) in x.roles:
+                    await x.add_roles(ctx.guild.get_role(959698491746189345))
+                    
+    @commands.command(name="stfIMP")
+    async def stfIMP(self, ctx):
+        for x in ctx.guild.members:
+            for y in permisiuni_imperial.stf:
+                if ctx.guild.get_role(y) in x.roles:
+                    await x.add_roles(ctx.guild.get_role(959689081640587274))
 
     @commands.command(name="permisiuniIMP")
     async def permisiuniIMP(self, ctx):
