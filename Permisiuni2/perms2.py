@@ -122,8 +122,8 @@ class permisiuni_imperial(commands.Cog):
     @commands.command(name="toaterolurileIMP")
     async def toaterolurileIMP(self, ctx):
         for x in ctx.guild.members:
-            for y in civili:
-                if ctx.guild.get_role(y) in user.roles:
+            for y in permisiuni_imperial.civili:
+                if ctx.guild.get_role(y) in x.roles:
                     await x.add_roles(ctx.guild.get_role(959689872770207814))
                     verif = True
                 if verif:
