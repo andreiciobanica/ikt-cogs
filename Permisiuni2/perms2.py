@@ -110,11 +110,25 @@ class permisiuni_imperial(commands.Cog):
         932007587711422474, #bot
         865215172720328744  #tiktok
     ]
+    
+    civili = [865215538229542972, 907588821091221546]
+    
 
     def __init__(self, bot, *args, **kwargs):
         self.bot = bot
         global tz
         tz = timezone("Europe/Bucharest")
+        
+    @commands.command(name="toaterolurileIMP")
+    async def toaterolurileIMP(self, ctx):
+        for x in ctx.guild.members:
+            for y in civili:
+                if ctx.guild.get_role(y) in user.roles:
+                    await x.add_roles(ctx.guild.get_role(959689872770207814))
+                    verif = True
+                if verif:
+                    break
+        
 
     @commands.command(name="permisiuniIMP")
     async def permisiuniIMP(self, ctx):
