@@ -563,7 +563,7 @@ class lideri_grade(commands.Cog):
                     reason = f"{user.mention} a fost inlaturat de catre coliderul {ctx.author}."
                     verif = True
                     for x in user.roles:
-                        if (x.id in lideri_grade.id_factiune) or (x.id in lideri_grade.smurd_grade) or (x.id in lideri_grade.sias_grade) or (x.id in lideri_grade.politie_grade) or (x.id in lideri_grade.deep_web):
+                        if (x.id in lideri_grade.id_factiune) or (x.id in lideri_grade.smurd_grade) or (x.id in lideri_grade.sias_grade) or (x.id in lideri_grade.politie_grade) or (x.id in lideri_grade.deep_web) or (x.id in lideri_grade.rol_factiune):
                             await user.remove_roles(x, reason=reason)
         #if verif == False:
         #    for y in lideri_grade.roluri_tester:
