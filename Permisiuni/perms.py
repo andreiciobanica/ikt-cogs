@@ -31,7 +31,8 @@ class permisiuni(commands.Cog):
         865215472979279872,
         885152622842101790,
         935017101524082699,
-        938207759403470889
+        938207759403470889,
+        962349255044005908
     ]
 
     colideri = [
@@ -55,7 +56,8 @@ class permisiuni(commands.Cog):
         865215471640248321,
         865856937534029825,
         935017585492234250,
-        938207736691314708
+        938207736691314708,
+        962349669512532018
     ]
 
     mafia = [
@@ -79,7 +81,8 @@ class permisiuni(commands.Cog):
         865215467727224852,
         885156306397315152,
         935017996206870628,
-        938206980789661697
+        938206980789661697,
+        962349602625957888
     ]
 
     regulament = [865215277922648094, #Bratva
@@ -102,7 +105,8 @@ class permisiuni(commands.Cog):
                   932315418264227861, #Clanul Sportivilor
                   934981038298501161, #Camorra
                   935729282825715713, #Omerta
-                  938204817602519110  #Marabunta Grande
+                  938204817602519110, #Marabunta Grande
+                  965604226497675304
                  ]
 
     imbracaminte = [
@@ -126,7 +130,8 @@ class permisiuni(commands.Cog):
                     932315483452096562,
                     934981090509193266,
                     935729313704189992,
-                    938204862884233216
+                    938204862884233216,
+                    965604240963817572
                   ]
 
     anunturi = [
@@ -150,7 +155,8 @@ class permisiuni(commands.Cog):
                 932315521439891506,
                 934981134671052830,
                 935729441718538331,
-                938204942286598144
+                938204942286598144,
+                965604250627481628
                   ]
 
     chat = [
@@ -174,7 +180,8 @@ class permisiuni(commands.Cog):
         932315545729114142,
         934981318117322772,
         935729465663832114,
-        954737105555308614
+        954737105555308614,
+        965604260999995392,
         ]
 
     taxe = [
@@ -198,7 +205,8 @@ class permisiuni(commands.Cog):
         932315624275857448,
         934981374337777684,
         935729490125008946,
-        938205065519452160
+        938205065519452160,
+        
         ]
 
     dovada = [
@@ -222,7 +230,8 @@ class permisiuni(commands.Cog):
         935250465527050311,
         934981420550590484,
         935729517958426676,
-        938205115750432798
+        938205115750432798,
+        
         ]
 
     invoire = [
@@ -246,7 +255,8 @@ class permisiuni(commands.Cog):
         932315656806862879,
         934981476334850148,
         935729652310364220,
-        938205170398015548
+        938205170398015548,
+        965604273910075433
         ]
 
     teste1 = [
@@ -270,7 +280,8 @@ class permisiuni(commands.Cog):
         932315711563505694,
         934981522698665984,
         935729699290771506,
-        938205220633182208
+        938205220633182208,
+        965604416533200976
         ]
     
     voce1 = [
@@ -294,7 +305,8 @@ class permisiuni(commands.Cog):
         932315867239284756,
         934981618299445289,
         935729761349673031,
-        938205326224805918
+        938205326224805918,
+        965604429564878908
         ]
 
     def __init__(self, bot, *args, **kwargs):
@@ -389,48 +401,6 @@ class permisiuni(commands.Cog):
             #await c.set_permissions(ctx.guild.get_role(permisiuni.tester[permisiuni.chat.index(x)]), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
             #await c.set_permissions(ctx.guild.get_role(permisiuni.membru[permisiuni.chat.index(x)]), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
             await c.set_permissions(ctx.guild.get_role(permisiuni.mafia[permisiuni.chat.index(x)]), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-            await c.set_permissions(ctx.guild.get_role(civil), view_channel=False, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-            await c.set_permissions(ctx.guild.get_role(muted), view_channel=False, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-            await c.set_permissions(everyone, view_channel=False, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-
-        for x in permisiuni.taxe:
-            c = self.bot.get_channel(x)
-            #perms_manager = discord.Permissions(view_channel=True, manage_channels=True, manage_permissions=True, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-            #perms_lider = discord.Permissions(view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-            #perms_colider = discord.Permissions(view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-            #perms_tester = discord.Permissions(view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-            #perms_membru = discord.Permissions(view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-            #perms_mafia = discord.Permissions(view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-            #perms_civil = discord.Permissions(view_channel=False, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-            #perms_muted = discord.Permissions(view_channel=False, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-            #perms_everyone = discord.Permissions(view_channel=False, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-            await c.set_permissions(ctx.guild.get_role(manager), view_channel=True, manage_channels=True, manage_permissions=True, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-            await c.set_permissions(ctx.guild.get_role(permisiuni.lideri[permisiuni.taxe.index(x)]), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-            await c.set_permissions(ctx.guild.get_role(permisiuni.colideri[permisiuni.taxe.index(x)]), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-            #await c.set_permissions(ctx.guild.get_role(permisiuni.tester[permisiuni.taxe.index(x)]), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-            #await c.set_permissions(ctx.guild.get_role(permisiuni.membru[permisiuni.taxe.index(x)]), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-            await c.set_permissions(ctx.guild.get_role(permisiuni.mafia[permisiuni.taxe.index(x)]), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-            await c.set_permissions(ctx.guild.get_role(civil), view_channel=False, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-            await c.set_permissions(ctx.guild.get_role(muted), view_channel=False, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-            await c.set_permissions(everyone, view_channel=False, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-        
-        for x in permisiuni.dovada:
-            c = self.bot.get_channel(x)
-            #perms_manager = discord.Permissions(view_channel=True, manage_channels=True, manage_permissions=True, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-            #perms_lider = discord.Permissions(view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-            #perms_colider = discord.Permissions(view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-            #perms_tester = discord.Permissions(view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-            #perms_membru = discord.Permissions(view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-            #perms_mafia = discord.Permissions(view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-            #perms_civil = discord.Permissions(view_channel=False, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-            #perms_muted = discord.Permissions(view_channel=False, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-            #perms_everyone = discord.Permissions(view_channel=False, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-            await c.set_permissions(ctx.guild.get_role(manager), view_channel=True, manage_channels=True, manage_permissions=True, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-            await c.set_permissions(ctx.guild.get_role(permisiuni.lideri[permisiuni.dovada.index(x)]), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-            await c.set_permissions(ctx.guild.get_role(permisiuni.colideri[permisiuni.dovada.index(x)]), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-            #await c.set_permissions(ctx.guild.get_role(permisiuni.tester[permisiuni.dovada.index(x)]), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-            #await c.set_permissions(ctx.guild.get_role(permisiuni.membru[permisiuni.dovada.index(x)]), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-            await c.set_permissions(ctx.guild.get_role(permisiuni.mafia[permisiuni.dovada.index(x)]), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
             await c.set_permissions(ctx.guild.get_role(civil), view_channel=False, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
             await c.set_permissions(ctx.guild.get_role(muted), view_channel=False, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
             await c.set_permissions(everyone, view_channel=False, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
