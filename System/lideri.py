@@ -105,6 +105,7 @@ class lideri_grade(commands.Cog):
             865215430662291496, # Hitman
             935017101524082699, # Omerta
             938207759403470889, # Marabunta Grande
+            962349255044005908, # Corleone
             914406930880024576, # Taxi
             914407704125116478, # Mecanic
             865215533573341184, # Politie
@@ -134,6 +135,7 @@ class lideri_grade(commands.Cog):
             865215429869961237, # Hitman
             935017585492234250, # Omerta
             938207736691314708, # Marabunta Grande
+            962349669512532018, # Corleone
             936411187422330950, # Taxi
             914407701260431361, # Mecanic
             865215532654788648, # Politia Romana
@@ -162,7 +164,8 @@ class lideri_grade(commands.Cog):
             929489158584545372, # Loz Aztecas
             931739070688817212, # Hitman
             935017996206870628, # Omerta
-            938206980789661697, #Marabunta Grande
+            938206980789661697, # Marabunta Grande
+            962349602625957888, # Corleone
             936411187422330950, # Taxi
             914407701260431361, # Mecanic
             865215523586048001, # Politia Romana
@@ -495,8 +498,8 @@ class lideri_grade(commands.Cog):
         veriff = False
         for x in lideri_grade.politie_grade:
             if ctx.guild.get_role(x) in ctx.author.roles:
-                await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[24]), ctx.guild.get_role(lideri_grade.roluri_politie[2]), ctx.guild.get_role(959691074966781962))
-                await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[24]) +"> jucatorului <@" + str(user.id) + ">!")
+                await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[25]), ctx.guild.get_role(lideri_grade.roluri_politie[2]), ctx.guild.get_role(959691074966781962))
+                await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[25]) +"> jucatorului <@" + str(user.id) + ">!")
                 veriff = True
             if veriff:
                 break
@@ -504,8 +507,8 @@ class lideri_grade(commands.Cog):
         if not veriff:
             for x in lideri_grade.sias_grade:
                 if ctx.guild.get_role(x) in ctx.author.roles:
-                    await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[25]), ctx.guild.get_role(lideri_grade.roluri_sias[3]), ctx.guild.get_role(959691074966781962))
-                    await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[25]) +"> jucatorului <@" + str(user.id) + ">!")
+                    await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[26]), ctx.guild.get_role(lideri_grade.roluri_sias[3]), ctx.guild.get_role(959691074966781962))
+                    await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[26]) +"> jucatorului <@" + str(user.id) + ">!")
                     veriff = True
                 if veriff:
                     break
@@ -513,8 +516,8 @@ class lideri_grade(commands.Cog):
         if not veriff:
             for x in lideri_grade.smurd_grade:
                 if ctx.guild.get_role(x) in ctx.author.roles:
-                    await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[26]), ctx.guild.get_role(lideri_grade.roluri_smurd[2]), ctx.guild.get_role(959691074966781962))
-                    await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[26]) +"> jucatorului <@" + str(user.id) + ">!")
+                    await user.add_roles(ctx.guild.get_role(lideri_grade.id_factiune[27]), ctx.guild.get_role(lideri_grade.roluri_smurd[2]), ctx.guild.get_role(959691074966781962))
+                    await ctx.send("Am atribuit rolul de MEMBRU <@&" + str(lideri_grade.id_factiune[27]) +"> jucatorului <@" + str(user.id) + ">!")
                     veriff = True
                 if veriff:
                     break
@@ -646,7 +649,7 @@ class lideri_grade(commands.Cog):
             #for y in ctx.author.roles:
             if ctx.guild.get_role(lideri_grade.politie_grade[0]) in ctx.author.roles:
                 await user.add_roles(ctx.guild.get_role(lideri_grade.politie_grade[2]))
-                await ctx.send("Am atribuit rolul de Comisar Sef <@&" + str(lideri_grade.id_factiune[24]) +"> jucatorului <@" + str(user.id) + ">!")
+                await ctx.send("Am atribuit rolul de Comisar Sef <@&" + str(lideri_grade.id_factiune[25]) +"> jucatorului <@" + str(user.id) + ">!")
             #break
             
                             
@@ -657,7 +660,7 @@ class lideri_grade(commands.Cog):
             #for y in ctx.author.roles:
             if ctx.guild.get_role(lideri_grade.politie_grade[0]) in ctx.author.roles:
                 await user.remove_roles(ctx.guild.get_role(lideri_grade.politie_grade[2]))
-                await ctx.send("Am inlaturat rolul de Comisar Sef <@&" + str(lideri_grade.id_factiune[24]) +"> jucatorului <@" + str(user.id) + ">!")
+                await ctx.send("Am inlaturat rolul de Comisar Sef <@&" + str(lideri_grade.id_factiune[25]) +"> jucatorului <@" + str(user.id) + ">!")
                             #break
     # COMISAR SEF ---------------------------- SFARSIT    
     # COMISAR ---------------------------- INCEPUT
@@ -672,7 +675,7 @@ class lideri_grade(commands.Cog):
             #for y in ctx.author.roles:
             if ctx.guild.get_role(lideri_grade.politie_grade[0]) in ctx.author.roles:
                 await user.add_roles(ctx.guild.get_role(lideri_grade.politie_grade[3]))
-                await ctx.send("Am atribuit rolul de Comisar <@&" + str(lideri_grade.id_factiune[24]) +"> jucatorului <@" + str(user.id) + ">!")
+                await ctx.send("Am atribuit rolul de Comisar <@&" + str(lideri_grade.id_factiune[25]) +"> jucatorului <@" + str(user.id) + ">!")
            #break
     @commands.bot_has_permissions(manage_roles=True)    
     @comisar.command(name="inlatura", pass_context=True)
@@ -681,7 +684,7 @@ class lideri_grade(commands.Cog):
             #for y in ctx.author.roles:
             if ctx.guild.get_role(lideri_grade.politie_grade[0]) in ctx.author.roles:
                 await user.remove_roles(ctx.guild.get_role(lideri_grade.politie_grade[3]))
-                await ctx.send("Am inlaturat rolul de Comisar <@&" + str(lideri_grade.id_factiune[24]) +"> jucatorului <@" + str(user.id) + ">!")
+                await ctx.send("Am inlaturat rolul de Comisar <@&" + str(lideri_grade.id_factiune[25]) +"> jucatorului <@" + str(user.id) + ">!")
             #break
     # COMISAR ---------------------------- SFARSIT        
     # SUBCOMISAR ---------------------------- INCEPUT
@@ -696,7 +699,7 @@ class lideri_grade(commands.Cog):
             #for y in ctx.author.roles:
             if ctx.guild.get_role(lideri_grade.politie_grade[0]) in ctx.author.roles:
                 await user.add_roles(ctx.guild.get_role(lideri_grade.politie_grade[4]))
-                await ctx.send("Am atribuit rolul de Subcomisar <@&" + str(lideri_grade.id_factiune[24]) +"> jucatorului <@" + str(user.id) + ">!")
+                await ctx.send("Am atribuit rolul de Subcomisar <@&" + str(lideri_grade.id_factiune[25]) +"> jucatorului <@" + str(user.id) + ">!")
             #break
             
     @commands.bot_has_permissions(manage_roles=True)
@@ -706,7 +709,7 @@ class lideri_grade(commands.Cog):
             #for y in ctx.author.roles:
             if ctx.guild.get_role(lideri_grade.politie_grade[0]) in ctx.author.roles:
                 await user.remove_roles(ctx.guild.get_role(lideri_grade.politie_grade[4]))
-                await ctx.send("Am inlaturat rolul de Subcomisar <@&" + str(lideri_grade.id_factiune[24]) +"> jucatorului <@" + str(user.id) + ">!")
+                await ctx.send("Am inlaturat rolul de Subcomisar <@&" + str(lideri_grade.id_factiune[25]) +"> jucatorului <@" + str(user.id) + ">!")
             #break
     # SUBCOMISAR ---------------------------- SFARSIT
     # AGENT PRINCIPAL ---------------------------- INCEPUT
@@ -725,7 +728,7 @@ class lideri_grade(commands.Cog):
             for y in ctx.author.roles:
                 if ctx.guild.get_role(x)==y:
                     await user.add_roles(ctx.guild.get_role(lideri_grade.roluri_politie[0]))
-                    await ctx.send("Am atribuit rolul de Agent Principal <@&" + str(lideri_grade.id_factiune[24]) +"> jucatorului <@" + str(user.id) + ">!")
+                    await ctx.send("Am atribuit rolul de Agent Principal <@&" + str(lideri_grade.id_factiune[25]) +"> jucatorului <@" + str(user.id) + ">!")
                     verif = True
             if verif == True:
                 break
@@ -737,7 +740,7 @@ class lideri_grade(commands.Cog):
             for y in ctx.author.roles:
                 if ctx.guild.get_role(x)==y:
                     await user.remove_roles(ctx.guild.get_role(lideri_grade.roluri_politie[0]))
-                    await ctx.send("Am inlaturat rolul de Agent Principal <@&" + str(lideri_grade.id_factiune[24]) +"> jucatorului <@" + str(user.id) + ">!")
+                    await ctx.send("Am inlaturat rolul de Agent Principal <@&" + str(lideri_grade.id_factiune[25]) +"> jucatorului <@" + str(user.id) + ">!")
                     verif = True
             if verif == True:
                 break
@@ -753,7 +756,7 @@ class lideri_grade(commands.Cog):
                 for y in ctx.author.roles:
                     if ctx.guild.get_role(x)==y:
                         await user.add_roles(ctx.guild.get_role(lideri_grade.roluri_sias[1]))
-                        await ctx.send("Am atribuit rolul de Agent Special <@&" + str(lideri_grade.id_factiune[25]) +"> jucatorului <@" + str(user.id) + ">!")
+                        await ctx.send("Am atribuit rolul de Agent Special <@&" + str(lideri_grade.id_factiune[26]) +"> jucatorului <@" + str(user.id) + ">!")
                         verif = True
                 if verif == True:
                     break
@@ -765,7 +768,7 @@ class lideri_grade(commands.Cog):
                 for y in ctx.author.roles:
                     if ctx.guild.get_role(x)==y:
                         await user.remove_roles(ctx.guild.get_role(lideri_grade.roluri_sias[1]))
-                        await ctx.send("Am inlaturat rolul de Agent Special <@&" + str(lideri_grade.id_factiune[25]) +"> jucatorului <@" + str(user.id) + ">!")
+                        await ctx.send("Am inlaturat rolul de Agent Special <@&" + str(lideri_grade.id_factiune[26]) +"> jucatorului <@" + str(user.id) + ">!")
                         verif = True
                 if verif == True:
                     break
@@ -787,7 +790,7 @@ class lideri_grade(commands.Cog):
             for y in ctx.author.roles:
                 if ctx.guild.get_role(x)==y:
                     await user.add_roles(ctx.guild.get_role(lideri_grade.roluri_politie[1]))
-                    await ctx.send("Am atribuit rolul de Agent <@&" + str(lideri_grade.id_factiune[24]) +"> jucatorului <@" + str(user.id) + ">!")
+                    await ctx.send("Am atribuit rolul de Agent <@&" + str(lideri_grade.id_factiune[25]) +"> jucatorului <@" + str(user.id) + ">!")
                     verif = True
             if verif == True:
                 break
@@ -800,7 +803,7 @@ class lideri_grade(commands.Cog):
             for y in ctx.author.roles:
                 if ctx.guild.get_role(x)==y:
                     await user.remove_roles(ctx.guild.get_role(lideri_grade.roluri_politie[1]))
-                    await ctx.send("Am inlaturat rolul de Agent <@&" + str(lideri_grade.id_factiune[24]) +"> jucatorului <@" + str(user.id) + ">!")
+                    await ctx.send("Am inlaturat rolul de Agent <@&" + str(lideri_grade.id_factiune[25]) +"> jucatorului <@" + str(user.id) + ">!")
                     verif = True
             if verif == True:
                 break
@@ -817,7 +820,7 @@ class lideri_grade(commands.Cog):
                 for y in ctx.author.roles:
                     if ctx.guild.get_role(x)==y:
                         await user.add_roles(ctx.guild.get_role(lideri_grade.roluri_sias[2]))
-                        await ctx.send("Am atribuit rolul de Agent <@&" + str(lideri_grade.id_factiune[25]) +"> jucatorului <@" + str(user.id) + ">!")
+                        await ctx.send("Am atribuit rolul de Agent <@&" + str(lideri_grade.id_factiune[26]) +"> jucatorului <@" + str(user.id) + ">!")
                         verif = True
                 if verif == True:
                     break
@@ -830,7 +833,7 @@ class lideri_grade(commands.Cog):
             for y in ctx.author.roles:
                 if ctx.guild.get_role(x)==y:
                     await user.remove_roles(ctx.guild.get_role(lideri_grade.roluri_sias[2]))
-                    await ctx.send("Am inlaturat rolul de Agent <@&" + str(lideri_grade.id_factiune[25]) +"> jucatorului <@" + str(user.id) + ">!")
+                    await ctx.send("Am inlaturat rolul de Agent <@&" + str(lideri_grade.id_factiune[26]) +"> jucatorului <@" + str(user.id) + ">!")
                     verif = True
             if verif == True:
                 break
@@ -849,7 +852,7 @@ class lideri_grade(commands.Cog):
                 for y in ctx.author.roles:
                     if ctx.guild.get_role(x)==y:
                         await user.add_roles(ctx.guild.get_role(lideri_grade.roluri_sias[0]))
-                        await ctx.send("Am atribuit rolul de Coordonator <@&" + str(lideri_grade.id_factiune[25]) +"> jucatorului <@" + str(user.id) + ">!")
+                        await ctx.send("Am atribuit rolul de Coordonator <@&" + str(lideri_grade.id_factiune[26]) +"> jucatorului <@" + str(user.id) + ">!")
                         verif = True
                 if verif == True:
                     break
@@ -862,7 +865,7 @@ class lideri_grade(commands.Cog):
                 for y in ctx.author.roles:
                     if ctx.guild.get_role(x)==y:
                         await user.remove_roles(ctx.guild.get_role(lideri_grade.roluri_sias[0]))
-                        await ctx.send("Am inlaturat rolul de Coordonator <@&" + str(lideri_grade.id_factiune[25]) +"> jucatorului <@" + str(user.id) + ">!")
+                        await ctx.send("Am inlaturat rolul de Coordonator <@&" + str(lideri_grade.id_factiune[26]) +"> jucatorului <@" + str(user.id) + ">!")
                         verif = True
                 if verif == True:
                     break
@@ -876,7 +879,7 @@ class lideri_grade(commands.Cog):
                 for y in ctx.author.roles:
                     if ctx.guild.get_role(x)==y:
                         await user.add_roles(ctx.guild.get_role(lideri_grade.roluri_smurd[0]))
-                        await ctx.send("Am atribuit rolul de Medic <@&" + str(lideri_grade.id_factiune[26]) +"> jucatorului <@" + str(user.id) + ">!")
+                        await ctx.send("Am atribuit rolul de Medic <@&" + str(lideri_grade.id_factiune[27]) +"> jucatorului <@" + str(user.id) + ">!")
                         verif = True
                 if verif == True:
                     break
@@ -885,7 +888,7 @@ class lideri_grade(commands.Cog):
                 for y in ctx.author.roles:
                     if ctx.guild.get_role(x)==y:
                         await user.add_roles(ctx.guild.get_role(lideri_grade.roluri_smurd[1]))
-                        await ctx.send("Am atribuit rolul de Paramedic <@&" + str(lideri_grade.id_factiune[26]) +"> jucatorului <@" + str(user.id) + ">!")
+                        await ctx.send("Am atribuit rolul de Paramedic <@&" + str(lideri_grade.id_factiune[27]) +"> jucatorului <@" + str(user.id) + ">!")
                         verif = True
                 if verif == True:
                     break
@@ -894,7 +897,7 @@ class lideri_grade(commands.Cog):
                 for y in ctx.author.roles:
                     if ctx.guild.get_role(x)==y:
                         await user.add_roles(ctx.guild.get_role(lideri_grade.roluri_smurd[2]))
-                        await ctx.send("Am atribuit rolul de Asistent <@&" + str(lideri_grade.id_factiune[26]) +"> jucatorului <@" + str(user.id) + ">!")
+                        await ctx.send("Am atribuit rolul de Asistent <@&" + str(lideri_grade.id_factiune[27]) +"> jucatorului <@" + str(user.id) + ">!")
                         verif = True
                 if verif == True:
                     break
@@ -920,7 +923,7 @@ class lideri_grade(commands.Cog):
                 data_log = datetime.now(tz).strftime("%d %B %Y %H:%M:%S")
                 embed=discord.Embed(title=f"{ctx.author.name} ({ctx.author.id}) - Atribuire Faction Restriction", color=0x4b66ec)
                 embed.add_field(name=f"{ctx.author} i-a atribuit FACTION RESTRICTION lui", value=f"{user.mention}", inline=False)
-                embed.add_field(name="Factiune", value=f"{lideri_grade.id_factiune[24]}", inline=True)
+                embed.add_field(name="Factiune", value=f"{lideri_grade.id_factiune[25]}", inline=True)
                 embed.set_footer(text=str(data_log))
                 embed.set_thumbnail(url=ctx.author.avatar_url)
                 await self.bot.get_channel(932333705802973184).send(embed=embed)
@@ -934,7 +937,7 @@ class lideri_grade(commands.Cog):
                 data_log = datetime.now(tz).strftime("%d %B %Y %H:%M:%S")
                 embed=discord.Embed(title=f"{ctx.author.name} ({ctx.author.id}) - Inlaturare Faction Restriction", color=0xec4b4b)
                 embed.add_field(name=f"{ctx.author} i-a scos FACTION RESTRICTION-UL lui", value=f"{user.mention}", inline=False)
-                embed.add_field(name="Factiune", value=f"{lideri_grade.id_factiune[24]}", inline=True)
+                embed.add_field(name="Factiune", value=f"{lideri_grade.id_factiune[25]}", inline=True)
                 embed.set_footer(text=str(data_log))
                 embed.set_thumbnail(url=ctx.author.avatar_url)
                 await self.bot.get_channel(932333705802973184).send(embed=embed)
@@ -954,7 +957,7 @@ class lideri_grade(commands.Cog):
                 data_log = datetime.now(tz).strftime("%d %B %Y %H:%M:%S")
                 embed=discord.Embed(title=f"{ctx.author.name} ({ctx.author.id}) - Atribuire Faction Restriction", color=0x4b66ec)
                 embed.add_field(name=f"{ctx.author} i-a atribuit FACTION RESTRICTION lui", value=f"{user.mention}", inline=False)
-                embed.add_field(name="Factiune", value=f"{lideri_grade.id_factiune[25]}", inline=True)
+                embed.add_field(name="Factiune", value=f"{lideri_grade.id_factiune[26]}", inline=True)
                 embed.set_footer(text=str(data_log))
                 embed.set_thumbnail(url=ctx.author.avatar_url)
                 await self.bot.get_channel(932333705802973184).send(embed=embed)
@@ -970,7 +973,7 @@ class lideri_grade(commands.Cog):
                 data_log = datetime.now(tz).strftime("%d %B %Y %H:%M:%S")
                 embed=discord.Embed(title=f"{ctx.author.name} ({ctx.author.id}) - Inlaturare Faction Restriction", color=0xec4b4b)
                 embed.add_field(name=f"{ctx.author} i-a scos FACTION RESTRICTION-UL lui", value=f"{user.mention}", inline=False)
-                embed.add_field(name="Factiune", value=f"{lideri_grade.id_factiune[25]}", inline=True)
+                embed.add_field(name="Factiune", value=f"{lideri_grade.id_factiune[26]}", inline=True)
                 embed.set_footer(text=str(data_log))
                 embed.set_thumbnail(url=ctx.author.avatar_url)
                 await self.bot.get_channel(932333705802973184).send(embed=embed)
@@ -991,7 +994,7 @@ class lideri_grade(commands.Cog):
                 data_log = datetime.now(tz).strftime("%d %B %Y %H:%M:%S")
                 embed=discord.Embed(title=f"{ctx.author.name} ({ctx.author.id}) - Atribuire Faction Restriction", color=0x4b66ec)
                 embed.add_field(name=f"{ctx.author} i-a atribuit FACTION RESTRICTION lui", value=f"{user.mention}", inline=False)
-                embed.add_field(name="Factiune", value=f"{lideri_grade.id_factiune[26]}", inline=True)
+                embed.add_field(name="Factiune", value=f"{lideri_grade.id_factiune[27]}", inline=True)
                 embed.set_footer(text=str(data_log))
                 embed.set_thumbnail(url=ctx.author.avatar_url)
                 await self.bot.get_channel(932333705802973184).send(embed=embed)
@@ -1007,7 +1010,7 @@ class lideri_grade(commands.Cog):
                 data_log = datetime.now(tz).strftime("%d %B %Y %H:%M:%S")
                 embed=discord.Embed(title=f"{ctx.author.name} ({ctx.author.id}) - Inlaturare Faction Restriction", color=0xec4b4b)
                 embed.add_field(name=f"{ctx.author} i-a scos FACTION RESTRICTION-UL lui", value=f"{user.mention}", inline=False)
-                embed.add_field(name="Factiune", value=f"{lideri_grade.id_factiune[26]}", inline=True)
+                embed.add_field(name="Factiune", value=f"{lideri_grade.id_factiune[27]}", inline=True)
                 embed.set_footer(text=str(data_log))
                 embed.set_thumbnail(url=ctx.author.avatar_url)
                 await self.bot.get_channel(932333705802973184).send(embed=embed)
