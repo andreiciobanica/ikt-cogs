@@ -226,7 +226,7 @@ class permisiuni_imperial(commands.Cog):
         
         for x in permisiuni_imperial.regulament:
             c = self.bot.get_channel(x)
-            for j in range(20):
+            for j in range(21):
                 await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[j]), overwrite=None)
             for i in range(1, 21):
                  await c.set_permissions(ctx.guild.get_role(permisiuni_imperial.roluri[i]), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
