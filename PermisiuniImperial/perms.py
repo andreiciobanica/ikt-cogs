@@ -79,20 +79,23 @@ class permisiuni(commands.Cog):
 #         999452602192371773,
 #         999429537622396988
 #     ]
-    
-    
-#     politiegrade = [
-    
-#     ]
-    
-#     politiegrade = [
-    
-#     ]
-    
+
     politiegrade = [
         999558907800322141,
         999564403403931698,
         999493801448054794
+    ]
+    
+    diicotgrade = [
+        999558907800322141,
+        999494666355482636,
+        999494669492826162
+    ]
+    
+    smurdgrade = [
+        999558907800322141,
+        999495021462040636,
+        999495026084163645
     ]
 
     def __init__(self, bot, *args, **kwargs):
@@ -101,7 +104,7 @@ class permisiuni(commands.Cog):
         tz = timezone("Europe/Bucharest")
 
     @commands.command(name="rapoartepolitie")
-    async def rapoartepd(self, ctx, serverId, discordId):
+    async def rapoartepolitie(self, ctx, serverId, discordId):
             verif = False
             for x in permisiuni.politiegrade:
                 for y in ctx.author.roles:
@@ -112,10 +115,32 @@ class permisiuni(commands.Cog):
                         verif = True
                 if verif == True:
                     break
-            
-#     @commands.command(name="rapoartediicot")
-#     async def rapoartepd(self, ctx):
-#           await ctx.guild.create_text_channel('', category=999720937295446067)
+                    
+    @commands.command(name="rapoartediicot")
+    async def rapoartediicot(self, ctx, serverId, discordId):
+            verif = False
+            for x in permisiuni.diicotgrade:
+                for y in ctx.author.roles:
+                    if ctx.guild.get_role(x)==y:
+                        name = 'rapoarte-' + serverId + '-' + discordId
+                        c = discord.utils.get(ctx.guild.categories, id=999720937295446067)
+                        await ctx.guild.create_text_channel(name=name, category=c)
+                        verif = True
+                if verif == True:
+                    break
+                    
+    @commands.command(name="rapoartesmurd")
+    async def rapoartediicot(self, ctx, serverId, discordId):
+            verif = False
+            for x in permisiuni.smurdgrade:
+                for y in ctx.author.roles:
+                    if ctx.guild.get_role(x)==y:
+                        name = 'rapoarte-' + serverId + '-' + discordId
+                        c = discord.utils.get(ctx.guild.categories, id=999720963849605190)
+                        await ctx.guild.create_text_channel(name=name, category=c)
+                        verif = True
+                if verif == True:
+                    break
             
 #     @commands.command(name="rapoartesmurd")
 #     async def rapoartepd(self, ctx):
