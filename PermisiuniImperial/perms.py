@@ -89,9 +89,11 @@ class permisiuni(commands.Cog):
     
 #     ]
     
-#     politiegrade = [
-    
-#     ]
+    politiegrade = [
+    999558907800322141,
+    999564403403931698,
+    999493801448054794
+    ]
 
     def __init__(self, bot, *args, **kwargs):
         self.bot = bot
