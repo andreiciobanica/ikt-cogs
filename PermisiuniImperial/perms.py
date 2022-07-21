@@ -65,26 +65,24 @@ class permisiuni(commands.Cog):
 
     @commands.command(name="permisiuni")
     async def permisiuni(self, ctx):
-        ctx.send("t1!")
-#       manager = 999558907800322141
-#       everyone = ctx.guild.default_role
-#       for x in permisiuni.politie:
-#           c = self.bot.get_channel(x)
-#           i = permisiuni.politie.index(x)
-#           if i != 7 and i != 8:
-#               await c.set_permissions(ctx.guild.get_role(manager), view_channel=True, manage_channels=True, manage_permissions=True, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-#               await c.set_permissions(everyone, view_channel=False, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-#               await c.set_permissions(ctx.guild.get_role(999564403403931698), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-#               await c.set_permissions(ctx.guild.get_role(999493801448054794), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-#           if i == 0 or i == 1 or i == 3 or i == 4:
-#                 for y in politierol:
-#                     await c.set_permissions(ctx.guild.get_role(y), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-#             elif i==7 or i==8:
-#                 await c.set_permissions(ctx.guild.get_role(manager), view_channel=True, manage_channels=True, manage_permissions=False, create_instant_invite=None, connect=True, speak=True, priority_speaker=None, mute_members=True, deafen_members=True, move_members=True, use_voice_activation=None)
-#                 await c.set_permissions(ctx.guild.get_role(999564403403931698), view_channel=True, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=True, speak=True, priority_speaker=None, mute_members=True, deafen_members=True, move_members=True, use_voice_activation=None)
-#                 await c.set_permissions(ctx.guild.get_role(999493801448054794), view_channel=True, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=True, speak=True, priority_speaker=None, mute_members=True, deafen_members=True, move_members=True, use_voice_activation=None)
-#                 await c.set_permissions(everyone, view_channel=True, manage_channels=False, manage_permissions=None, create_instant_invite=None, connect=None, speak=True, priority_speaker=None, mute_members=False, deafen_members=False, move_members=False, use_voice_activation=None)
-#             else:
-#                 for y in politierol:
-#                     await c.set_permissions(ctx.guild.get_role(y), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
-            
+        manager = 999558907800322141
+        everyone = ctx.guild.default_role
+        for x in permisiuni.politie:
+            c = self.bot.get_channel(x)
+            i = permisiuni.politie.index(x)
+            if i != 7 and i != 8:
+                await c.set_permissions(ctx.guild.get_role(manager), view_channel=True, manage_channels=True, manage_permissions=True, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+                await c.set_permissions(everyone, view_channel=False, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+                await c.set_permissions(ctx.guild.get_role(999564403403931698), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+                await c.set_permissions(ctx.guild.get_role(999493801448054794), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=True, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=True, manage_messages=True, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+            if i == 0 or i == 1 or i == 3 or i == 4:
+                for y in politierol:
+                    await c.set_permissions(ctx.guild.get_role(y), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=None, attach_files=None, add_reactions=None, use_external_emojis=None, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
+            elif i==7 or i==8:
+                await c.set_permissions(ctx.guild.get_role(manager), view_channel=True, manage_channels=True, manage_permissions=False, create_instant_invite=None, connect=True, speak=True, priority_speaker=None, mute_members=True, deafen_members=True, move_members=True, use_voice_activation=None)
+                await c.set_permissions(ctx.guild.get_role(999564403403931698), view_channel=True, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=True, speak=True, priority_speaker=None, mute_members=True, deafen_members=True, move_members=True, use_voice_activation=None)
+                await c.set_permissions(ctx.guild.get_role(999493801448054794), view_channel=True, manage_channels=False, manage_permissions=False, create_instant_invite=None, connect=True, speak=True, priority_speaker=None, mute_members=True, deafen_members=True, move_members=True, use_voice_activation=None)
+                await c.set_permissions(everyone, view_channel=True, manage_channels=False, manage_permissions=None, create_instant_invite=None, connect=None, speak=True, priority_speaker=None, mute_members=False, deafen_members=False, move_members=False, use_voice_activation=None)
+            else:
+                for y in politierol:
+                    await c.set_permissions(ctx.guild.get_role(y), view_channel=True, manage_channels=False, manage_permissions=False, manage_webhooks=False, create_instant_invite=None, send_messages=False, embed_links=True, attach_files=True, add_reactions=True, use_external_emojis=True, mention_everyone=None, manage_messages=False, read_message_history=True, send_tts_messages=False, use_slash_commands=None)
