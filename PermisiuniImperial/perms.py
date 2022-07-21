@@ -7,7 +7,6 @@ from pytz import timezone
 import discord
 from redbot.core import commands, Config
 from redbot.core.utils.chat_formatting import humanize_list
-from discord.utils import get
 
 class permisiuni(commands.Cog):
 
@@ -90,11 +89,9 @@ class permisiuni(commands.Cog):
     
 #     ]
     
-    politiegrade = [
-    999558907800322141,
-    999564403403931698,
-    999493801448054794
-    ]
+#     politiegrade = [
+    
+#     ]
 
     def __init__(self, bot, *args, **kwargs):
         self.bot = bot
@@ -102,16 +99,16 @@ class permisiuni(commands.Cog):
         tz = timezone("Europe/Bucharest")
 
     @commands.command(name="rapoartepolitie")
-    async def rapoartepd(self, ctx, serverId, discordId):
-        verif = False
-        for x in permisiuni.politiegrade:
-            for y in ctx.author.roles:
-                if ctx.guild.get_role(x)==y:
-                    name = 'rapoarte-' + serverId + '-' + discordId
-                    nm = '999720906303746168'
-                    category = discord.utils.get(ctx.guild.categories, name=nm)
-                    await ctx.guild.create_text_channel(name, category=category)
-                    verif = True
+    async def rapoartepd(self, ctx, idJoc, idDiscord):
+          ctx.send("T1")
+          verif = False
+            for x in permisiuni.politiegrade:
+                for y in ctx.author.roles:
+                    if ctx.guild.get_role(x)==y:
+                        name = 'rapoarte-' + idJoc
+                        c = discord.utils.get(ctx.guild.categories, id=999720906303746168)
+                        await ctx.guild.create_text_channel(name=name, category=c)
+                        verif = True
                 if verif == True:
                     break
             
