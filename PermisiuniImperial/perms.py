@@ -105,12 +105,12 @@ class permisiuni(commands.Cog):
     async def rapoartepd(self, ctx, serverId, discordId):
         verif = False
         for x in permisiuni.politiegrade:
-            await ctx.send(x)
             for y in ctx.author.roles:
                 if ctx.guild.get_role(x)==y:
                     name = 'rapoarte-' + serverId + '-' + discordId
-                    cat = discord.utils.get(ctx.guild.categories, id='999720906303746168')
-                    await ctx.guild.create_text_channel(name, category=cat)
+                    nm = '999720906303746168'
+                    category = discord.utils.get(ctx.guild.categories, name=nm)
+                    await ctx.guild.create_text_channel(name, category=category)
                     verif = True
                 if verif == True:
                     break
