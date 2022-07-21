@@ -109,6 +109,7 @@ class permisiuni(commands.Cog):
                 if ctx.guild.get_role(x)==y:
                     name = 'rapoarte-' + idJoc
                     await ctx.guild.create_text_channel(name, category=999720906303746168)
+                    await ctx.send(name)
                     verif = True
                 if verif == True:
                     break
