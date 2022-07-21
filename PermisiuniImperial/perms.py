@@ -104,7 +104,7 @@ class permisiuni(commands.Cog):
     async def rapoartepd(self, ctx, idJoc, idDiscord):)
         verif = False
         for x in permisiuni.politiegrade:
-             await ctx.send(x)
+            await ctx.send(x)
             for y in ctx.author.roles:
                 if ctx.guild.get_role(x)==y:
                     name = 'rapoarte-' + idJoc
