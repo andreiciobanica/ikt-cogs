@@ -101,13 +101,13 @@ class permisiuni(commands.Cog):
         tz = timezone("Europe/Bucharest")
 
     @commands.command(name="rapoartepolitie")
-    async def rapoartepd(self, ctx, idJoc, idDiscord):
+    async def rapoartepd(self, ctx, arg1, arg2):
         verif = False
         for x in permisiuni.politiegrade:
             await ctx.send(x)
             for y in ctx.author.roles:
                 if ctx.guild.get_role(x)==y:
-                    name = 'rapoarte-' + idJoc
+                    name = 'rapoarte-' + arg1
                     await ctx.guild.create_text_channel(name, category=999720906303746168)
                     verif = True
                 if verif == True:
