@@ -102,14 +102,14 @@ class permisiuni(commands.Cog):
 
     @commands.command(name="rapoartepolitie")
     async def rapoartepd(self, ctx, idJoc, idDiscord):
-          await ctx.send("T1")
-          verif = False
-            for x in permisiuni.politiegrade:
-                for y in ctx.author.roles:
-                    if ctx.guild.get_role(x)==y:
-                        name = 'rapoarte-' + idJoc
-                        await ctx.guild.create_text_channel(name, category=999720906303746168)
-                        verif = True
+        await ctx.send("T1")
+        verif = False
+        for x in permisiuni.politiegrade:
+            for y in ctx.author.roles:
+                if ctx.guild.get_role(x)==y:
+                    name = 'rapoarte-' + idJoc
+                    await ctx.guild.create_text_channel(name, category=999720906303746168)
+                    verif = True
                 if verif == True:
                     break
             
