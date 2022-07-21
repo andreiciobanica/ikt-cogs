@@ -89,7 +89,7 @@ class permisiuni(commands.Cog):
     @commands.command(name="permisiuni")
     async def permisiuni(self, ctx):
         manager = 999558907800322141
-        everyone = 999501365594292296 #ctx.guild.default_role
+        everyone = ctx.guild.get_role(999501365594292296) #ctx.guild.default_role
         for x in permisiuni.politie:
             c = self.bot.get_channel(x)
             i = permisiuni.politie.index(x)
