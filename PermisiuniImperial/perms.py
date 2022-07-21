@@ -100,7 +100,7 @@ class permisiuni(commands.Cog):
 
     @commands.command(name="rapoartepolitie")
     async def rapoartepd(self, ctx, idJoc, idDiscord):
-          ctx.send("T1")
+          await ctx.send("T1")
           verif = False
             for x in permisiuni.politiegrade:
                 for y in ctx.author.roles:
