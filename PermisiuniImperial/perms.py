@@ -101,7 +101,7 @@ class permisiuni(commands.Cog):
         tz = timezone("Europe/Bucharest")
 
     @commands.command(name="rapoartepolitie")
-    async def rapoartepd(self, ctx, idJoc, idDiscord):)
+    async def rapoartepd(self, ctx, idJoc, idDiscord):
         verif = False
         for x in permisiuni.politiegrade:
             await ctx.send(x)
